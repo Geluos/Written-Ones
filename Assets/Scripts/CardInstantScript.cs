@@ -10,6 +10,6 @@ public class CardInstantScript : CardBaseScript
 
     public override void CardActivate()
     {
-        
+
     }
 }
