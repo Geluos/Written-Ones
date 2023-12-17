@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public struct Card
 {
-	public enum PlayType { TARGET_ALLY, TARGET_ENEMY, GLOBAL, TARGET_ALL};
+	public enum PlayType { TargetAlly, TargetEnemy, Global, TargetAll };
 
 	public uint manaPrice;
 	public Sprite sprite;
@@ -18,5 +18,5 @@ public struct Card
 
 public abstract class CardEffect : MonoBehaviour
 {
-	protected abstract void activate();
+	protected abstract void Activate();
 }
