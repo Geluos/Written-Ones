@@ -8,6 +8,7 @@ public class CardBaseScript : MonoBehaviour, IPointerDownHandler, IBeginDragHand
     private Canvas canvas;
     private RectTransform rectTransform;
     private Vector2 startPosition;
+	public Card card;
     
     private void Start()
     {

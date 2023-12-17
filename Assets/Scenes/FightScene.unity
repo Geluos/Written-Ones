@@ -3665,6 +3665,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   max_hp: 20
   current_hp: 20
+  deck: {fileID: 0}
   GFX: {fileID: 978467546174794193}
 --- !u!4 &7996453137068904819
 Transform:
@@ -3696,6 +3697,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   max_hp: 10
   current_hp: 10
+  deck: {fileID: 0}
   GFX: {fileID: 0}
 --- !u!4 &7996453137096765846
 Transform:
@@ -3727,6 +3729,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   max_hp: 10
   current_hp: 10
+  deck: {fileID: 0}
   GFX: {fileID: 0}
 --- !u!4 &7996453137143522497
 Transform:
@@ -3758,6 +3761,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   max_hp: 10
   current_hp: 10
+  deck: {fileID: 0}
   GFX: {fileID: 978467546885672572}
 --- !u!4 &7996453137502045036
 Transform:
