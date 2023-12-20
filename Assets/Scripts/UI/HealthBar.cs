@@ -33,6 +33,7 @@ public class HealthBar : MonoBehaviour
 			{
 				slider.value = character.current_hp;
 			}
+			hpValueText.text = character.current_hp.ToString();
 		} 
     }
 	

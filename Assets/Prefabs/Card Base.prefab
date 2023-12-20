@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8598e41f731df3a45bf9be66cd8c46b2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 65294981d32a5f34c978fc7350879c26, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -392,6 +392,11 @@ MonoBehaviour:
     description: 
     effectsList: []
     type: 0
+  cardGFX:
+    portraitImage: {fileID: 6378276491190658768}
+    manaString: {fileID: 3401017843078006042}
+    descriptionString: {fileID: 1526178125895658301}
+    name: {fileID: 2420296332768638449}
 --- !u!1 &3692452545872232086
 GameObject:
   m_ObjectHideFlags: 0
@@ -457,7 +462,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8598e41f731df3a45bf9be66cd8c46b2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 65294981d32a5f34c978fc7350879c26, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

@@ -9,14 +9,23 @@ public class CardBaseScript : MonoBehaviour, IPointerDownHandler, IBeginDragHand
     private RectTransform rectTransform;
     private Vector2 startPosition;
 	public Card card;
-    
+	public CardGFX cardGFX;
+
     private void Start()
     {
         canvas = transform.parent.parent.gameObject.GetComponent<Canvas>();
         rectTransform = GetComponent<RectTransform>();
     }
 
-    public void OnBeginDrag(PointerEventData eventData) 
+	public void UpdateView()
+	{
+		cardGFX.portraitImage.sprite = card.sprite;
+		cardGFX.manaString.text = card.manaPrice.ToString();
+		cardGFX.descriptionString.text = card.description.ToString();
+		cardGFX.name.text = card.name;
+	}
+
+	public void OnBeginDrag(PointerEventData eventData) 
     {
         startPosition = rectTransform.anchoredPosition;
     }
@@ -28,11 +37,11 @@ public class CardBaseScript : MonoBehaviour, IPointerDownHandler, IBeginDragHand
 
     public void OnEndDrag(PointerEventData eventData) 
     {
-        var cardBottom = rectTransform.anchoredPosition.y - rectTransform.rect.height / 2;
-        if (cardBottom > 0)
+        var cardBottom = rectTransform.anchoredPosition.y - rectTransform.rect.height / 4;
+		Debug.Log(cardBottom);
+		if (cardBottom > 0)
         {
             CardActivate();
-            Destroy(gameObject);
         }
         else
         {
@@ -44,6 +53,14 @@ public class CardBaseScript : MonoBehaviour, IPointerDownHandler, IBeginDragHand
 
     public virtual void CardActivate()
     {
-        Debug.Log("Wow");
+		Debug.Log("Try play");
+		if (FightController.main.playCard(card))
+		{
+			Destroy(gameObject);
+		}
+		else
+		{
+			rectTransform.anchoredPosition = startPosition;
+		}
     }
 }

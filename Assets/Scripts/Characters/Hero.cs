@@ -25,12 +25,15 @@ public class Character : MonoBehaviour
 		currentDeck = new List<Card>();
 		foreach (Card card in startDeck.cards)
 			currentDeck.Add(card.copy());
-		Shuffle<Card>(currentDeck);
+		Shuffle(currentDeck);
 	}
 
 	public void getDamage(uint value)
 	{
-		current_hp = System.Math.Max(0, value);
+		if (value < current_hp)
+			current_hp = current_hp - value;
+		else
+			current_hp = 0;
 	}
 
 	public bool isAlive()
@@ -53,10 +56,6 @@ public class Character : MonoBehaviour
 		}
 	}
 
-}
-
-public class Hero : Character
-{
 	public Card getCard()
 	{
 		Card res;
@@ -72,4 +71,10 @@ public class Hero : Character
 		currentDeck.RemoveAt(0);
 		return res;
 	}
+
+}
+
+public class Hero : Character
+{
+	
 }

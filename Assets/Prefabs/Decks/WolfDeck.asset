@@ -14,9 +14,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cards:
   - manaPrice: 0
-    sprite: {fileID: 21300000, guid: 1d1f9540ebf1efd4f830a2c743ac7288, type: 3}
-    name: "\u041F\u0438\u0441\u043A"
-    description: "\u041F\u043E\u043B\u0443\u0447\u0438\u0442\u0435 2 \u043C\u0430\u043D\u044B"
+    sprite: {fileID: 0}
+    name: 
+    description: 
     effectsList:
-    - {fileID: 0}
-    type: 4
+    - {fileID: 11400000, guid: 4aac5406ac3fe344099d12b2ce38118a, type: 2}
+    type: 0
+  - manaPrice: 0
+    sprite: {fileID: 0}
+    name: 
+    description: 
+    effectsList:
+    - {fileID: 11400000, guid: 8af3d1db8c7da924094a6cb0d413b644, type: 2}
+    type: 0
+  - manaPrice: 0
+    sprite: {fileID: 0}
+    name: 
+    description: 
+    effectsList:
+    - {fileID: 11400000, guid: 4aac5406ac3fe344099d12b2ce38118a, type: 2}
+    type: 0

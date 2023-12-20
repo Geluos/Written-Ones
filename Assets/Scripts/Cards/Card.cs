@@ -28,7 +28,7 @@ public struct Card
 	}
 }
 
-public abstract class CardEffect : MonoBehaviour
+public abstract class CardEffect : ScriptableObject
 {
-	protected abstract void Activate();
+	public abstract void Activate();
 }
