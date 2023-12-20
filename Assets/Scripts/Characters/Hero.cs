@@ -15,8 +15,15 @@ public class Character : MonoBehaviour
 {
 	public uint max_hp = 10;
 	public uint current_hp = 10;
-	public Deck deck = null;
+	public Deck startDeck = null;
+	protected Deck currentDeck = null;
 	public GameObject GFX = null;
+
+	public void Awake()
+	{
+		currentDeck = new Deck(startDeck);
+		currentDeck.Shuffle();
+	}
 
 	public void getDamage(uint value)
 	{
@@ -27,11 +34,24 @@ public class Character : MonoBehaviour
 	{
 		return current_hp > 0;
 	}
+	//TODO ADD
+	//public Ability ability;
 	
 }
 
 public class Hero : Character
 {
-	//TODO ADD
-	//public Ability ability;
+	public Card getCard()
+	{
+		Card res;
+		if (currentDeck.cards.Count <= 0)
+		{
+			currentDeck = new Deck(startDeck);
+			currentDeck.Shuffle();
+		}
+
+		res = currentDeck.cards[0];
+		currentDeck.cards.RemoveAt(0);
+		return res;
+	}
 }
