@@ -15,15 +15,4 @@ public class Deck : ScriptableObject
 			cards.Add(card.copy());
 		}
 	}
-
-	public void Shuffle()
-	{
-		for (int i = 0; i < cards.Count; i++)
-		{
-			var temp = cards[i];
-			int randomIndex = Random.Range(i, cards.Count);
-			cards[i] = cards[randomIndex];
-			cards[randomIndex] = temp;
-		}
-	}
 }

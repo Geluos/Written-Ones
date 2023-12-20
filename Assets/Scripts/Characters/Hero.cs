@@ -10,19 +10,22 @@ public class Ability
 }
 */
 
+
 //TODO Extract
 public class Character : MonoBehaviour
 {
 	public uint max_hp = 10;
 	public uint current_hp = 10;
 	public Deck startDeck = null;
-	protected Deck currentDeck = null;
+	protected List<Card> currentDeck = null;
 	public GameObject GFX = null;
 
 	public void Awake()
 	{
-		currentDeck = new Deck(startDeck);
-		currentDeck.Shuffle();
+		currentDeck = new List<Card>();
+		foreach (Card card in startDeck.cards)
+			currentDeck.Add(card.copy());
+		Shuffle<Card>(currentDeck);
 	}
 
 	public void getDamage(uint value)
@@ -36,7 +39,20 @@ public class Character : MonoBehaviour
 	}
 	//TODO ADD
 	//public Ability ability;
-	
+
+
+	//EXTRACT to UTILS
+	public static void Shuffle<T>(List<T> list)
+	{
+		for (int i = 0; i < list.Count; i++)
+		{
+			var temp = list[i];
+			int randomIndex = Random.Range(i, list.Count);
+			list[i] = list[randomIndex];
+			list[randomIndex] = temp;
+		}
+	}
+
 }
 
 public class Hero : Character
@@ -44,14 +60,16 @@ public class Hero : Character
 	public Card getCard()
 	{
 		Card res;
-		if (currentDeck.cards.Count <= 0)
+		if (currentDeck.Count <= 0)
 		{
-			currentDeck = new Deck(startDeck);
-			currentDeck.Shuffle();
+			currentDeck = new List<Card>();
+			foreach (Card card in startDeck.cards)
+				currentDeck.Add(card.copy());
+			Shuffle<Card>(currentDeck);
 		}
 
-		res = currentDeck.cards[0];
-		currentDeck.cards.RemoveAt(0);
+		res = currentDeck[0];
+		currentDeck.RemoveAt(0);
 		return res;
 	}
 }

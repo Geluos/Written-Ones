@@ -10,4 +10,5 @@ public abstract class Controller<T> : MonoBehaviour where T : MonoBehaviour
 	{
 		main = (this as T);
 	}
+
 }
