@@ -9,11 +9,12 @@ public struct Card
 
 	public uint manaPrice;
 	public Sprite sprite;
+	public Sprite ballSprite;
 	public string name;
 	public string description;
 	[SerializeField]
 	public List<CardEffect> effectsList;
-	public PlayType type;
+    public PlayType type;
 
 	public Card copy()
 	{
@@ -23,6 +24,7 @@ public struct Card
 		card.description = description;
 		card.effectsList = effectsList;
 		card.sprite = sprite;
+		card.ballSprite = ballSprite;
 		card.manaPrice = manaPrice;
 		return card;
 	}

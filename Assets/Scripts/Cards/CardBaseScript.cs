@@ -5,9 +5,9 @@ using UnityEngine.EventSystems;
 
 public class CardBaseScript : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
-    private Canvas canvas;
-    private RectTransform rectTransform;
-    private Vector2 startPosition;
+    protected Canvas canvas;
+    protected RectTransform rectTransform;
+    protected Vector2 startPosition;
 	public Card card;
 	public CardGFX cardGFX;
 
@@ -17,7 +17,7 @@ public class CardBaseScript : MonoBehaviour, IPointerDownHandler, IBeginDragHand
         rectTransform = GetComponent<RectTransform>();
     }
 
-	public void UpdateView()
+	public virtual void UpdateView()
 	{
 		cardGFX.portraitImage.sprite = card.sprite;
 		cardGFX.manaString.text = card.manaPrice.ToString();
