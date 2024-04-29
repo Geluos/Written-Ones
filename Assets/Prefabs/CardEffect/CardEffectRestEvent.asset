@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 82f02d9da09430949ae431321bb1cf65, type: 3}
-  m_Name: CardEffectAddHealth
+  m_Name: CardEffectRestEvent
   m_EditorClassIdentifier: 
   value: 1

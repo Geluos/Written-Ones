@@ -9,7 +9,8 @@ public class AdventureController : Controller<AdventureController>
 	public Deck pathDeck;
 	public GameObject hand;
 	public GameObject pathCard;
-    public GameObject dialogCanvas;
+    public GameObject notificationDialog;
+    public GameObject chooseDialog;
 
     public void Start()
 	{

@@ -222,8 +222,9 @@ GameObject:
   - component: {fileID: 5368354949421178057}
   - component: {fileID: 7321145280963529029}
   - component: {fileID: 5135143259399581283}
+  - component: {fileID: 2823438937682340169}
   m_Layer: 5
-  m_Name: DialogCanvas
+  m_Name: NotificationDialog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -315,6 +316,20 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &2823438937682340169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5639570781452207175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc9dc09827413d949834fe5a7fa24f4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 8116159502171468085}
+  submit: {fileID: 8769770368406277766}
 --- !u!1 &8116159502171468085
 GameObject:
   m_ObjectHideFlags: 0
@@ -629,7 +644,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 0.972549}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.972549}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

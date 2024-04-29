@@ -888,6 +888,10 @@ MonoBehaviour:
   hand: {fileID: 275727342}
   pathCard: {fileID: 3507312678228970222, guid: c4ff27f6d36e4f84e8c1a50884f254c6,
     type: 3}
+  notificationDialog: {fileID: 5639570781452207175, guid: b3e9299906a070e48b19b49b3d786ded,
+    type: 3}
+  chooseDialog: {fileID: 1054974078938873831, guid: e668c189a5c6d3b4e8b21ba2e9b0e8ab,
+    type: 3}
 --- !u!4 &935843607
 Transform:
   m_ObjectHideFlags: 0
