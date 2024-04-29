@@ -25,6 +25,12 @@ public class RandomEventScript : MonoBehaviour
                 --currentIndex;
                 Load(currentIndex);
             }
+
+            if (currentIndex == 0)
+                switchLeft.GetComponent<Button>().interactable = false;
+
+            if (currentIndex == (effects.Count - 2))
+                switchRight.GetComponent<Button>().interactable = true;
         });
 
         switchRight.GetComponent<Button>().onClick.AddListener(() => {
@@ -33,6 +39,12 @@ public class RandomEventScript : MonoBehaviour
                 ++currentIndex;
                 Load(currentIndex);
             }
+
+            if (currentIndex == (effects.Count - 1))
+                switchRight.GetComponent<Button>().interactable = false;
+
+            if (currentIndex == 1)
+                switchLeft.GetComponent<Button>().interactable = true;
         });
 
         sumbit.GetComponent<Button>().onClick.AddListener(() => {
@@ -41,6 +53,7 @@ public class RandomEventScript : MonoBehaviour
         });
 
         Load(currentIndex);
+        switchLeft.GetComponent<Button>().interactable = false;
     }
 
     private void Load(int effectIdx)

@@ -37,7 +37,7 @@ MonoBehaviour:
   - manaPrice: 0
     sprite: {fileID: 21300000, guid: 9d07c8f6f7c47714f875cdb662f86930, type: 3}
     ballSprite: {fileID: 21300000, guid: 8598e41f731df3a45bf9be66cd8c46b2, type: 3}
-    name: "\u0421\u043B\u0443\u0447\u0430\u0439\u043D\u0430\u044F \u0432\u0441\u0442\u0440\u0435\u0447\u0430"
+    name: "\u0421\u043E\u0431\u044B\u0442\u0438\u0435"
     description: 
     effectsList:
     - {fileID: 11400000, guid: 1cee1306b713c5645b7600344d065600, type: 2}
@@ -45,7 +45,7 @@ MonoBehaviour:
   - manaPrice: 0
     sprite: {fileID: 21300000, guid: 9d07c8f6f7c47714f875cdb662f86930, type: 3}
     ballSprite: {fileID: 21300000, guid: 8598e41f731df3a45bf9be66cd8c46b2, type: 3}
-    name: "\u0421\u043B\u0443\u0447\u0430\u0439\u043D\u0430\u044F \u0432\u0441\u0442\u0440\u0435\u0447\u0430"
+    name: "\u0421\u043E\u0431\u044B\u0442\u0438\u0435"
     description: 
     effectsList:
     - {fileID: 11400000, guid: 1cee1306b713c5645b7600344d065600, type: 2}
