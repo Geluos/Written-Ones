@@ -54,6 +54,8 @@ public class RandomEventScript : MonoBehaviour
 
         Load(currentIndex);
         switchLeft.GetComponent<Button>().interactable = false;
+        if (effects.Count == 1)
+            switchRight.GetComponent<Button>().interactable = false;
     }
 
     private void Load(int effectIdx)

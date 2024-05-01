@@ -29,6 +29,6 @@ public class CardEffectRandomEvent : CardEffect
     public override void Activate()
 	{
         Instantiate(AdventureController.main.chooseDialog).GetComponent<RandomEventScript>().
-            Activate(effectsCombinations[r.Next(effectsCombinations.Count - 1)]);
+            Activate(effectsCombinations[r.Next(effectsCombinations.Count)]);
     }
 }
