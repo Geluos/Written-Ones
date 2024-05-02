@@ -1606,8 +1606,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b9eb4fa44b81e442b045300ecd298df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  max_hp: 25
-  current_hp: 25
+  max_hp: 40
+  current_hp: 40
   startDeck: {fileID: 11400000, guid: 31f21739c1dd8594281ac9a0cc73efc3, type: 2}
   GFX: {fileID: 618597100}
 --- !u!4 &506428893
@@ -1963,8 +1963,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b9eb4fa44b81e442b045300ecd298df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  max_hp: 25
-  current_hp: 25
+  max_hp: 30
+  current_hp: 30
   startDeck: {fileID: 11400000, guid: f48acd64ff4e33642bc86fa5c04279fe, type: 2}
   GFX: {fileID: 1700618158}
 --- !u!4 &634212797
@@ -3467,8 +3467,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1725c3341021d247ab347e4281770db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  max_hp: 60
-  current_hp: 60
+  max_hp: 30
+  current_hp: 30
   startDeck: {fileID: 11400000, guid: 7099bb55f51c3844ead0f86908083ce7, type: 2}
   GFX: {fileID: 1361869286}
 --- !u!65 &1466804297
@@ -4189,8 +4189,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b9eb4fa44b81e442b045300ecd298df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  max_hp: 30
-  current_hp: 30
+  max_hp: 50
+  current_hp: 50
   startDeck: {fileID: 11400000, guid: 1bfd05a2118c35a4ca5a042bcf9a3b3d, type: 2}
   GFX: {fileID: 518679355}
 --- !u!4 &1833794244

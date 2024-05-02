@@ -48,7 +48,7 @@ MonoBehaviour:
     name: "\u0417\u0432\u0443\u043A\u0438 \u0444\u043B\u0435\u0439\u0442\u044B"
     description: "1 \u043C\u0430\u043D\u0430"
     effectsList:
-    - effect: {fileID: 11400000, guid: 73006a0ced9dd344aae8c513712e260a, type: 2}
+    - effect: {fileID: 11400000, guid: 7a1a7f561bdf7df428b18a7bfc4e3953, type: 2}
       value: 1
     type: 4
   - manaPrice: 0
@@ -57,6 +57,6 @@ MonoBehaviour:
     name: "\u0417\u0432\u0443\u043A\u0438 \u0444\u043B\u0435\u0439\u0442\u044B"
     description: "1 \u043C\u0430\u043D\u0430"
     effectsList:
-    - effect: {fileID: 11400000, guid: 73006a0ced9dd344aae8c513712e260a, type: 2}
+    - effect: {fileID: 11400000, guid: 7a1a7f561bdf7df428b18a7bfc4e3953, type: 2}
       value: 1
     type: 4
