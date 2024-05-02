@@ -27,40 +27,50 @@ public class CardBaseScript : MonoBehaviour, IPointerDownHandler, IBeginDragHand
 
 	public void OnBeginDrag(PointerEventData eventData) 
     {
-        startPosition = rectTransform.anchoredPosition;
+        startPosition = rectTransform.position;
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
+		this.transform.position = eventData.position;
     }
 
     public void OnEndDrag(PointerEventData eventData) 
     {
-        var cardBottom = rectTransform.anchoredPosition.y - rectTransform.rect.height / 4;
+        var cardBottom = rectTransform.position.y - startPosition.y;
 		Debug.Log(cardBottom);
 		if (cardBottom > 0)
         {
-            CardActivate();
+			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+			RaycastHit hit;
+			if (Physics.Raycast(ray, out hit, 100))
+			{
+				Debug.Log(hit.collider.gameObject.name);
+				CardActivate(hit.collider.gameObject);
+			}
+			else
+			{
+				CardActivate();
+			}
         }
         else
         {
-            rectTransform.anchoredPosition = startPosition;
+            rectTransform.position = startPosition;
         }
     }
 
     public void OnPointerDown(PointerEventData eventData) { }
 
-    public virtual void CardActivate()
+    public virtual void CardActivate(GameObject target = null)
     {
 		Debug.Log("Try play");
-		if (FightController.main.playCard(card))
+		if (FightController.main.playCard(card, target))
 		{
 			Destroy(gameObject);
 		}
 		else
 		{
-			rectTransform.anchoredPosition = startPosition;
+			rectTransform.position = startPosition;
 		}
     }
 }

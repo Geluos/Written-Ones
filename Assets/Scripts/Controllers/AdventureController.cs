@@ -68,14 +68,14 @@ public class AdventureController : Controller<AdventureController>
 
     public void FixedUpdate()
     {
-/*        if (moveToPath)
-            MoveToPath();
+		/*if (moveToPath)
+		   MoveToPath();
 
-        if (moveToMarket)
-            MoveToMarket();*/
-    }
+	  if (moveToMarket)
+		   MoveToMarket();*/
+	}
 
-    public bool PlayCard(Card card)
+	public bool PlayCard(Card card)
     {
         return true;
     }

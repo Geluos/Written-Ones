@@ -55,7 +55,6 @@ public class Character : MonoBehaviour
 			list[randomIndex] = temp;
 		}
 	}
-
 	public Card getCard()
 	{
 		Card res;

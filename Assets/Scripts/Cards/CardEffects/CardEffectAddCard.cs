@@ -2,17 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "CardEffectDamageAllHeroes", menuName = "CardEffect/CardEffectDamageAllHeroes", order = -50)]
-public class CardEffectDamageAllHeroes : CardEffect
+[CreateAssetMenu(fileName = "CardEffectAddCard", menuName = "CardEffect/CardEffectAddCard", order = -50)]
+public class CardEffectAddCard : CardEffect
 {
 	public override void Activate()
 	{
-		FightController.main.DamageAllHeroes(10);
+		FightController.main.addCard(1);
 	}
 
 	public override void Activate(int par)
 	{
-		FightController.main.DamageAllHeroes((uint)par);
+		FightController.main.addCard((uint)par);
 	}
 
 	public override void Activate(Character target, int par)
