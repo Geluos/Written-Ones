@@ -7,6 +7,16 @@ public class CardEffectRandomEvent_1 : CardEffect
 {
 	public override void Activate()
 	{
-		//FightController.main.DamageAllHeroes(value);
+		FightController.main.DamageAllHeroes(10);
+	}
+
+	public override void Activate(int par)
+	{
+		FightController.main.DamageAllHeroes((uint)par);
+	}
+
+	public override void Activate(Character target, int par)
+	{
+		throw new System.NotImplementedException();
 	}
 }

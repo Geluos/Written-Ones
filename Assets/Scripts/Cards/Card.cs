@@ -13,7 +13,7 @@ public struct Card
 	public string name;
 	public string description;
 	[SerializeField]
-	public List<CardEffect> effectsList;
+	public List<CardEffectWrapper> effectsList;
     public PlayType type;
 
 	public Card copy()
@@ -30,7 +30,28 @@ public struct Card
 	}
 }
 
-public abstract class CardEffect : ScriptableObject
+
+
+
+[System.Serializable]
+public struct CardEffectWrapper
 {
-	public abstract void Activate();
+	public CardEffect effect;
+	public uint value;
+}
+
+public class CardEffect : ScriptableObject
+{
+	public virtual void Activate()
+	{
+		throw new System.NotImplementedException();
+	}
+	public virtual void Activate(int par)
+	{
+		throw new System.NotImplementedException();
+	}
+	public virtual void Activate(Character target, int par)
+	{
+		throw new System.NotImplementedException();
+	}
 }

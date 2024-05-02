@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a4f8d79e36cb48418d24e4d4867d6c8, type: 3}
-  m_Name: CardEffectDamageAllHeroes_4
+  m_Script: {fileID: 11500000, guid: e3b80849a6ea8644296116ab71e6aa88, type: 3}
+  m_Name: CardEffectDamageEnemy
   m_EditorClassIdentifier: 
-  value: 4
+  value: 6

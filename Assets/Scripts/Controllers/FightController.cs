@@ -12,7 +12,9 @@ public class FightController : Controller<FightController>
 	public List<Hero> heroList;
 	public List<Enemy> enemyList;
 
+	private Deck heroesDeck;
 	public List<Card> cards;
+	public List<Card> deckCards;
 	public GameObject hand;
 	public GameObject baseCard;
 	public TMPro.TextMeshProUGUI manaStr;
@@ -21,7 +23,56 @@ public class FightController : Controller<FightController>
 
 	public void Start()
 	{
+		createDeck();
 		startHeroTurn();
+	}
+
+	//TO UTILS
+	public static void Shuffle<T>(List<T> list)
+	{
+		for (int i = 0; i < list.Count; i++)
+		{
+			var temp = list[i];
+			int randomIndex = Random.Range(i, list.Count);
+			list[i] = list[randomIndex];
+			list[randomIndex] = temp;
+		}
+	}
+
+	private void createDeck()
+	{
+		heroesDeck = new Deck();
+		foreach (var hero in heroList)
+		{
+			foreach(var card in hero.startDeck.cards)
+			{
+				heroesDeck.cards.Add(card.copy());
+			}
+		}
+	}
+
+	private void startFight()
+	{
+		deckCards = new List<Card>();
+		foreach (Card card in heroesDeck.cards)
+			deckCards.Add(card.copy());
+		Shuffle(deckCards);
+	}
+
+	public Card getCard()
+	{
+		Card res;
+		if (deckCards.Count <= 0)
+		{
+			deckCards = new List<Card>();
+			foreach (Card card in heroesDeck.cards)
+				deckCards.Add(card.copy());
+			Shuffle<Card>(deckCards);
+		}
+
+		res = deckCards[0];
+		deckCards.RemoveAt(0);
+		return res;
 	}
 
 	public void startHeroTurn()
@@ -30,17 +81,10 @@ public class FightController : Controller<FightController>
 		manaStr.text = 0.ToString();
 		manaCnt = 0;
 
-		foreach (var hero in heroList)
+		for (int i = 0; i < 6; ++i)
 		{
-			if (hero.isAlive())
-			{
-				//TODO Replace 3 with param
-				for (int i = 0; i < 3; ++i)
-				{
-					var card = hero.getCard();
-					cards.Add(card);
-				}
-			}
+			var card = getCard();
+			cards.Add(card);
 		}
 
 		//ADD CARDS TO HAND
@@ -51,7 +95,7 @@ public class FightController : Controller<FightController>
 			cardObject.GetComponent<CardBaseScript>().UpdateView();
 		}
 
-		PlayMomentalCards();
+		//PlayMomentalCards();
 	}
 
 	private void UpdateUI()
@@ -63,6 +107,20 @@ public class FightController : Controller<FightController>
 	{
 		manaCnt += value;
 		UpdateUI();
+	}
+
+	public void addCard(uint value)
+	{
+		for (int i = 0; i < value; ++i)
+		{
+
+			var card = getCard();
+			cards.Add(card);
+
+			var cardObject = Instantiate(baseCard, hand.transform);
+			cardObject.GetComponent<CardBaseScript>().card = card.copy();
+			cardObject.GetComponent<CardBaseScript>().UpdateView();
+		}
 	}
 
 	private void checkLose()
@@ -77,10 +135,25 @@ public class FightController : Controller<FightController>
 			youLose.SetActive(true);
 	}
 
-	public void DamageEnemy(uint value)
+	public void DamageAllEnemies(uint value)
 	{
-		enemyList[0].getDamage(value);
+		
+		foreach(var enemy in enemyList)
+		{
 
+			enemy.getDamage(value);
+		}
+		checkWin();
+	}
+
+	public void DamageEnemy(Character enemy, uint value)
+	{
+		enemy.getDamage(value);
+		checkWin();
+	}
+
+	private void checkWin()
+	{
 		if (!enemyList[0].isAlive())
 		{
 			youWin.SetActive(true);
@@ -122,15 +195,49 @@ public class FightController : Controller<FightController>
 		UpdateUI();
 	}
 
-	public bool playCard(Card card)
+	public bool playCard(Card card, GameObject target = null)
 	{
 		if (card.manaPrice <= manaCnt)
 		{
-			minusMana(card.manaPrice);
-			foreach(var effect in card.effectsList)
+			switch(card.type)
 			{
-				effect.Activate();
+				case Card.PlayType.TargetAll:
+					foreach (var effect in card.effectsList)
+					{
+						effect.effect.Activate((int)effect.value);
+					}
+					break;
+				case Card.PlayType.Global:
+					foreach (var effect in card.effectsList)
+					{
+						effect.effect.Activate((int)effect.value);
+					}
+					break;
+				case Card.PlayType.Moment:
+					foreach (var effect in card.effectsList)
+					{
+						effect.effect.Activate((int)effect.value);
+					}
+					break;
+				case Card.PlayType.TargetEnemy:
+					if (target == null || target.GetComponent<Enemy>() == null)
+						return false;
+					foreach (var effect in card.effectsList)
+					{
+						effect.effect.Activate(target.GetComponent<Enemy>(), (int)effect.value);
+					}
+					break;
+				case Card.PlayType.TargetAlly:
+					if (target == null || target.GetComponent<Hero>() == null)
+						return false;
+					foreach (var effect in card.effectsList)
+					{
+						effect.effect.Activate(target.GetComponent<Hero>(), (int)effect.value);
+					}
+					break;
 			}
+
+			minusMana(card.manaPrice);
 
 			return true;
 		}
@@ -139,10 +246,9 @@ public class FightController : Controller<FightController>
 	}
 
 	//HACK
-	private void PlayMomentalCards()
+	/*private void PlayMomentalCards()
 	{
 		
-
 		var children = new List<GameObject>();
 		foreach (Transform child in hand.transform)
 		{
@@ -154,7 +260,7 @@ public class FightController : Controller<FightController>
 			child.gameObject.GetComponent<CardBaseScript>().CardActivate();
 		}
 		children.ForEach(child => Destroy(child));
-	}
+	}*/
 
 	private void clearCards()
 	{
@@ -179,7 +285,7 @@ public class FightController : Controller<FightController>
 			var card = enemy.getCard();
 			foreach(var effect in card.effectsList)
 			{
-				effect.Activate();
+				effect.effect.Activate((int)effect.value);
 			}
 		}
 	}
