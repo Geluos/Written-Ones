@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class FightController : Controller<FightController>
 {
@@ -18,13 +19,25 @@ public class FightController : Controller<FightController>
 	public GameObject hand;
 	public GameObject baseCard;
 	public TMPro.TextMeshProUGUI manaStr;
-	public GameObject youWin;
+	public GameObject AdventureScene;
+	public GameObject FightScene;
 	public GameObject youLose;
 
-	public void Start()
+	public void StartFight()
 	{
+		AdventureScene.SetActive(false);
+		FightScene.SetActive(true);
 		createDeck();
 		startHeroTurn();
+		enemyList[0].current_hp = enemyList[0].max_hp;
+	}
+
+	public void restorePartyHp(float percent)
+	{
+		foreach(var hero in heroList)
+		{
+			hero.current_hp = Math.Min(hero.max_hp, hero.current_hp + (uint)Math.Round(hero.max_hp * percent / 100));
+		}
 	}
 
 	//TO UTILS
@@ -33,7 +46,7 @@ public class FightController : Controller<FightController>
 		for (int i = 0; i < list.Count; i++)
 		{
 			var temp = list[i];
-			int randomIndex = Random.Range(i, list.Count);
+			int randomIndex = UnityEngine.Random.Range(i, list.Count);
 			list[i] = list[randomIndex];
 			list[randomIndex] = temp;
 		}
@@ -156,13 +169,14 @@ public class FightController : Controller<FightController>
 	{
 		if (!enemyList[0].isAlive())
 		{
-			youWin.SetActive(true);
+			AdventureScene.SetActive(true);
+			FightScene.SetActive(false);
 		}
 	}
 
 	public void DamageRandomHero(uint value)
 	{
-		int next = Random.Range(1, 10);
+		int next = UnityEngine.Random.Range(1, 10);
 
 		var hero = heroList[0];
 		for(int i = 0; i < next; ++i)

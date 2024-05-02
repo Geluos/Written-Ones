@@ -12,4 +12,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d51e062b3eac684d8a6d106924f11c8, type: 3}
   m_Name: PiperStartDeck
   m_EditorClassIdentifier: 
-  cards: []
+  cards:
+  - manaPrice: 1
+    sprite: {fileID: 21300000, guid: 72a7eb7711a507c41bb85c7bf5eb315a, type: 3}
+    ballSprite: {fileID: 0}
+    name: "\u0421\u043E\u0442\u043D\u0438 \u0443\u043A\u0443\u0441\u043E\u0432"
+    description: "4 \u0443\u0440\u043E\u043D\u0430 \u043E\u0434\u043D\u043E\u0439
+      \u0446\u0435\u043B\u0438"
+    effectsList:
+    - effect: {fileID: 11400000, guid: 135039c20c340c04d8bb54531a27c323, type: 2}
+      value: 4
+    type: 1
+  - manaPrice: 1
+    sprite: {fileID: 21300000, guid: 72a7eb7711a507c41bb85c7bf5eb315a, type: 3}
+    ballSprite: {fileID: 0}
+    name: "\u0421\u043E\u0442\u043D\u0438 \u0443\u043A\u0443\u0441\u043E\u0432"
+    description: "4 \u0443\u0440\u043E\u043D\u0430 \u043E\u0434\u043D\u043E\u0439
+      \u0446\u0435\u043B\u0438"
+    effectsList:
+    - effect: {fileID: 11400000, guid: 135039c20c340c04d8bb54531a27c323, type: 2}
+      value: 4
+    type: 1
+  - manaPrice: 0
+    sprite: {fileID: 21300000, guid: 24ab1262ce64bd545b9839177d7a304b, type: 3}
+    ballSprite: {fileID: 0}
+    name: "\u0412\u043E\u043B\u0448\u0435\u0431\u043D\u0430\u044F \u0434\u0443\u0434\u043E\u0447\u043A\u0430"
+    description: "\u0414\u043E\u0431\u043E\u0440 2"
+    effectsList:
+    - effect: {fileID: 11400000, guid: 73006a0ced9dd344aae8c513712e260a, type: 2}
+      value: 2
+    type: 4
+  - manaPrice: 0
+    sprite: {fileID: 21300000, guid: b6e1819c66e305c4ea7a23bedbdaba2e, type: 3}
+    ballSprite: {fileID: 0}
+    name: "\u0417\u0432\u0443\u043A\u0438 \u0444\u043B\u0435\u0439\u0442\u044B"
+    description: "1 \u043C\u0430\u043D\u0430"
+    effectsList:
+    - effect: {fileID: 11400000, guid: 73006a0ced9dd344aae8c513712e260a, type: 2}
+      value: 1
+    type: 4
+  - manaPrice: 0
+    sprite: {fileID: 21300000, guid: b6e1819c66e305c4ea7a23bedbdaba2e, type: 3}
+    ballSprite: {fileID: 0}
+    name: "\u0417\u0432\u0443\u043A\u0438 \u0444\u043B\u0435\u0439\u0442\u044B"
+    description: "1 \u043C\u0430\u043D\u0430"
+    effectsList:
+    - effect: {fileID: 11400000, guid: 73006a0ced9dd344aae8c513712e260a, type: 2}
+      value: 1
+    type: 4
