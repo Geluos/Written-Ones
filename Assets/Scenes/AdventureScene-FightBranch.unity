@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731704, g: 0.13414727, b: 0.121078536, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1883,7 +1883,8 @@ MonoBehaviour:
   baseCard: {fileID: 3507312678228970222, guid: dcec053260b7b33439b75fd735060703,
     type: 3}
   manaStr: {fileID: 1288133437}
-  youWin: {fileID: 496192132}
+  AdventureScene: {fileID: 0}
+  FightScene: {fileID: 0}
   youLose: {fileID: 202625560}
 --- !u!1 &802580170
 GameObject:
@@ -2192,6 +2193,8 @@ MonoBehaviour:
   hand: {fileID: 275727342}
   pathCard: {fileID: 3507312678228970222, guid: c4ff27f6d36e4f84e8c1a50884f254c6,
     type: 3}
+  notificationDialog: {fileID: 0}
+  chooseDialog: {fileID: 0}
 --- !u!4 &935843607
 Transform:
   m_ObjectHideFlags: 0
@@ -5612,6 +5615,79 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1001 &1045203502725250264
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7134734714479821743, guid: cccaf2c8796385040a3e91d18fc728c5,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.0818086
+      objectReference: {fileID: 0}
+    - target: {fileID: 7134734714479821743, guid: cccaf2c8796385040a3e91d18fc728c5,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.3140612
+      objectReference: {fileID: 0}
+    - target: {fileID: 7134734714479821743, guid: cccaf2c8796385040a3e91d18fc728c5,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -8.524288
+      objectReference: {fileID: 0}
+    - target: {fileID: 7134734714479821743, guid: cccaf2c8796385040a3e91d18fc728c5,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7134734714479821743, guid: cccaf2c8796385040a3e91d18fc728c5,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7134734714479821743, guid: cccaf2c8796385040a3e91d18fc728c5,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7134734714479821743, guid: cccaf2c8796385040a3e91d18fc728c5,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7134734714479821743, guid: cccaf2c8796385040a3e91d18fc728c5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7134734714479821743, guid: cccaf2c8796385040a3e91d18fc728c5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7134734714479821743, guid: cccaf2c8796385040a3e91d18fc728c5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8873300335309779367, guid: cccaf2c8796385040a3e91d18fc728c5,
+        type: 3}
+      propertyPath: m_Name
+      value: Decorations
+      objectReference: {fileID: 0}
+    - target: {fileID: 8873300335309779367, guid: cccaf2c8796385040a3e91d18fc728c5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cccaf2c8796385040a3e91d18fc728c5, type: 3}
 --- !u!114 &1205965969152861469
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6315,3 +6391,4 @@ SceneRoots:
   - {fileID: 1894021597}
   - {fileID: 1779490822}
   - {fileID: 59772815}
+  - {fileID: 1045203502725250264}
