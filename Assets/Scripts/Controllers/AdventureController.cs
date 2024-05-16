@@ -7,27 +7,20 @@ using static UnityEngine.GraphicsBuffer;
 public class AdventureController : Controller<AdventureController>
 {
 	public Deck pathDeck;
-	public GameObject hand;
-	public GameObject pathCard;
+    public GameObject hand;
 	public GameObject notificationDialog;
 	public GameObject chooseDialog;
 
+	private CardsLayout cardsLayout;
+
 	public void Start()
 	{
-		LoadPathDeck();
+		cardsLayout = hand.GetComponent<CardsLayout>();
+		cardsLayout.Load(pathDeck);
+		cardsLayout.FadeIn();
 	}
 
-	public void LoadPathDeck()
-	{
-		foreach (var card in pathDeck.cards)
-		{
-			var cardObject = Instantiate(pathCard, hand.transform);
-			cardObject.GetComponent<PathCardScript>().card = card.copy();
-			cardObject.GetComponent<PathCardScript>().UpdateView();
-		}
-	}
-
-	public bool PlayCard(Card card)
+    public bool PlayCard(Card card)
 	{
 		foreach (var effect in card.effectsList)
 			effect.effect.Activate();

@@ -267,6 +267,7 @@ MonoBehaviour:
     manaString: {fileID: 0}
     descriptionString: {fileID: 0}
     name: {fileID: 2420296332768638449}
+  cardInstances: []
 --- !u!1 &3692452545872232086
 GameObject:
   m_ObjectHideFlags: 0

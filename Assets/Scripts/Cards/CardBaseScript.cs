@@ -3,16 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class CardBaseScript : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
+public class CardBaseScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
+    protected CardsLayout cardsLayout;
     protected Canvas canvas;
     protected RectTransform rectTransform;
     protected Vector2 startPosition;
 	public Card card;
 	public CardGFX cardGFX;
+    public List<GameObject> cardInstances;
 
     private void Start()
     {
+        cardsLayout = transform.parent.GetComponent<CardsLayout>();
         canvas = transform.parent.parent.gameObject.GetComponent<Canvas>();
         rectTransform = GetComponent<RectTransform>();
     }
@@ -25,17 +28,27 @@ public class CardBaseScript : MonoBehaviour, IPointerDownHandler, IBeginDragHand
 		cardGFX.name.text = card.name;
 	}
 
-	public void OnBeginDrag(PointerEventData eventData) 
+    public void OnPointerEnter(PointerEventData eventData)
     {
-        startPosition = rectTransform.position;
+        cardsLayout.FocusCard(gameObject);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        cardsLayout.UnfocusCard(gameObject);
+    }
+
+    public void OnBeginDrag(PointerEventData eventData) 
+    {
+        startPosition = transform.position;
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-		this.transform.position = eventData.position;
+		transform.position = eventData.position;
     }
 
-    public void OnEndDrag(PointerEventData eventData) 
+    public virtual void OnEndDrag(PointerEventData eventData) 
     {
         var cardBottom = rectTransform.position.y - startPosition.y;
 		Debug.Log(cardBottom);

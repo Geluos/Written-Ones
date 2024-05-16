@@ -14,10 +14,24 @@ public class PathCardScript : CardBaseScript
         cardGFX.rightBallImage.sprite = card.ballSprite;
     }
 
+    public override void OnEndDrag(PointerEventData eventData)
+    {
+        var cardBottom = rectTransform.anchoredPosition.y - rectTransform.rect.height * rectTransform.localScale.y / 2;
+        if (cardBottom > canvas.pixelRect.height * 0.2)
+        {
+            CardActivate();
+        }
+        else
+        {
+            rectTransform.anchoredPosition = startPosition;
+        }
+    }
+
     public override void CardActivate(GameObject target = null)
 	{
         if (AdventureController.main.PlayCard(card))
         {
+            cardsLayout.RemoveCard(gameObject);
             Destroy(gameObject);
         }
         else
