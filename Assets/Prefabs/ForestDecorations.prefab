@@ -1240,7 +1240,7 @@ GameObject:
   - component: {fileID: 7134734714479821743}
   - component: {fileID: 3839786796419493772}
   m_Layer: 0
-  m_Name: Decorations
+  m_Name: ForestDecorations
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

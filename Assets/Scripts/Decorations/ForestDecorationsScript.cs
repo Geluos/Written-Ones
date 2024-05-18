@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class DecorationsScript : MonoBehaviour
+public class ForestDecorationsScript : Decorations
 {
     private static readonly System.Random random = new();
     public GameObject Tree1Object;
@@ -28,6 +28,11 @@ public class DecorationsScript : MonoBehaviour
     public bool Night = false;
 
     private void Awake()
+    {
+        Decorate();
+    }
+
+    public override void Decorate()
     {
         if (!Randomize)
             return;
