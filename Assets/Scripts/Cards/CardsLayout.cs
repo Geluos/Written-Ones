@@ -45,8 +45,9 @@ public class CardsLayout : MonoBehaviour
 
     private void Setup()
     {
-        offset = canvas.pixelRect.center;
-        offset.y = -radius * 0.925f;
+
+		offset = canvas.pixelRect.center;
+		offset.y = -radius * 0.925f + transform.position.y;
         offset.x *= 0.925f;
     }
 
@@ -197,7 +198,7 @@ public class CardsLayout : MonoBehaviour
 
     public void FocusCard(GameObject cardInstance)
     {
-        var shiftedPos = GetCardOrientation(cardAngles[cardInstances.IndexOf(cardInstance)], 100f).Position;
+        var shiftedPos = GetCardOrientation(cardAngles[cardInstances.IndexOf(cardInstance)], 70f).Position;
         shiftedPos.x += 10f;
         cardInstance.transform.SetPositionAndRotation(shiftedPos, Quaternion.Euler(0, 0, 0));
         cardInstance.transform.localScale += cardScaleFactor;
@@ -207,7 +208,7 @@ public class CardsLayout : MonoBehaviour
         {
             if (i == currentIndex)
                 continue;
-            var angleOffset = i < currentIndex ? -2f : 2f;
+            var angleOffset = i < currentIndex ? -0f : 0f;
             var orientation = GetCardOrientation(cardAngles[i] + angleOffset);
             cardInstances[i].transform.SetPositionAndRotation(orientation.Position, orientation.Rotation);
         }

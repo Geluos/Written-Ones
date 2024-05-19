@@ -29,7 +29,7 @@ public class ForestDecorationsScript : Decorations
 
     private void Awake()
     {
-        Decorate();
+        //Decorate();
     }
 
     public override void Decorate()
