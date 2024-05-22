@@ -33,13 +33,15 @@ public class Character : MonoBehaviour
 
 	public void getDamage(uint value)
 	{
-		if (shield > 0)
+		if (shield > value)
 		{
-			var newvalue = System.Math.Max(0, value - shield);
-
-			shield = System.Math.Max(0, shield - value);
-			
-			value = newvalue;
+			shield -= value;
+			value = 0;
+		}
+		else
+		{
+			value -= shield;
+			shield = 0;
 		}
 
 		if (value < current_hp)
