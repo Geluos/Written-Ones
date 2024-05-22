@@ -13,6 +13,9 @@ public class CardBaseScript : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 	public CardGFX cardGFX;
     public List<GameObject> cardInstances;
 
+	[HideInInspector]
+	public bool isPlayable = true;
+
     private void Start()
     {
         cardsLayout = transform.parent.GetComponent<CardsLayout>();
@@ -30,27 +33,41 @@ public class CardBaseScript : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        cardsLayout.FocusCard(gameObject);
+		if (!isPlayable)
+			return;
+		cardsLayout.FocusCard(gameObject);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        cardsLayout.UnfocusCard(gameObject);
+		if (!isPlayable)
+			return;
+		cardsLayout.UnfocusCard(gameObject);
     }
 
     public void OnBeginDrag(PointerEventData eventData) 
     {
-        startPosition = transform.position;
+		if (!isPlayable)
+			return;
+		startPosition = transform.position;
+		FightController.main.isDragCard = true;
     }
 
     public void OnDrag(PointerEventData eventData)
     {
+		if (!isPlayable)
+			return;
 		transform.position = eventData.position;
     }
 
     public virtual void OnEndDrag(PointerEventData eventData) 
     {
-        var cardBottom = rectTransform.position.y - startPosition.y;
+		if (!isPlayable)
+			return;
+
+		FightController.main.isDragCard = false;
+
+		var cardBottom = rectTransform.position.y - startPosition.y;
 		Debug.Log(cardBottom);
 		if (cardBottom > 0)
         {
@@ -76,9 +93,12 @@ public class CardBaseScript : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
     public virtual void CardActivate(GameObject target = null)
     {
+		if (!isPlayable)
+			return;
 		Debug.Log("Try play");
 		if (FightController.main.playCard(card, target))
 		{
+			cardsLayout.RemoveCard(gameObject);
 			Destroy(gameObject);
 		}
 		else

@@ -13,5 +13,7 @@ public class RestEventScript : MonoBehaviour
     {
         text.GetComponent<TextMeshProUGUI>().text = $"Каждый персонаж получает дополнительно {healthAddition} процентов здоровья";
         submit.GetComponent<Button>().onClick.AddListener(() => { Destroy(gameObject); });
+
+		FightController.main.restorePartyHp(healthAddition);
     }
 }

@@ -22,14 +22,20 @@ public class FightController : Controller<FightController>
 	public GameObject AdventureScene;
 	public GameObject FightScene;
 	public GameObject youLose;
+	public Decorations decorations;
+	[HideInInspector]
+	public bool isDragCard = false;
+	
 
 	public void StartFight()
 	{
+		decorations.Decorate();
 		AdventureScene.SetActive(false);
 		FightScene.SetActive(true);
 		createDeck();
 		startHeroTurn();
 		enemyList[0].current_hp = enemyList[0].max_hp;
+
 	}
 
 	public void restorePartyHp(float percent)
@@ -54,7 +60,7 @@ public class FightController : Controller<FightController>
 
 	private void createDeck()
 	{
-		heroesDeck = new Deck();
+		heroesDeck = Deck.CreateInstance<Deck>();
 		foreach (var hero in heroList)
 		{
 			foreach(var card in hero.startDeck.cards)
@@ -64,13 +70,13 @@ public class FightController : Controller<FightController>
 		}
 	}
 
-	private void startFight()
-	{
-		deckCards = new List<Card>();
-		foreach (Card card in heroesDeck.cards)
-			deckCards.Add(card.copy());
-		Shuffle(deckCards);
-	}
+	//private void startFight()
+	//{
+	//	deckCards = new List<Card>();
+	//	foreach (Card card in heroesDeck.cards)
+	//		deckCards.Add(card.copy());
+	//	Shuffle(deckCards);
+	//}
 
 	public Card getCard()
 	{
@@ -101,11 +107,24 @@ public class FightController : Controller<FightController>
 		}
 
 		//ADD CARDS TO HAND
-		foreach (Card card in cards)
+		//foreach (Card card in cards)
+		//{
+		//	//var cardObject = Instantiate(baseCard, hand.transform);
+		//	//cardObject.GetComponent<CardBaseScript>().card = card.copy();
+		//	//cardObject.GetComponent<CardBaseScript>().UpdateView();
+		//}
+
+		var cardsLayout = hand.GetComponent<CardsLayout>();
+		Deck DeckCards = Deck.CreateInstance<Deck>();
+		DeckCards.cards = cards;
+		cardsLayout.Load(DeckCards);
+		cardsLayout.FadeIn();
+
+
+		foreach (Enemy enemy in enemyList)
 		{
-			var cardObject = Instantiate(baseCard, hand.transform);
-			cardObject.GetComponent<CardBaseScript>().card = card.copy();
-			cardObject.GetComponent<CardBaseScript>().UpdateView();
+			enemy.nextCard = new CardHolder();
+			enemy.nextCard.card = enemy.getCard();
 		}
 
 		//PlayMomentalCards();
@@ -131,6 +150,8 @@ public class FightController : Controller<FightController>
 			cards.Add(card);
 
 			var cardObject = Instantiate(baseCard, hand.transform);
+			var cardLayout = hand.GetComponent<CardsLayout>();
+			cardLayout.cardInstances.Add(cardObject);
 			cardObject.GetComponent<CardBaseScript>().card = card.copy();
 			cardObject.GetComponent<CardBaseScript>().UpdateView();
 		}
@@ -163,6 +184,11 @@ public class FightController : Controller<FightController>
 	{
 		enemy.getDamage(value);
 		checkWin();
+	}
+
+	public void AddShield(Character hero, uint value)
+	{
+		hero.shield += value;
 	}
 
 	private void checkWin()
@@ -284,6 +310,9 @@ public class FightController : Controller<FightController>
 			children.Add(child.gameObject);
 		children.ForEach(child => Destroy(child));
 
+		var cardsLayout = hand.GetComponent<CardsLayout>();
+		cardsLayout.cardInstances.Clear();
+
 	}
 
 	public void endHeroTurn()
@@ -296,8 +325,12 @@ public class FightController : Controller<FightController>
 	{
 		foreach(var enemy in enemyList)
 		{
-			var card = enemy.getCard();
-			foreach(var effect in card.effectsList)
+			if (enemy.nextCard == null)
+			{
+				enemy.nextCard = new CardHolder();
+				enemy.nextCard.card = enemy.getCard();
+			}
+			foreach(var effect in enemy.nextCard.card.effectsList)
 			{
 				effect.effect.Activate((int)effect.value);
 			}

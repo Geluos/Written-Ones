@@ -16,9 +16,13 @@ public class PathCardScript : CardBaseScript
 
     public override void OnEndDrag(PointerEventData eventData)
     {
-        var cardBottom = rectTransform.anchoredPosition.y - rectTransform.rect.height * rectTransform.localScale.y / 2;
-        if (cardBottom > canvas.pixelRect.height * 0.2)
-        {
+
+		FightController.main.isDragCard = false;
+
+		var cardBottom = rectTransform.position.y - startPosition.y;
+		Debug.Log(cardBottom);
+		if (cardBottom > 0)
+		{
             CardActivate();
         }
         else

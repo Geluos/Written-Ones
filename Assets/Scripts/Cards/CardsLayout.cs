@@ -29,7 +29,8 @@ public class CardsLayout : MonoBehaviour
 
     private Canvas canvas;
     private Deck deck;
-    private List<GameObject> cardInstances = new();
+	[HideInInspector]
+    public List<GameObject> cardInstances = new();
     private Vector2 offset = new();
     private float minAngle = 80;
     private float maxAngle = 100;
@@ -69,8 +70,8 @@ public class CardsLayout : MonoBehaviour
                 new Vector3(offset.x, offset.y, 0f), 
                 Quaternion.Euler(0f, 0f, maxAngle - 90f), 
                 transform);
-            cardObject.GetComponent<PathCardScript>().card = deck.cards[i].copy();
-            cardObject.GetComponent<PathCardScript>().UpdateView();
+            cardObject.GetComponent<CardBaseScript>().card = deck.cards[i].copy();
+            cardObject.GetComponent<CardBaseScript>().UpdateView();
             cardInstances.Add(cardObject);
         }
     }

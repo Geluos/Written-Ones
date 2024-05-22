@@ -20,6 +20,9 @@ public class Character : MonoBehaviour
 	protected List<Card> currentDeck = null;
 	public GameObject GFX = null;
 
+	[HideInInspector]
+	public uint shield = 0;
+
 	public void Awake()
 	{
 		currentDeck = new List<Card>();
@@ -30,6 +33,15 @@ public class Character : MonoBehaviour
 
 	public void getDamage(uint value)
 	{
+		if (shield > 0)
+		{
+			var newvalue = System.Math.Max(0, value - shield);
+
+			shield = System.Math.Max(0, shield - value);
+			
+			value = newvalue;
+		}
+
 		if (value < current_hp)
 			current_hp = current_hp - value;
 		else

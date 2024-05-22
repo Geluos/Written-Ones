@@ -30,6 +30,11 @@ public struct Card
 	}
 }
 
+public class CardHolder
+{
+	public Card card;
+}
+
 
 
 
