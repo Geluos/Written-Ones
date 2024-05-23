@@ -1337,7 +1337,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 6ba9e61dc27b258449f8898048fc4911, type: 3}
   - {fileID: 21300000, guid: edb9d2362361bf344af3dfdc0a88a5a3, type: 3}
   - {fileID: 21300000, guid: 3cfe2c2b223a8e04588efec1983f668d, type: 3}
-  - {fileID: 21300000, guid: c45eefd1d0703584ebc63d750fd6c06e, type: 3}
   Randomize: 1
   Night: 0
 --- !u!1 &9134863956145370657
