@@ -15,4 +15,8 @@ public class Deck : ScriptableObject
 			cards.Add(card.copy());
 		}
 	}
+	public Deck()
+	{
+		cards = new List<Card>();
+	}
 }

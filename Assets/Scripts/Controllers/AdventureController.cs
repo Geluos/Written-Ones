@@ -10,20 +10,20 @@ public class AdventureController : Controller<AdventureController>
 	public GameObject hand;
 	public GameObject pathCard;
 
-    private Vector3 pathCameraPosition = new(2.167f, 4.07f, -8.341f);
-    private Vector3 pathCameraRotation = new(99.08899f, 1.076996f, 0.08999634f);
-    private Vector3 marketCameraPosition = new(2.166f, 4.025f, -9.456f);
-    private Vector3 marketCameraRotation = new(77.994f, -0.634f, -1.728f);
-    private float moveSpeed = 0.5f;
-    private float rotateSpeed = 2f;
-    private float moveEps = 0.1f;
-    private float rotateEps = 0.1f;
-    //private bool moveToMarket = true;
-    private bool moveToPath = false;
+	public Deck shopDeckFight;
+    public Deck shopDeckPath;
+
+    private Deck currentShopDeck;
+	public GameObject shop;
+	public GameObject shopFightCard;
+    public Transform[] cardSlots;
 
     public void Start()
 	{
 		LoadPathDeck();
+        
+        InitShopCards();
+		LoadShopCards();
 	}
 
 	public void LoadPathDeck()
@@ -36,43 +36,46 @@ public class AdventureController : Controller<AdventureController>
         }
     }
 
-    private void MoveToMarket()
+    public void InitShopCards()
     {
-        var cameraPosition = Camera.main.transform.position;
-        var cameraRotation = Camera.main.transform.rotation;
-/*        if (Vector3.Distance(cameraPosition, marketCameraPosition) < moveEps && Quaternion.Angle(cameraRotation, Quaternion.Euler(marketCameraRotation)) < rotateEps)
+        currentShopDeck = new Deck();
+        for (int i = 0; i < 8; i++)
         {
-            moveToMarket = false;
-            moveToPath = true;
-            return;
-        }*/
-        Camera.main.transform.SetPositionAndRotation(
-            Vector3.MoveTowards(Camera.main.transform.position, marketCameraPosition, moveSpeed * Time.fixedDeltaTime), 
-            Quaternion.Slerp(Camera.main.transform.rotation, Quaternion.Euler(marketCameraRotation), rotateSpeed * Time.fixedDeltaTime));
+            currentShopDeck.cards.Add(shopDeckFight.cards[i]);
+        }
+        for (int i = 0; i < 2; i++)
+        {
+            currentShopDeck.cards.Add(shopDeckPath.cards[i]);
+        }
     }
 
-    private void MoveToPath()
+    public void LoadShopCards()
     {
-        var cameraPosition = Camera.main.transform.position;
-        var cameraRotation = Camera.main.transform.rotation;
-/*        if (Vector3.Distance(cameraPosition, pathCameraPosition) < moveEps && Quaternion.Angle(cameraRotation, Quaternion.Euler(pathCameraRotation)) < rotateEps)
+        List<int> slotIndices = new List<int>();
+        for (int i = 0; i < 10; i++)
         {
-            moveToPath = false;
-            moveToMarket = true;
-            return;
-        }*/
-        Camera.main.transform.SetPositionAndRotation(
-            Vector3.MoveTowards(cameraPosition, pathCameraPosition, moveSpeed * Time.fixedDeltaTime), 
-            Quaternion.Slerp(cameraRotation, Quaternion.Euler(pathCameraRotation), rotateSpeed * Time.fixedDeltaTime));
-    }
-
-    public void FixedUpdate()
-    {
-/*        if (moveToPath)
-            MoveToPath();
-
-        if (moveToMarket)
-            MoveToMarket();*/
+            slotIndices.Add(i);
+        }
+        for (int i = 0; i < 8; i++)
+        {
+            int slotIndex = slotIndices[i];
+            var cardObject = Instantiate(shopFightCard, shop.transform);
+            cardObject.GetComponent<CardBaseScript>().card = currentShopDeck.cards[i].copy();
+            cardObject.transform.localScale = Vector3.one * 0.27f;
+            cardObject.transform.position = cardSlots[slotIndex].transform.position;
+            cardObject.GetComponent<CardBaseScript>().UpdateView();
+            cardObject.AddComponent<CardBuyer>();
+        }
+        for (int i = 8; i < 10; i++)
+        {
+            int slotIndex = slotIndices[i];
+            var cardObject = Instantiate(pathCard, shop.transform);
+            cardObject.GetComponent<CardBaseScript>().card = currentShopDeck.cards[i].copy();
+            cardObject.transform.localScale = Vector3.one * 0.27f;
+            cardObject.transform.position = cardSlots[slotIndex].transform.position;
+            cardObject.GetComponent<CardBaseScript>().UpdateView();
+            cardObject.AddComponent<CardBuyer>();
+        }
     }
 
     public bool PlayCard(Card card)

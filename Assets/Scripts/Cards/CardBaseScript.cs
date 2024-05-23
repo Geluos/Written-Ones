@@ -27,16 +27,19 @@ public class CardBaseScript : MonoBehaviour, IPointerDownHandler, IBeginDragHand
 
 	public void OnBeginDrag(PointerEventData eventData) 
     {
+        if (this.GetComponent<CardBuyer>() != null) { return; }
         startPosition = rectTransform.anchoredPosition;
     }
 
     public void OnDrag(PointerEventData eventData)
     {
+        if (this.GetComponent<CardBuyer>() != null) { return; }
         rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
     }
 
     public void OnEndDrag(PointerEventData eventData) 
     {
+        if (this.GetComponent<CardBuyer>() != null) { return; }
         var cardBottom = rectTransform.anchoredPosition.y - rectTransform.rect.height / 4;
 		Debug.Log(cardBottom);
 		if (cardBottom > 0)
