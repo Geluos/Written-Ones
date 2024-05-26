@@ -1,7 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
+using static Card;
 using static UnityEngine.GraphicsBuffer;
 
 public class AdventureController : Controller<AdventureController>
@@ -13,20 +16,38 @@ public class AdventureController : Controller<AdventureController>
 	public Deck shopDeckFight;
     public Deck shopDeckPath;
 
-    private Deck currentShopDeck;
-	public GameObject shop;
-	public GameObject shopFightCard;
+    public GameObject shop;
+    public GameObject shopFightCard;
+    public GameObject buyButtonPrefab;
     public Transform[] cardSlots;
+    public Button updateButton;
+    public const int AVG_MONEY = 1;
+
+    private Deck currentShopDeck;
+    private List<Card> shopFightCards;
+    private List<Card> shopPathCards;
 
     public void Start()
 	{
 		LoadPathDeck();
-        
+
+        shopFightCards = new List<Card>(shopDeckFight.cards);
+        shopPathCards = new List<Card>(shopDeckPath.cards);
         InitShopCards();
 		LoadShopCards();
-	}
 
-	public void LoadPathDeck()
+        shop.SetActive(!shop.activeSelf);
+
+        updateButton.GetComponentInChildren<TMP_Text>().text = $"Обновить за {0.3 * AVG_MONEY}";
+    }
+
+    public void Update()
+    {
+        if (CameraMoveOnClick.showShop) shop.SetActive(true);
+        else shop.SetActive(false);
+    }
+
+    public void LoadPathDeck()
 	{
         foreach (var card in pathDeck.cards)
         {
@@ -39,24 +60,45 @@ public class AdventureController : Controller<AdventureController>
     public void InitShopCards()
     {
         currentShopDeck = new Deck();
-        for (int i = 0; i < 8; i++)
+        int currentPathCardsCount = 0;
+        int currentFightCardsCount = 0;
+        
+        while (currentFightCardsCount < 8 && shopFightCards.Count > 0) 
         {
-            currentShopDeck.cards.Add(shopDeckFight.cards[i]);
+            int num = Random.Range(1, 11);
+            Rarity rarity;
+            if (num <= 6) rarity = Rarity.Common;
+            else if (num <= 9) rarity = Rarity.Rare;
+            else rarity = Rarity.Gold;
+
+            List<Card> cards = shopFightCards.Where(card => card.rarity == rarity).ToList();
+            if (cards.Count == 0) continue;
+
+            Card currentCard = cards[Random.Range(0, cards.Count)];
+            shopFightCards.Remove(currentCard);
+            currentShopDeck.cards.Add(currentCard);
+            currentFightCardsCount++;
         }
-        for (int i = 0; i < 2; i++)
+
+        while (currentPathCardsCount < 2 && shopPathCards.Count > 0)
         {
-            currentShopDeck.cards.Add(shopDeckPath.cards[i]);
+            Card currentCard = shopPathCards[Random.Range(0, shopPathCards.Count)];
+            currentShopDeck.cards.Add(currentCard);
+            shopPathCards.Remove(currentCard);
+            currentPathCardsCount++;
         }
     }
 
     public void LoadShopCards()
     {
+        int currentPathCardsCount = currentShopDeck.cards.Where(card => card.owner == Owner.Path).Count();
+        int currentFightCardsCount = currentShopDeck.cards.Count - currentPathCardsCount;
         List<int> slotIndices = new List<int>();
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < currentShopDeck.cards.Count; i++)
         {
             slotIndices.Add(i);
         }
-        for (int i = 0; i < 8; i++)
+        for (int i = 0; i < currentFightCardsCount; i++)
         {
             int slotIndex = slotIndices[i];
             var cardObject = Instantiate(shopFightCard, shop.transform);
@@ -64,9 +106,10 @@ public class AdventureController : Controller<AdventureController>
             cardObject.transform.localScale = Vector3.one * 0.27f;
             cardObject.transform.position = cardSlots[slotIndex].transform.position;
             cardObject.GetComponent<CardBaseScript>().UpdateView();
+            AddBuyButton(cardObject);
             cardObject.AddComponent<CardBuyer>();
         }
-        for (int i = 8; i < 10; i++)
+        for (int i = currentFightCardsCount; i < currentShopDeck.cards.Count; i++)
         {
             int slotIndex = slotIndices[i];
             var cardObject = Instantiate(pathCard, shop.transform);
@@ -74,6 +117,7 @@ public class AdventureController : Controller<AdventureController>
             cardObject.transform.localScale = Vector3.one * 0.27f;
             cardObject.transform.position = cardSlots[slotIndex].transform.position;
             cardObject.GetComponent<CardBaseScript>().UpdateView();
+            AddBuyButton(cardObject);
             cardObject.AddComponent<CardBuyer>();
         }
     }
@@ -81,5 +125,23 @@ public class AdventureController : Controller<AdventureController>
     public bool PlayCard(Card card)
     {
         return true;
+    }
+
+    void AddBuyButton(GameObject card)
+    {
+        GameObject buyButton = Instantiate(buyButtonPrefab, card.transform);
+        RectTransform buttonTransform = buyButton.GetComponent<RectTransform>();
+        buttonTransform.anchoredPosition = new Vector2(0, -570);
+        buttonTransform.localScale = new Vector2(4.3f, 4.3f);
+
+        Rarity rarity = card.GetComponent<CardBaseScript>().card.rarity;
+        buyButton.GetComponentInChildren<TMP_Text>().text = $"Купить за {((int)rarity+1) * AVG_MONEY}";
+        buyButton.GetComponentInChildren<TMP_Text>().fontSize = 18;
+        buyButton.GetComponent<Button>().onClick.AddListener(() => BuyCard(card, ((int)rarity+1) * AVG_MONEY));
+    }
+
+    void BuyCard(GameObject card, int price)
+    {
+        // TODO добавить карту в колоду
     }
 }

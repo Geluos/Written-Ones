@@ -6,7 +6,7 @@ using UnityEngine;
 public struct Card
 {
 	public enum PlayType { TargetAlly, TargetEnemy, Global, TargetAll, Moment };
-	public enum Owner { RedHead, Piper, TinWoodpeaker };
+	public enum Owner { RedHead, Piper, TinWoodpeaker, Path };
 	public enum Rarity { Common, Rare, Gold };
 
 	public uint manaPrice;
