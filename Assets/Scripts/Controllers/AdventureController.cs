@@ -10,8 +10,9 @@ public class AdventureController : Controller<AdventureController>
     public GameObject hand;
 	public GameObject notificationDialog;
 	public GameObject chooseDialog;
+    public GameObject ritualDialog;
 
-	private CardsLayout cardsLayout;
+    private CardsLayout cardsLayout;
 
 	public void Start()
 	{

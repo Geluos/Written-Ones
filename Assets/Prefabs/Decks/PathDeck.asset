@@ -63,7 +63,9 @@ MonoBehaviour:
     ballSprite: {fileID: 21300000, guid: 65294981d32a5f34c978fc7350879c26, type: 3}
     name: "\u0420\u0438\u0442\u0443\u0430\u043B"
     description: 
-    effectsList: []
+    effectsList:
+    - effect: {fileID: 11400000, guid: cb93b665ce91613419707b19333574f5, type: 2}
+      value: 0
     type: 2
   - manaPrice: 0
     sprite: {fileID: 21300000, guid: 4fe26bb65b423964c82c82a03850062c, type: 3}

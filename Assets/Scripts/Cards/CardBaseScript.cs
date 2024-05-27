@@ -95,7 +95,7 @@ public class CardBaseScript : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     {
 		if (!isPlayable)
 			return;
-		Debug.Log("Try play");
+		//Debug.Log("Try play");
 		if (FightController.main.playCard(card, target))
 		{
 			cardsLayout.RemoveCard(gameObject);

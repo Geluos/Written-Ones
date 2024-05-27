@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731704, g: 0.13414727, b: 0.121078536, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1946,6 +1946,7 @@ MonoBehaviour:
   max_hp: 40
   current_hp: 40
   startDeck: {fileID: 11400000, guid: 31f21739c1dd8594281ac9a0cc73efc3, type: 2}
+  currentDeck: []
   GFX: {fileID: 618597100}
   shield: 0
 --- !u!4 &506428893
@@ -2328,6 +2329,7 @@ MonoBehaviour:
   max_hp: 30
   current_hp: 30
   startDeck: {fileID: 11400000, guid: f48acd64ff4e33642bc86fa5c04279fe, type: 2}
+  currentDeck: []
   GFX: {fileID: 1700618158}
   shield: 0
 --- !u!4 &634212797
@@ -3058,6 +3060,8 @@ MonoBehaviour:
   notificationDialog: {fileID: 5639570781452207175, guid: b3e9299906a070e48b19b49b3d786ded,
     type: 3}
   chooseDialog: {fileID: 1054974078938873831, guid: e668c189a5c6d3b4e8b21ba2e9b0e8ab,
+    type: 3}
+  ritualDialog: {fileID: 3837251524474823384, guid: afb7e0dce9b010e45aa1a19ed870fc56,
     type: 3}
 --- !u!4 &935843607
 Transform:
@@ -4352,6 +4356,7 @@ MonoBehaviour:
   max_hp: 30
   current_hp: 30
   startDeck: {fileID: 11400000, guid: 7099bb55f51c3844ead0f86908083ce7, type: 2}
+  currentDeck: []
   GFX: {fileID: 1361869286}
   shield: 0
   monsterCanvas: {fileID: 1046289038}
@@ -5281,6 +5286,7 @@ MonoBehaviour:
   max_hp: 50
   current_hp: 50
   startDeck: {fileID: 11400000, guid: 1bfd05a2118c35a4ca5a042bcf9a3b3d, type: 2}
+  currentDeck: []
   GFX: {fileID: 518679355}
   shield: 0
 --- !u!4 &1833794244

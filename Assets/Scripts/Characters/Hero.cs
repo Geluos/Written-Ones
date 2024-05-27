@@ -17,7 +17,7 @@ public class Character : MonoBehaviour
 	public uint max_hp = 10;
 	public uint current_hp = 10;
 	public Deck startDeck = null;
-	protected List<Card> currentDeck = null;
+	public List<Card> currentDeck = null;
 	public GameObject GFX = null;
 
 	[HideInInspector]
