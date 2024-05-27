@@ -11,25 +11,27 @@ public class BodyPart
     public List<GameObject> gameObjects;
 }
 
+[Serializable]
+public class BodyPartsNumberProbability
+{
+    public int bodyPartsNumber;
+    public float probability;
+}
+
 public class CreepyShadowConstructor : MonoBehaviour
 {
     public List<BodyPart> optionalBodyParts;
+    public List<BodyPartsNumberProbability> bodyPartsNumberDistribution;
 
     private readonly Random r = new();
-    private readonly Dictionary<int, float> bodyPartsNumberDistribution = new Dictionary<int, float>()
-    {
-        [0] = 0.15f,
-        [1] = 0.6f,
-        [2] = 0.25f,
-    };
 
     private int GetBodyPartsNumber()
     {
-        var probabilitiesSum = bodyPartsNumberDistribution.Values.Sum();
-        var normalizedDictionary = bodyPartsNumberDistribution.Select(x => new KeyValuePair<int, float>(x.Key, x.Value / probabilitiesSum));
+        var probabilitiesSum = bodyPartsNumberDistribution.Sum(x => x.probability);
+        var normalizedCollection = bodyPartsNumberDistribution.Select(x => new KeyValuePair<int, float>(x.bodyPartsNumber, x.probability / probabilitiesSum));
         var randomFloat = (float)r.NextDouble();
         var cumSum = 0f;
-        foreach(var kv in normalizedDictionary)
+        foreach(var kv in normalizedCollection)
         {
             cumSum += kv.Value;
             if (randomFloat < cumSum)
