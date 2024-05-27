@@ -113,7 +113,7 @@ public class RitualScript : MonoBehaviour
 
     private void RelocateDropFrame()
     {
-        dropFrame.transform.position = new(width * ((1 - dropFrameSize) + dropFrameSize / 2), height / 2, 0f);
+        dropFrame.transform.position = new(width * ((1 - dropFrameSize) + dropFrameSize / 3), height / 2, 0f);
     }
 
     private void InitButtons()
