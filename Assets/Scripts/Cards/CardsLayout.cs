@@ -124,7 +124,7 @@ public class CardsLayout : MonoBehaviour
             for (var i = 0; i < indicesList.Count; ++i)
             {
                 var index = indicesList[i];
-                if (currentAngle > finalAngles[index])
+                if (currentAngle >= finalAngles[index])
                 {
                     cardInstances[index].transform.SetPositionAndRotation(new Vector3(
                         offset.x + radius * Mathf.Cos(currentAngle * Mathf.Deg2Rad),
