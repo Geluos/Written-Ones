@@ -4380,8 +4380,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2, y: 5, z: 0.5}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 5, y: 7, z: 0.5}
+  m_Center: {x: 0.25, y: 1.27, z: 0}
 --- !u!1 &1485299016
 GameObject:
   m_ObjectHideFlags: 0
@@ -6477,6 +6477,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardPrefab: {fileID: 3507312678228970222, guid: c4ff27f6d36e4f84e8c1a50884f254c6,
     type: 3}
+  verticalOffset: 0.96
   cardInstances: []
 --- !u!224 &1981886987237836121
 RectTransform:
@@ -6771,6 +6772,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardPrefab: {fileID: 3507312678228970222, guid: dcec053260b7b33439b75fd735060703,
     type: 3}
+  verticalOffset: 0.95
   cardInstances: []
 --- !u!222 &4681667273623977422
 CanvasRenderer:

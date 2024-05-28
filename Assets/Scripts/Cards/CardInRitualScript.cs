@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class CardInRitualScript : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
+public class CardInRitualScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
     private RectTransform rectTransform;
     private Vector2 startPosition;
@@ -32,11 +32,20 @@ public class CardInRitualScript : MonoBehaviour, IBeginDragHandler, IEndDragHand
         cardGFX.name.text = card.name;
     }
 
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        rectTransform.localScale = new Vector3(rectTransform.localScale.x * scaleFactor, rectTransform.localScale.y * scaleFactor);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        rectTransform.localScale = new Vector3(rectTransform.localScale.x / scaleFactor, rectTransform.localScale.y / scaleFactor);
+    }
+
     public void OnBeginDrag(PointerEventData eventData)
     {
         transform.SetAsLastSibling();
         startPosition = transform.position;
-        rectTransform.localScale = new Vector3(rectTransform.localScale.x * scaleFactor, rectTransform.localScale.y * scaleFactor);
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -49,10 +58,7 @@ public class CardInRitualScript : MonoBehaviour, IBeginDragHandler, IEndDragHand
         if (IsInsideDropFrame())
             CardActivate();
         else
-        {
-            rectTransform.localScale = new Vector3(rectTransform.localScale.x / scaleFactor, rectTransform.localScale.y / scaleFactor);
             transform.position = startPosition;
-        }
     }
 
     private bool IsInsideDropFrame()

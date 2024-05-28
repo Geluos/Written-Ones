@@ -10,10 +10,12 @@ public class RitualScript : MonoBehaviour
     public int columnsNumber = 5;
     public int rowsNumber = 2;
     public float dropFrameSize = 0.2f;
+    public float verticalOffset = 0.1f;
     public float buttonsOffset = 0.05f;
 
     private List<Card> deck;
     private RectTransform rect;
+    private GameObject title;
     private GameObject dropFrame;
     private GameObject previousButton;
     private GameObject nextButton;
@@ -57,7 +59,7 @@ public class RitualScript : MonoBehaviour
             {
                 cardsPositions.Add(new Vector3(
                     (horizontalShift + colIdx * horizontalShift) * scaler,
-                    verticalShift + rowIdx * verticalShift,
+                    verticalShift + rowIdx * verticalShift - verticalOffset * height,
                     0f
                 ));
             }
@@ -113,7 +115,7 @@ public class RitualScript : MonoBehaviour
 
     private void RelocateDropFrame()
     {
-        dropFrame.transform.position = new(width * ((1 - dropFrameSize) + dropFrameSize / 3), height / 2, 0f);
+        dropFrame.transform.position = new(width * ((1 - dropFrameSize) + dropFrameSize / 3), height / 2 - verticalOffset * height, 0f);
     }
 
     private void InitButtons()

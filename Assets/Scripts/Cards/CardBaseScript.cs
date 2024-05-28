@@ -12,6 +12,7 @@ public class CardBaseScript : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 	public Card card;
 	public CardGFX cardGFX;
     public List<GameObject> cardInstances;
+    private Vector2 oldPosition;
 
 	[HideInInspector]
 	public bool isPlayable = true;
@@ -52,7 +53,8 @@ public class CardBaseScript : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     {
 		if (!isPlayable)
 			return;
-		startPosition = transform.position;
+        oldPosition = eventData.position;
+        startPosition = transform.position;
 		FightController.main.isDragCard = true;
     }
 
@@ -60,7 +62,9 @@ public class CardBaseScript : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     {
 		if (!isPlayable)
 			return;
-		transform.position = eventData.position;
+		var offset = eventData.position - oldPosition;
+		transform.position = new Vector3(transform.position.x + offset.x, transform.position.y + offset.y, 0f);
+		oldPosition = eventData.position;
     }
 
     public virtual void OnEndDrag(PointerEventData eventData) 
