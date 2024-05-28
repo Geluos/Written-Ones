@@ -45,7 +45,7 @@ public class CardBaseScript : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 		cardsLayout.UnfocusCard(gameObject);
     }
 
-    public void OnBeginDrag(PointerEventData eventData) 
+    public void OnBeginDrag(PointerEventData eventData)
     {
 		if (!isPlayable)
 			return;
@@ -60,7 +60,7 @@ public class CardBaseScript : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 		transform.position = eventData.position;
     }
 
-    public virtual void OnEndDrag(PointerEventData eventData) 
+    public virtual void OnEndDrag(PointerEventData eventData)
     {
 		if (!isPlayable)
 			return;
@@ -72,16 +72,15 @@ public class CardBaseScript : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 		if (cardBottom > 0)
         {
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-			RaycastHit hit;
-			if (Physics.Raycast(ray, out hit, 100))
-			{
-				Debug.Log(hit.collider.gameObject.name);
-				CardActivate(hit.collider.gameObject);
-			}
-			else
-			{
-				CardActivate();
-			}
+            if (Physics.Raycast(ray, out RaycastHit hit, 100))
+            {
+                Debug.Log(hit.collider.gameObject.name);
+                CardActivate(hit.collider.gameObject);
+            }
+            else
+            {
+                CardActivate();
+            }
         }
         else
         {
@@ -96,7 +95,7 @@ public class CardBaseScript : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 		if (!isPlayable)
 			return;
 		//Debug.Log("Try play");
-		if (FightController.main.playCard(card, target))
+		if (FightController.main.PlayCard(card, target))
 		{
 			cardsLayout.RemoveCard(gameObject);
 			Destroy(gameObject);

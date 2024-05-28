@@ -27,11 +27,11 @@ public class Character : MonoBehaviour
 	{
 		currentDeck = new List<Card>();
 		foreach (Card card in startDeck.cards)
-			currentDeck.Add(card.copy());
+			currentDeck.Add(card.Copy());
 		Shuffle(currentDeck);
 	}
 
-	public void getDamage(uint value)
+	public void GetDamage(uint value)
 	{
 		if (shield > value)
 		{
@@ -45,15 +45,12 @@ public class Character : MonoBehaviour
 		}
 
 		if (value < current_hp)
-			current_hp = current_hp - value;
+			current_hp -= value;
 		else
 			current_hp = 0;
 	}
 
-	public bool isAlive()
-	{
-		return current_hp > 0;
-	}
+	public bool IsAlive => current_hp > 0;
 	//TODO ADD
 	//public Ability ability;
 
@@ -69,15 +66,15 @@ public class Character : MonoBehaviour
 			list[randomIndex] = temp;
 		}
 	}
-	public Card getCard()
+	public Card GetCard()
 	{
 		Card res;
 		if (currentDeck.Count <= 0)
 		{
-			currentDeck = new List<Card>();
+			currentDeck = new();
 			foreach (Card card in startDeck.cards)
-				currentDeck.Add(card.copy());
-			Shuffle<Card>(currentDeck);
+				currentDeck.Add(card.Copy());
+			Shuffle(currentDeck);
 		}
 
 		res = currentDeck[0];
@@ -89,5 +86,5 @@ public class Character : MonoBehaviour
 
 public class Hero : Character
 {
-	
+
 }

@@ -18,8 +18,10 @@ public class CameraMovement : MonoBehaviour
     {
         while (Vector3.Distance(transform.position, target) > 0.05f)
         {
-            transform.position = Vector3.Lerp(transform.position, target, moveSpeed * Time.deltaTime);
-            transform.rotation = Quaternion.Lerp(transform.rotation, targetQ, moveSpeed * Time.deltaTime);
+            transform.SetPositionAndRotation(
+                Vector3.Lerp(transform.position, target, moveSpeed * Time.deltaTime),
+                Quaternion.Lerp(transform.rotation, targetQ, moveSpeed * Time.deltaTime)
+            );
             yield return null;
         }
         afterCallback?.Invoke();

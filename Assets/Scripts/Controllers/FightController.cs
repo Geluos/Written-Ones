@@ -25,22 +25,22 @@ public class FightController : Controller<FightController>
 	public Decorations decorations;
 	[HideInInspector]
 	public bool isDragCard = false;
-	
+
 
 	public void StartFight()
 	{
 		decorations.Decorate();
 		AdventureScene.SetActive(false);
 		FightScene.SetActive(true);
-		createDeck();
-		startHeroTurn();
+		CreateDeck();
+		StartHeroTurn();
 		enemyList[0].current_hp = enemyList[0].max_hp;
 
 	}
 
-	public void restorePartyHp(float percent)
+	public void RestorePartyHp(float percent)
 	{
-		foreach(var hero in heroList)
+		foreach (var hero in heroList)
 		{
 			hero.current_hp = Math.Min(hero.max_hp, hero.current_hp + (uint)Math.Round(hero.max_hp * percent / 100));
 		}
@@ -58,14 +58,14 @@ public class FightController : Controller<FightController>
 		}
 	}
 
-	private void createDeck()
+	private void CreateDeck()
 	{
 		heroesDeck = Deck.CreateInstance<Deck>();
 		foreach (var hero in heroList)
 		{
-			foreach(var card in hero.startDeck.cards)
+			foreach (var card in hero.startDeck.cards)
 			{
-				heroesDeck.cards.Add(card.copy());
+				heroesDeck.cards.Add(card.Copy());
 			}
 		}
 	}
@@ -78,14 +78,14 @@ public class FightController : Controller<FightController>
 	//	Shuffle(deckCards);
 	//}
 
-	public Card getCard()
+	public Card GetCard()
 	{
 		Card res;
 		if (deckCards.Count <= 0)
 		{
 			deckCards = new List<Card>();
 			foreach (Card card in heroesDeck.cards)
-				deckCards.Add(card.copy());
+				deckCards.Add(card.Copy());
 			Shuffle<Card>(deckCards);
 		}
 
@@ -94,15 +94,15 @@ public class FightController : Controller<FightController>
 		return res;
 	}
 
-	public void startHeroTurn()
+	public void StartHeroTurn()
 	{
-		clearCards();
+		ClearCards();
 		manaStr.text = 0.ToString();
 		manaCnt = 0;
 
 		for (int i = 0; i < 6; ++i)
 		{
-			var card = getCard();
+			var card = GetCard();
 			cards.Add(card);
 		}
 
@@ -123,9 +123,11 @@ public class FightController : Controller<FightController>
 
 		foreach (Enemy enemy in enemyList)
 		{
-			enemy.nextCard = new CardHolder();
-			enemy.nextCard.card = enemy.getCard();
-		}
+            enemy.nextCard = new CardHolder
+            {
+                card = enemy.GetCard()
+            };
+        }
 
 		//PlayMomentalCards();
 	}
@@ -135,34 +137,34 @@ public class FightController : Controller<FightController>
 		manaStr.text = manaCnt.ToString();
 	}
 
-	public void addMana(uint value)
+	public void AddMana(uint value)
 	{
 		manaCnt += value;
 		UpdateUI();
 	}
 
-	public void addCard(uint value)
+	public void AddCard(uint value)
 	{
 		for (int i = 0; i < value; ++i)
 		{
 
-			var card = getCard();
+			var card = GetCard();
 			cards.Add(card);
 
 			var cardObject = Instantiate(baseCard, hand.transform);
 			var cardLayout = hand.GetComponent<CardsLayout>();
 			cardLayout.cardInstances.Add(cardObject);
-			cardObject.GetComponent<CardBaseScript>().card = card.copy();
+			cardObject.GetComponent<CardBaseScript>().card = card.Copy();
 			cardObject.GetComponent<CardBaseScript>().UpdateView();
 		}
 	}
 
-	private void checkLose()
+	private void CheckLose()
 	{
 		bool flag = true;
 		foreach (var hero in heroList)
 		{
-			if (hero.isAlive())
+			if (hero.IsAlive)
 				flag = false;
 		}
 		if (flag)
@@ -171,19 +173,19 @@ public class FightController : Controller<FightController>
 
 	public void DamageAllEnemies(uint value)
 	{
-		
-		foreach(var enemy in enemyList)
+
+		foreach (var enemy in enemyList)
 		{
 
-			enemy.getDamage(value);
+			enemy.GetDamage(value);
 		}
-		checkWin();
+		CheckWin();
 	}
 
 	public void DamageEnemy(Character enemy, uint value)
 	{
-		enemy.getDamage(value);
-		checkWin();
+		enemy.GetDamage(value);
+		CheckWin();
 	}
 
 	public void AddShield(Character hero, uint value)
@@ -191,9 +193,9 @@ public class FightController : Controller<FightController>
 		hero.shield += value;
 	}
 
-	private void checkWin()
+	private void CheckWin()
 	{
-		if (!enemyList[0].isAlive())
+		if (!enemyList[0].IsAlive)
 		{
 			AdventureScene.SetActive(true);
 			FightScene.SetActive(false);
@@ -205,28 +207,28 @@ public class FightController : Controller<FightController>
 		int next = UnityEngine.Random.Range(1, 10);
 
 		var hero = heroList[0];
-		for(int i = 0; i < next; ++i)
+		for (int i = 0; i < next; ++i)
 		{
-			if (heroList[i%3].isAlive())
-				hero = heroList[i%3];
+			if (heroList[i % 3].IsAlive)
+				hero = heroList[i % 3];
 		}
 
-		hero.getDamage(value);
+		hero.GetDamage(value);
 
-		checkLose();
+		CheckLose();
 	}
 
 	public void DamageAllHeroes(uint value)
 	{
-		foreach(var hero in heroList)
+		foreach (var hero in heroList)
 		{
-			hero.getDamage(value);
+			hero.GetDamage(value);
 		}
 
-		checkLose();
+		CheckLose();
 	}
 
-	public void minusMana(uint value)
+	public void MinusMana(uint value)
 	{
 		if (value > manaCnt)
 			manaCnt = 0;
@@ -235,11 +237,11 @@ public class FightController : Controller<FightController>
 		UpdateUI();
 	}
 
-	public bool playCard(Card card, GameObject target = null)
+	public bool PlayCard(Card card, GameObject target = null)
 	{
 		if (card.manaPrice <= manaCnt)
 		{
-			switch(card.type)
+			switch (card.type)
 			{
 				case Card.PlayType.TargetAll:
 					foreach (var effect in card.effectsList)
@@ -277,7 +279,7 @@ public class FightController : Controller<FightController>
 					break;
 			}
 
-			minusMana(card.manaPrice);
+			MinusMana(card.manaPrice);
 
 			return true;
 		}
@@ -288,7 +290,7 @@ public class FightController : Controller<FightController>
 	//HACK
 	/*private void PlayMomentalCards()
 	{
-		
+
 		var children = new List<GameObject>();
 		foreach (Transform child in hand.transform)
 		{
@@ -302,11 +304,11 @@ public class FightController : Controller<FightController>
 		children.ForEach(child => Destroy(child));
 	}*/
 
-	private void clearCards()
+	private void ClearCards()
 	{
 		cards.Clear();
 		var children = new List<GameObject>();
-		foreach (Transform child in hand.transform) 
+		foreach (Transform child in hand.transform)
 			children.Add(child.gameObject);
 		children.ForEach(child => Destroy(child));
 
@@ -315,22 +317,21 @@ public class FightController : Controller<FightController>
 
 	}
 
-	public void endHeroTurn()
+	public void EndHeroTurn()
 	{
-		enemyTurn();
-		startHeroTurn();
+		EnemyTurn();
+		StartHeroTurn();
 	}
 
-	public void enemyTurn()
+	public void EnemyTurn()
 	{
-		foreach(var enemy in enemyList)
+		foreach (var enemy in enemyList)
 		{
-			if (enemy.nextCard == null)
-			{
-				enemy.nextCard = new CardHolder();
-				enemy.nextCard.card = enemy.getCard();
-			}
-			foreach(var effect in enemy.nextCard.card.effectsList)
+			enemy.nextCard ??= new CardHolder
+                {
+                    card = enemy.GetCard()
+                };
+			foreach (var effect in enemy.nextCard.card.effectsList)
 			{
 				effect.effect.Activate((int)effect.value);
 			}

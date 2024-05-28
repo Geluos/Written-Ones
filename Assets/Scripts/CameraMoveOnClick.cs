@@ -18,8 +18,10 @@ public class CameraMoveOnClick : MonoBehaviour
 
     private void OnMouseUp()
     {
-        var targetQ = new Quaternion();
-        targetQ.eulerAngles = targetRotation;
+        var targetQ = new Quaternion
+        {
+            eulerAngles = targetRotation
+        };
 
         if (cardsAnimation == CardsAnimationType.FadeOut)
         {

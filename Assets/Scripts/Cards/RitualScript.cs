@@ -20,8 +20,8 @@ public class RitualScript : MonoBehaviour
     private float height;
     private float width;
     private Vector2 center;
-    private List<Vector3> cardsPositions = new();
-    private List<GameObject> cardInstances = new();
+    private readonly List<Vector3> cardsPositions = new();
+    private readonly List<GameObject> cardInstances = new();
     private int pageNumber = 0;
 
     private void OnRectTransformDimensionsChange()
@@ -73,7 +73,7 @@ public class RitualScript : MonoBehaviour
         {
             var cardObject = Instantiate(cardPrefab, offScreenLocation, defaultAngle, transform);
             var script = cardObject.GetComponent<CardInRitualScript>();
-            script.card = _deck[i].copy();
+            script.card = _deck[i].Copy();
             script.dropFrameRectTransform = dropFrame.GetComponent<RectTransform>();
             script.UpdateView();
             script.activateAction = (Card card) =>

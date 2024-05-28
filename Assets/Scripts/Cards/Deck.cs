@@ -13,7 +13,7 @@ public class Deck : ScriptableObject
 		cards = new List<Card>();
 		foreach (Card card in deck.cards)
 		{
-			cards.Add(card.copy());
+			cards.Add(card.Copy());
 		}
 	}
 

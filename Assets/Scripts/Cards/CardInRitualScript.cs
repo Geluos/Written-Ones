@@ -8,7 +8,7 @@ public class CardInRitualScript : MonoBehaviour, IBeginDragHandler, IEndDragHand
 {
     private RectTransform rectTransform;
     private Vector2 startPosition;
-    private float scaleFactor = 1.2f;
+    private readonly float scaleFactor = 1.2f;
 
     public Card card;
     public CardGFX cardGFX;

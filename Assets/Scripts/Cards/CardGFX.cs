@@ -10,7 +10,7 @@ public struct CardGFX
 	public Image portraitImage;
     public Image leftBallImage;
     public Image rightBallImage;
-    public TMPro.TextMeshProUGUI manaString;
-	public TMPro.TextMeshProUGUI descriptionString;
-	public TMPro.TextMeshProUGUI name;
+    public TextMeshProUGUI manaString;
+	public TextMeshProUGUI descriptionString;
+	public TextMeshProUGUI name;
 }

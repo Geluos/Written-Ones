@@ -16,17 +16,19 @@ public struct Card
 	public List<CardEffectWrapper> effectsList;
     public PlayType type;
 
-	public Card copy()
+	public Card Copy()
 	{
-		Card card = new Card();
-		card.type = type;
-		card.name = name;
-		card.description = description;
-		card.effectsList = effectsList;
-		card.sprite = sprite;
-		card.ballSprite = ballSprite;
-		card.manaPrice = manaPrice;
-		return card;
+        Card card = new()
+        {
+            type = type,
+            name = name,
+            description = description,
+            effectsList = effectsList,
+            sprite = sprite,
+            ballSprite = ballSprite,
+            manaPrice = manaPrice
+        };
+        return card;
 	}
 }
 
@@ -34,9 +36,6 @@ public class CardHolder
 {
 	public Card card;
 }
-
-
-
 
 [System.Serializable]
 public struct CardEffectWrapper

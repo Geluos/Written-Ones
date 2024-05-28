@@ -24,7 +24,7 @@ public class CardEffectRandomEvent : CardEffect
 {
     public List<EffectsCombination> effectsCombinations;
 
-    private System.Random r = new System.Random();
+    private readonly System.Random r = new();
 
     public override void Activate()
 	{
