@@ -23,9 +23,10 @@ public class FightController : Controller<FightController>
 	public GameObject FightScene;
 	public GameObject youLose;
 	public Decorations decorations;
+	public RewardsDialogScript rewardsDialog;
 	[HideInInspector]
 	public bool isDragCard = false;
-	
+
 
 	public void StartFight()
 	{
@@ -35,7 +36,7 @@ public class FightController : Controller<FightController>
 		createDeck();
 		startHeroTurn();
 		enemyList[0].current_hp = enemyList[0].max_hp;
-
+		// rewardsDialog.GiveReward();
 	}
 
 	public void restorePartyHp(float percent)
@@ -171,10 +172,8 @@ public class FightController : Controller<FightController>
 
 	public void DamageAllEnemies(uint value)
 	{
-		
 		foreach(var enemy in enemyList)
 		{
-
 			enemy.getDamage(value);
 		}
 		checkWin();
@@ -195,8 +194,7 @@ public class FightController : Controller<FightController>
 	{
 		if (!enemyList[0].isAlive())
 		{
-			AdventureScene.SetActive(true);
-			FightScene.SetActive(false);
+			rewardsDialog.GiveReward();
 		}
 	}
 
@@ -288,7 +286,7 @@ public class FightController : Controller<FightController>
 	//HACK
 	/*private void PlayMomentalCards()
 	{
-		
+
 		var children = new List<GameObject>();
 		foreach (Transform child in hand.transform)
 		{
@@ -306,7 +304,7 @@ public class FightController : Controller<FightController>
 	{
 		cards.Clear();
 		var children = new List<GameObject>();
-		foreach (Transform child in hand.transform) 
+		foreach (Transform child in hand.transform)
 			children.Add(child.gameObject);
 		children.ForEach(child => Destroy(child));
 
