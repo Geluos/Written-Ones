@@ -9,7 +9,8 @@ public struct Card
 
 	public uint manaPrice;
 	public Sprite sprite;
-	public Sprite ballSprite;
+    public Sprite crystalSprite;
+    public Sprite ballSprite;
 	public string name;
 	public string description;
 	[SerializeField]
@@ -24,7 +25,8 @@ public struct Card
 		card.description = description;
 		card.effectsList = effectsList;
 		card.sprite = sprite;
-		card.ballSprite = ballSprite;
+        card.crystalSprite = crystalSprite;
+        card.ballSprite = ballSprite;
 		card.manaPrice = manaPrice;
 		return card;
 	}

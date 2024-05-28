@@ -26,6 +26,9 @@ public class CardBaseScript : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 	public virtual void UpdateView()
 	{
 		cardGFX.portraitImage.sprite = card.sprite;
+        cardGFX.crystalImage.sprite = card.crystalSprite;
+        cardGFX.leftBallImage.sprite = card.ballSprite;
+		cardGFX.rightBallImage.sprite = card.ballSprite;
 		cardGFX.manaString.text = card.manaPrice.ToString();
 		cardGFX.descriptionString.text = card.description.ToString();
 		cardGFX.name.text = card.name;

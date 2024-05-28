@@ -255,6 +255,7 @@ MonoBehaviour:
   card:
     manaPrice: 0
     sprite: {fileID: 0}
+    crystalSprite: {fileID: 0}
     ballSprite: {fileID: 0}
     name: 
     description: 
@@ -262,6 +263,7 @@ MonoBehaviour:
     type: 0
   cardGFX:
     portraitImage: {fileID: 6378276491190658768}
+    crystalImage: {fileID: 0}
     leftBallImage: {fileID: 6456030207567736667}
     rightBallImage: {fileID: 8773774569047526982}
     manaString: {fileID: 0}
