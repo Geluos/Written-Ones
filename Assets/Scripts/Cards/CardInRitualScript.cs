@@ -9,6 +9,7 @@ public class CardInRitualScript : MonoBehaviour, IPointerEnterHandler, IPointerE
     private RectTransform rectTransform;
     private Vector2 startPosition;
     private float scaleFactor = 1.2f;
+    private Vector2 oldPosition;
 
     public Card card;
     public CardGFX cardGFX;
@@ -35,6 +36,7 @@ public class CardInRitualScript : MonoBehaviour, IPointerEnterHandler, IPointerE
     public void OnPointerEnter(PointerEventData eventData)
     {
         rectTransform.localScale = new Vector3(rectTransform.localScale.x * scaleFactor, rectTransform.localScale.y * scaleFactor);
+        transform.SetAsLastSibling();
     }
 
     public void OnPointerExit(PointerEventData eventData)
@@ -45,12 +47,15 @@ public class CardInRitualScript : MonoBehaviour, IPointerEnterHandler, IPointerE
     public void OnBeginDrag(PointerEventData eventData)
     {
         transform.SetAsLastSibling();
+        oldPosition = eventData.position;
         startPosition = transform.position;
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        transform.position = eventData.position;
+        var offset = eventData.position - oldPosition;
+        transform.position = new Vector3(transform.position.x + offset.x, transform.position.y + offset.y, 0f);
+        oldPosition = eventData.position;
     }
 
     public virtual void OnEndDrag(PointerEventData eventData)
