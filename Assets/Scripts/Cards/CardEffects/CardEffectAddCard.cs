@@ -7,12 +7,12 @@ public class CardEffectAddCard : CardEffect
 {
 	public override void Activate()
 	{
-		FightController.main.addCard(1);
+		FightController.main.AddCard(1);
 	}
 
 	public override void Activate(int par)
 	{
-		FightController.main.addCard((uint)par);
+		FightController.main.AddCard((uint)par);
 	}
 
 	public override void Activate(Character target, int par)

@@ -34,7 +34,7 @@ public class CardsLayout : MonoBehaviour
     private Vector2 offset = new();
     private float minAngle = 80;
     private float maxAngle = 100;
-    private float radius = 2000f;
+    private readonly float radius = 2000f;
     private Vector3 cardScaleFactor = new(0.1f, 0.1f, 0f);
     private List<float> cardAngles = new();
 
@@ -66,11 +66,11 @@ public class CardsLayout : MonoBehaviour
         cardAngles = GetAngles(deck.cards.Count);
         for (var i = 0; i < deck.cards.Count; ++i)
         {
-            var cardObject = Instantiate(cardPrefab, 
-                new Vector3(offset.x, offset.y, 0f), 
-                Quaternion.Euler(0f, 0f, maxAngle - 90f), 
+            var cardObject = Instantiate(cardPrefab,
+                new Vector3(offset.x, offset.y, 0f),
+                Quaternion.Euler(0f, 0f, maxAngle - 90f),
                 transform);
-            cardObject.GetComponent<CardBaseScript>().card = deck.cards[i].copy();
+            cardObject.GetComponent<CardBaseScript>().card = deck.cards[i].Copy();
             cardObject.GetComponent<CardBaseScript>().UpdateView();
             cardInstances.Add(cardObject);
         }
@@ -95,8 +95,15 @@ public class CardsLayout : MonoBehaviour
 
     public IEnumerator FadeInCoroutine()
     {
-        Vector3 startingPos = new(offset.x, offset.y, 0f);
-        Vector3 finalPos = new(offset.x + radius * Mathf.Cos(maxAngle * Mathf.Deg2Rad), offset.y + radius * Mathf.Sin(maxAngle * Mathf.Deg2Rad), 0f);
+        Vector3 startingPos = new(
+            offset.x,
+            offset.y,
+            0f);
+        Vector3 finalPos = new(
+            offset.x + radius * Mathf.Cos(maxAngle * Mathf.Deg2Rad),
+            offset.y + radius * Mathf.Sin(maxAngle * Mathf.Deg2Rad),
+            0f);
+
         float time = 0.5f;
         float elapsedTime = 0;
         while (elapsedTime <= time)
@@ -104,7 +111,7 @@ public class CardsLayout : MonoBehaviour
             cardInstances.ForEach(instance =>
             {
                 instance.transform.SetPositionAndRotation(
-                    Vector3.Lerp(startingPos, finalPos, 0.75f + 0.25f * (elapsedTime / time)), 
+                    Vector3.Lerp(startingPos, finalPos, 0.75f + 0.25f * (elapsedTime / time)),
                     Quaternion.Euler(0, 0, maxAngle - 90f));
             });
             elapsedTime += Time.deltaTime;
@@ -174,9 +181,16 @@ public class CardsLayout : MonoBehaviour
             yield return null;
         }
 
-        Vector3 startingPos = new(offset.x + radius * Mathf.Cos(minAngle * Mathf.Deg2Rad), offset.y + radius * Mathf.Sin(minAngle * Mathf.Deg2Rad), 0f);
-        Vector3 finalPos = new(offset.x, offset.y, 0f);
-        float time = 0.5f; 
+        Vector3 startingPos = new(
+            offset.x + radius * Mathf.Cos(minAngle * Mathf.Deg2Rad),
+            offset.y + radius * Mathf.Sin(minAngle * Mathf.Deg2Rad),
+            0f);
+
+        Vector3 finalPos = new(
+            offset.x,
+            offset.y,
+            0f);
+        float time = 0.5f;
         float elapsedTime = 0;
         while (elapsedTime <= time)
         {
@@ -242,7 +256,10 @@ public class CardsLayout : MonoBehaviour
     private CardOrientation GetCardOrientation(float angle, float radiusOffset = 0f) =>
         new()
         {
-            Position = new Vector3(offset.x + (radius + radiusOffset) * Mathf.Cos(angle * Mathf.Deg2Rad), offset.y + (radius + radiusOffset) * Mathf.Sin(angle * Mathf.Deg2Rad), 0f),
+            Position = new Vector3(
+                offset.x + (radius + radiusOffset) * Mathf.Cos(angle * Mathf.Deg2Rad),
+                offset.y + (radius + radiusOffset) * Mathf.Sin(angle * Mathf.Deg2Rad),
+                0f),
             Rotation = Quaternion.Euler(0, 0, angle - 90f)
         };
 

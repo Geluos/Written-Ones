@@ -27,11 +27,11 @@ public class Enemy : Character
 		{
 			var cardsLayout = FightController.main.hand.GetComponent<CardsLayout>();
 			card = Instantiate(cardsLayout.cardPrefab, monsterCanvas.transform);
-			
+
 
 			card.GetComponent<CardBaseScript>().isPlayable = false;
 
-			card.GetComponent<CardBaseScript>().card = nextCard.card.copy();
+			card.GetComponent<CardBaseScript>().card = nextCard.card.Copy();
 			card.GetComponent<CardBaseScript>().UpdateView();
 
 
