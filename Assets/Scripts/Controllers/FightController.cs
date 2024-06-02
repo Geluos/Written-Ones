@@ -32,6 +32,8 @@ public class FightController : Controller<FightController>
 	[HideInInspector]
 	public int actNum = 0;
 	
+	public RewardsDialogScript rewardsDialog;
+
 
 	public void StartFight()
 	{
@@ -226,10 +228,8 @@ public class FightController : Controller<FightController>
 
 	public void DamageAllEnemies(uint value)
 	{
-		
 		foreach(var enemy in enemyList)
 		{
-
 			enemy.getDamage(value);
 		}
 		checkWin();
@@ -287,6 +287,7 @@ public class FightController : Controller<FightController>
 
 			AdventureScene.SetActive(true);
 			FightScene.SetActive(false);
+			rewardsDialog.GiveReward();
 		}
 	}
 
@@ -378,7 +379,7 @@ public class FightController : Controller<FightController>
 	//HACK
 	/*private void PlayMomentalCards()
 	{
-		
+
 		var children = new List<GameObject>();
 		foreach (Transform child in hand.transform)
 		{
@@ -396,7 +397,7 @@ public class FightController : Controller<FightController>
 	{
 		cards.Clear();
 		var children = new List<GameObject>();
-		foreach (Transform child in hand.transform) 
+		foreach (Transform child in hand.transform)
 			children.Add(child.gameObject);
 		children.ForEach(child => Destroy(child));
 
