@@ -120,7 +120,7 @@ public class FightController : Controller<FightController>
 		{
 			foreach(var card in hero.startDeck.cards)
 			{
-				var cardCopy = card.copy();
+				var cardCopy = card.Copy();
 				cardCopy.owner = hero;
 				cardCopy.setOwnerForEffects();
 				heroesDeck.cards.Add(cardCopy);
@@ -143,7 +143,7 @@ public class FightController : Controller<FightController>
 		{
 			deckCards = new List<Card>();
 			foreach (Card card in heroesDeck.cards)
-				deckCards.Add(card.copy());
+				deckCards.Add(card.Copy());
 			Shuffle<Card>(deckCards);
 		}
 
@@ -192,13 +192,13 @@ public class FightController : Controller<FightController>
 		manaStr.text = manaCnt.ToString();
 	}
 
-	public void addMana(uint value)
+	public void AddMana(uint value)
 	{
 		manaCnt += value;
 		UpdateUI();
 	}
 
-	public void addCard(uint value)
+	public void AddCard(uint value)
 	{
 		for (int i = 0; i < value; ++i)
 		{
@@ -209,7 +209,7 @@ public class FightController : Controller<FightController>
 			var cardObject = Instantiate(baseCard, hand.transform);
 			var cardLayout = hand.GetComponent<CardsLayout>();
 			cardLayout.cardInstances.Add(cardObject);
-			cardObject.GetComponent<CardBaseScript>().card = card.copy();
+			cardObject.GetComponent<CardBaseScript>().card = card.Copy();
 			cardObject.GetComponent<CardBaseScript>().UpdateView();
 		}
 	}
@@ -219,7 +219,7 @@ public class FightController : Controller<FightController>
 		bool flag = true;
 		foreach (var hero in heroList)
 		{
-			if (hero.isAlive())
+			if (hero.IsAlive)
 				flag = false;
 		}
 		if (flag)
@@ -230,14 +230,14 @@ public class FightController : Controller<FightController>
 	{
 		foreach(var enemy in enemyList)
 		{
-			enemy.getDamage(value);
+			enemy.GetDamage(value);
 		}
 		checkWin();
 	}
 
 	public void DamageEnemy(Character enemy, uint value)
 	{
-		enemy.getDamage(value);
+		enemy.GetDamage(value);
 		checkWin();
 	}
 
@@ -268,7 +268,7 @@ public class FightController : Controller<FightController>
 		bool hasAlive = false;
 		foreach (var enemy in enemyList)
 		{
-			if (enemy.isAlive())
+			if (enemy.IsAlive)
 				hasAlive = true;
 		}
 		if (!hasAlive)
@@ -298,11 +298,11 @@ public class FightController : Controller<FightController>
 		var hero = heroList[0];
 		for(int i = 0; i < next; ++i)
 		{
-			if (heroList[i%3].isAlive())
+			if (heroList[i%3].IsAlive)
 				hero = heroList[i%3];
 		}
 
-		hero.getDamage(value);
+		hero.GetDamage(value);
 
 		checkLose();
 	}
@@ -311,7 +311,7 @@ public class FightController : Controller<FightController>
 	{
 		foreach(var hero in heroList)
 		{
-			hero.getDamage(value);
+			hero.GetDamage(value);
 		}
 
 		checkLose();
@@ -415,7 +415,7 @@ public class FightController : Controller<FightController>
 	private void EnemyGetCard(Enemy enemy)
 	{
 		enemy.nextCard = new CardHolder();
-		enemy.nextCard.card = enemy.getCard();
+		enemy.nextCard.card = enemy.GetCard();
 		enemy.nextCard.card.owner = enemy;
 		enemy.nextCard.card.setOwnerForEffects();
 

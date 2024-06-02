@@ -76,13 +76,10 @@ public class CardsLayout : MonoBehaviour
         cardAngles = GetAngles(deck.cards.Count);
         for (var i = 0; i < deck.cards.Count; ++i)
         {
-            var cardObject = Instantiate(cardPrefab,
-                new Vector3(offset.x, offset.y, 0f),
-                Quaternion.Euler(0f, 0f, maxAngle - 90f),
-                transform);
-            cardObject.GetComponent<CardBaseScript>().card = deck.cards[i].Copy();
-            cardObject.GetComponent<CardBaseScript>().UpdateView();
-            cardInstances.Add(cardObject);
+			var cardObject = Instantiate(cardPrefab, AdventureController.main.hand.transform);
+			cardObject.GetComponent<PathCardScript>().card = deck.cards[i].Copy();
+			cardObject.GetComponent<PathCardScript>().UpdateView();
+			cardInstances.Add(cardObject);
         }
     }
 

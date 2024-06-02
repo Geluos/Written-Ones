@@ -16,6 +16,7 @@ public class AdventureController : Controller<AdventureController>
 	public GameObject notificationDialog;
 	public GameObject chooseDialog;
     public GameObject ritualDialog;
+	//public GameObject pathCard;
 
 	private CardsLayout cardsLayout;
 	public Deck shopDeckFight;
@@ -36,7 +37,7 @@ public class AdventureController : Controller<AdventureController>
 	{
 		StartNewAct();
 
-		LoadPathDeck();
+		//LoadPathDeck();
 
         shopFightCards = new List<Card>(shopDeckFight.cards);
         shopPathCards = new List<Card>(shopDeckPath.cards);
@@ -54,15 +55,15 @@ public class AdventureController : Controller<AdventureController>
         else shop.SetActive(false);
     }
 
-    public void LoadPathDeck()
-	{
-        foreach (var card in pathDeck.cards)
-        {
-            var cardObject = Instantiate(pathCard, hand.transform);
-            cardObject.GetComponent<PathCardScript>().card = card.copy();
-            cardObject.GetComponent<PathCardScript>().UpdateView();
-        }
-    }
+ //   public void LoadPathDeck()
+	//{
+ //       foreach (var card in pathDeck.cards)
+ //       {
+ //           var cardObject = Instantiate(pathCard, hand.transform);
+ //           cardObject.GetComponent<PathCardScript>().card = card.copy();
+ //           cardObject.GetComponent<PathCardScript>().UpdateView();
+ //       }
+ //   }
 
     public void InitShopCards()
     {
@@ -98,35 +99,35 @@ public class AdventureController : Controller<AdventureController>
 
     public void LoadShopCards()
     {
-        int currentPathCardsCount = currentShopDeck.cards.Where(card => card.owner == Owner.Path).Count();
-        int currentFightCardsCount = currentShopDeck.cards.Count - currentPathCardsCount;
-        List<int> slotIndices = new List<int>();
-        for (int i = 0; i < currentShopDeck.cards.Count; i++)
-        {
-            slotIndices.Add(i);
-        }
-        for (int i = 0; i < currentFightCardsCount; i++)
-        {
-            int slotIndex = slotIndices[i];
-            var cardObject = Instantiate(shopFightCard, shop.transform);
-            cardObject.GetComponent<CardBaseScript>().card = currentShopDeck.cards[i].copy();
-            cardObject.transform.localScale = Vector3.one * 0.27f;
-            cardObject.transform.position = cardSlots[slotIndex].transform.position;
-            cardObject.GetComponent<CardBaseScript>().UpdateView();
-            AddBuyButton(cardObject);
-            cardObject.AddComponent<CardBuyer>();
-        }
-        for (int i = currentFightCardsCount; i < currentShopDeck.cards.Count; i++)
-        {
-            int slotIndex = slotIndices[i];
-            var cardObject = Instantiate(pathCard, shop.transform);
-            cardObject.GetComponent<CardBaseScript>().card = currentShopDeck.cards[i].copy();
-            cardObject.transform.localScale = Vector3.one * 0.27f;
-            cardObject.transform.position = cardSlots[slotIndex].transform.position;
-            cardObject.GetComponent<CardBaseScript>().UpdateView();
-            AddBuyButton(cardObject);
-            cardObject.AddComponent<CardBuyer>();
-        }
+        //int currentPathCardsCount = currentShopDeck.cards.Where(card => card.owner == Owner.Path).Count();
+        //int currentFightCardsCount = currentShopDeck.cards.Count - currentPathCardsCount;
+        //List<int> slotIndices = new List<int>();
+        //for (int i = 0; i < currentShopDeck.cards.Count; i++)
+        //{
+        //    slotIndices.Add(i);
+        //}
+        //for (int i = 0; i < currentFightCardsCount; i++)
+        //{
+        //    int slotIndex = slotIndices[i];
+        //    var cardObject = Instantiate(shopFightCard, shop.transform);
+        //    cardObject.GetComponent<CardBaseScript>().card = currentShopDeck.cards[i].copy();
+        //    cardObject.transform.localScale = Vector3.one * 0.27f;
+        //    cardObject.transform.position = cardSlots[slotIndex].transform.position;
+        //    cardObject.GetComponent<CardBaseScript>().UpdateView();
+        //    AddBuyButton(cardObject);
+        //    cardObject.AddComponent<CardBuyer>();
+        //}
+        //for (int i = currentFightCardsCount; i < currentShopDeck.cards.Count; i++)
+        //{
+        //    int slotIndex = slotIndices[i];
+        //    var cardObject = Instantiate(pathCard, shop.transform);
+        //    cardObject.GetComponent<CardBaseScript>().card = currentShopDeck.cards[i].copy();
+        //    cardObject.transform.localScale = Vector3.one * 0.27f;
+        //    cardObject.transform.position = cardSlots[slotIndex].transform.position;
+        //    cardObject.GetComponent<CardBaseScript>().UpdateView();
+        //    AddBuyButton(cardObject);
+        //    cardObject.AddComponent<CardBuyer>();
+        //}
     }
 
     public void StartNewAct()

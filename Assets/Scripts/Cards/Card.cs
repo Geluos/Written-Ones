@@ -6,7 +6,6 @@ using UnityEngine;
 public struct Card
 {
 	public enum PlayType { TargetHero, TargetMonster, Global, TargetAll, Moment };
-	public enum PlayType { TargetAlly, TargetEnemy, Global, TargetAll, Moment };
 	public enum Owner { RedHead, Piper, TinWoodpeaker, Path };
 	public enum Rarity { Common, Rare, Gold };
 
@@ -25,7 +24,7 @@ public struct Card
 	public Rarity rarity;
 
 
-	public Card copy()
+	public Card Copy()
 	{
 		Card card = new Card();
 		card.type = type;

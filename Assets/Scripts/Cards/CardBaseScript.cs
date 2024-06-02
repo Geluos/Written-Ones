@@ -65,7 +65,7 @@ public class CardBaseScript : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 		if (!isPlayable)
 			return;
 		var offset = eventData.position - oldPosition;
-		transform.position = new Vector3(transform.position.x + offset.x, transform.position.y + offset.y, 0f);
+		//transform.position = new Vector3(transform.position.x + offset.x, transform.position.y + offset.y, 0f);
 		oldPosition = eventData.position;
     }
 
@@ -106,7 +106,7 @@ public class CardBaseScript : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 		if (!isPlayable)
 			return;
 		//Debug.Log("Try play");
-		if (FightController.main.PlayCard(card, target))
+		if (FightController.main.playCard(card, target))
 		{
 			cardsLayout.RemoveCard(gameObject);
 			Destroy(gameObject);
