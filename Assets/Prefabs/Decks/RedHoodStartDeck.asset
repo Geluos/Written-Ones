@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cards:
   - manaPrice: 1
-    sprite: {fileID: 21300000, guid: 44d13be803b66c445be98d7cdd7be057, type: 3}
-    ballSprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: 44aaf877c18b20d47bd795cd07c063a2, type: 3}
+    crystalSprite: {fileID: 21300000, guid: 9ee522faba8b90e4ca78c123bdc5b79b, type: 3}
+    ballSprite: {fileID: 21300000, guid: 154b2bc138dee244aa9372c7a55d5dc1, type: 3}
     name: "\u041A\u0440\u0430\u0441\u043D\u0430\u044F"
     description: "4 \u0443\u0440\u043E\u043D\u0430 \u043E\u0434\u043D\u043E\u0439
       \u0446\u0435\u043B\u0438"

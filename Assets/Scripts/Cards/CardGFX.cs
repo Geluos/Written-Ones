@@ -8,6 +8,7 @@ using TMPro;
 public struct CardGFX
 {
 	public Image portraitImage;
+    public Image crystalImage;
     public Image leftBallImage;
     public Image rightBallImage;
     public TextMeshProUGUI manaString;

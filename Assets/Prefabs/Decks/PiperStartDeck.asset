@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cards:
   - manaPrice: 1
-    sprite: {fileID: 21300000, guid: 72a7eb7711a507c41bb85c7bf5eb315a, type: 3}
-    ballSprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: bda56f3223e70cd43be5f4eb1069e35a, type: 3}
+    crystalSprite: {fileID: 21300000, guid: a51e44c512b19e0488cef413a0d9c4a5, type: 3}
+    ballSprite: {fileID: 21300000, guid: 1df550e0460f9ba4bb309bd206fed399, type: 3}
     name: "\u0421\u043E\u0442\u043D\u0438 \u0443\u043A\u0443\u0441\u043E\u0432"
     description: "4 \u0443\u0440\u043E\u043D\u0430 \u043E\u0434\u043D\u043E\u0439
       \u0446\u0435\u043B\u0438"
@@ -24,8 +25,9 @@ MonoBehaviour:
       value: 4
     type: 1
   - manaPrice: 1
-    sprite: {fileID: 21300000, guid: 72a7eb7711a507c41bb85c7bf5eb315a, type: 3}
-    ballSprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: bda56f3223e70cd43be5f4eb1069e35a, type: 3}
+    crystalSprite: {fileID: 21300000, guid: a51e44c512b19e0488cef413a0d9c4a5, type: 3}
+    ballSprite: {fileID: 21300000, guid: 1df550e0460f9ba4bb309bd206fed399, type: 3}
     name: "\u0421\u043E\u0442\u043D\u0438 \u0443\u043A\u0443\u0441\u043E\u0432"
     description: "4 \u0443\u0440\u043E\u043D\u0430 \u043E\u0434\u043D\u043E\u0439
       \u0446\u0435\u043B\u0438"
@@ -34,8 +36,9 @@ MonoBehaviour:
       value: 4
     type: 1
   - manaPrice: 0
-    sprite: {fileID: 21300000, guid: 24ab1262ce64bd545b9839177d7a304b, type: 3}
-    ballSprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: 5b2b37e5bb5cc4940b195bad84f0cd3d, type: 3}
+    crystalSprite: {fileID: 21300000, guid: a51e44c512b19e0488cef413a0d9c4a5, type: 3}
+    ballSprite: {fileID: 21300000, guid: 1df550e0460f9ba4bb309bd206fed399, type: 3}
     name: "\u0412\u043E\u043B\u0448\u0435\u0431\u043D\u0430\u044F \u0434\u0443\u0434\u043E\u0447\u043A\u0430"
     description: "\u0414\u043E\u0431\u043E\u0440 2"
     effectsList:
@@ -43,8 +46,9 @@ MonoBehaviour:
       value: 2
     type: 4
   - manaPrice: 0
-    sprite: {fileID: 21300000, guid: b6e1819c66e305c4ea7a23bedbdaba2e, type: 3}
-    ballSprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: 5b2b37e5bb5cc4940b195bad84f0cd3d, type: 3}
+    crystalSprite: {fileID: 21300000, guid: a51e44c512b19e0488cef413a0d9c4a5, type: 3}
+    ballSprite: {fileID: 21300000, guid: 1df550e0460f9ba4bb309bd206fed399, type: 3}
     name: "\u0417\u0432\u0443\u043A\u0438 \u0444\u043B\u0435\u0439\u0442\u044B"
     description: "1 \u043C\u0430\u043D\u0430"
     effectsList:
@@ -52,8 +56,9 @@ MonoBehaviour:
       value: 1
     type: 4
   - manaPrice: 0
-    sprite: {fileID: 21300000, guid: b6e1819c66e305c4ea7a23bedbdaba2e, type: 3}
-    ballSprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: 5b2b37e5bb5cc4940b195bad84f0cd3d, type: 3}
+    crystalSprite: {fileID: 21300000, guid: a51e44c512b19e0488cef413a0d9c4a5, type: 3}
+    ballSprite: {fileID: 21300000, guid: 1df550e0460f9ba4bb309bd206fed399, type: 3}
     name: "\u0417\u0432\u0443\u043A\u0438 \u0444\u043B\u0435\u0439\u0442\u044B"
     description: "1 \u043C\u0430\u043D\u0430"
     effectsList:
