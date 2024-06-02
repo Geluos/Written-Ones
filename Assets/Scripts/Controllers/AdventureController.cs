@@ -91,7 +91,7 @@ public class AdventureController : Controller<AdventureController>
 
     public void LoadShopCards()
     {
-        int currentPathCardsCount = currentShopDeck.cards.Where(card => card.owner == Owner.Path).Count();
+        int currentPathCardsCount = currentShopDeck.cards.Where(card => card.otype == OwnerType.Path).Count();
         int currentFightCardsCount = currentShopDeck.cards.Count - currentPathCardsCount;
         List<int> slotIndices = new List<int>();
         for (int i = 0; i < currentShopDeck.cards.Count; i++)

@@ -6,7 +6,7 @@ using UnityEngine;
 public struct Card
 {
 	public enum PlayType { TargetAlly, TargetEnemy, Global, TargetAll, Moment };
-	public enum Owner { RedHead, Piper, TinWoodpeaker, Path };
+	public enum OwnerType { RedHead, Piper, TinWoodpeaker, Path };
 	public enum Rarity { Common, Rare, Gold };
 
 	public uint manaPrice;
@@ -17,7 +17,7 @@ public struct Card
 	[SerializeField]
 	public List<CardEffect> effectsList;
     public PlayType type;
-	public Owner owner;
+	public OwnerType otype;
 	public Rarity rarity;
 
 	public Card copy()
@@ -31,7 +31,7 @@ public struct Card
 		card.ballSprite = ballSprite;
 		card.manaPrice = manaPrice;
 		card.type = type;
-		card.owner = owner;
+		card.otype = otype;
 		card.rarity = rarity;
 		return card;
 	}
