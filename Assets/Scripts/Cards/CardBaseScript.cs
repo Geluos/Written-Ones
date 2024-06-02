@@ -58,6 +58,7 @@ public class CardBaseScript : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
     public void OnDrag(PointerEventData eventData)
     {
+        rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
 		if (!isPlayable)
 			return;
 		transform.position = eventData.position;

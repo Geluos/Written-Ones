@@ -19,4 +19,9 @@ public class CardEffectRandomEvent_1 : CardEffect
 	{
 		throw new System.NotImplementedException();
 	}
+
+	public override CardEffect copy()
+	{
+		return new CardEffectRandomEvent_1();
+	}
 }

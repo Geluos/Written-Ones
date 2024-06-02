@@ -12,4 +12,9 @@ public class CardEffectFightEvent : CardEffect
 	{
 		FightController.main.StartFight();
     }
+
+	public override CardEffect copy()
+	{
+		return new CardEffectFightEvent();
+	}
 }

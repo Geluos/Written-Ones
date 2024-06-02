@@ -23,8 +23,14 @@ public class FightController : Controller<FightController>
 	public GameObject FightScene;
 	public GameObject youLose;
 	public Decorations decorations;
+	public EnemySets enemySets;
+	public EnemySets bossSets;
 	[HideInInspector]
 	public bool isDragCard = false;
+	public bool isBossFight = false;
+
+	[HideInInspector]
+	public int actNum = 0;
 	
 
 	public void StartFight()
@@ -33,9 +39,56 @@ public class FightController : Controller<FightController>
 		AdventureScene.SetActive(false);
 		FightScene.SetActive(true);
 		createDeck();
+		CreateMonsters();
 		startHeroTurn();
-		enemyList[0].current_hp = enemyList[0].max_hp;
+		//enemyList[0].current_hp = enemyList[0].max_hp;
+	}
 
+	public void StartBossFight()
+	{
+		isBossFight = true;
+		StartFight();
+	}
+
+	private void CreateMonsters()
+	{
+		var eset = getMonsterSet();
+
+		foreach (var monster in enemyList)
+		{
+			Destroy(monster.gameObject);
+		}
+
+		enemyList.Clear();
+
+		List<GameObject> points = new List<GameObject>();
+
+		if (eset.enemies.Count == 1)
+		{
+			points = CharacterController.main.oneMonsterPointer;
+		}
+		else if (eset.enemies.Count == 2)
+		{
+			points = CharacterController.main.twoMonsterPointers;
+		}
+		else if (eset.enemies.Count == 3)
+		{
+			points = CharacterController.main.threeMonsterPointers;
+		}
+
+		for(int i=0; i<eset.enemies.Count; ++i)
+		{
+			var monster = Instantiate(eset.enemies[i], points[i].transform);
+			monster.transform.localPosition = new Vector3(0f, 0f, 0f);
+			enemyList.Add(monster);
+		}
+	}
+
+	private ESet getMonsterSet()
+	{
+		if (isBossFight)
+			return bossSets.enemySets[actNum];
+		return enemySets.enemySets[UnityEngine.Random.Range(0, enemySets.enemySets.Count)];
 	}
 
 	public void restorePartyHp(float percent)
@@ -65,7 +118,10 @@ public class FightController : Controller<FightController>
 		{
 			foreach(var card in hero.startDeck.cards)
 			{
-				heroesDeck.cards.Add(card.copy());
+				var cardCopy = card.copy();
+				cardCopy.owner = hero;
+				cardCopy.setOwnerForEffects();
+				heroesDeck.cards.Add(cardCopy);
 			}
 		}
 	}
@@ -123,8 +179,7 @@ public class FightController : Controller<FightController>
 
 		foreach (Enemy enemy in enemyList)
 		{
-			enemy.nextCard = new CardHolder();
-			enemy.nextCard.card = enemy.getCard();
+			EnemyGetCard(enemy);
 		}
 
 		//PlayMomentalCards();
@@ -191,10 +246,45 @@ public class FightController : Controller<FightController>
 		hero.shield += value;
 	}
 
+	public void AddShieldAllHeroes(uint value)
+	{
+		foreach(var hero in heroList)
+			hero.shield += value;
+	}
+
+	public void AddShieldAllEnemies(uint value)
+	{
+		foreach (var enemy in enemyList)
+			enemy.shield += value;
+	}
+
+	public void HealHp(Character hero, uint value)
+	{
+		hero.current_hp = Math.Min(hero.max_hp, hero.current_hp + value);
+	}
+
 	private void checkWin()
 	{
-		if (!enemyList[0].isAlive())
+		bool hasAlive = false;
+		foreach (var enemy in enemyList)
 		{
+			if (enemy.isAlive())
+				hasAlive = true;
+		}
+		if (!hasAlive)
+		{
+			if (isBossFight)
+			{
+				++actNum;
+				AdventureController.main.StartNewAct();
+				foreach (var hero in heroList)
+				{
+					HealHp(hero, 1000);
+				}
+				isBossFight = false;
+			}
+
+
 			AdventureScene.SetActive(true);
 			FightScene.SetActive(false);
 		}
@@ -259,7 +349,7 @@ public class FightController : Controller<FightController>
 						effect.effect.Activate((int)effect.value);
 					}
 					break;
-				case Card.PlayType.TargetEnemy:
+				case Card.PlayType.TargetMonster:
 					if (target == null || target.GetComponent<Enemy>() == null)
 						return false;
 					foreach (var effect in card.effectsList)
@@ -267,7 +357,7 @@ public class FightController : Controller<FightController>
 						effect.effect.Activate(target.GetComponent<Enemy>(), (int)effect.value);
 					}
 					break;
-				case Card.PlayType.TargetAlly:
+				case Card.PlayType.TargetHero:
 					if (target == null || target.GetComponent<Hero>() == null)
 						return false;
 					foreach (var effect in card.effectsList)
@@ -321,19 +411,101 @@ public class FightController : Controller<FightController>
 		startHeroTurn();
 	}
 
+	private void EnemyGetCard(Enemy enemy)
+	{
+		enemy.nextCard = new CardHolder();
+		enemy.nextCard.card = enemy.getCard();
+		enemy.nextCard.card.owner = enemy;
+		enemy.nextCard.card.setOwnerForEffects();
+
+		if (enemy.nextCard.card.type == Card.PlayType.TargetHero)
+		{
+			enemy.nextTarget = RandomAliveHero();
+		}
+
+		if (enemy.nextCard.card.type == Card.PlayType.TargetMonster)
+		{
+			enemy.nextTarget = RandomAliveMonster();
+		}
+	}
+
+	private Hero RandomAliveHero()
+	{
+		bool flag = false;
+		foreach (var hero in heroList)
+		{
+			if (hero.current_hp > 0)
+				flag = true;
+		}
+
+		if (!flag)
+			return null;
+
+		int t = UnityEngine.Random.Range(1, 15);
+
+		int tar = 0;
+		while (t>0)
+		{
+
+			tar = (tar + 1) % heroList.Count;
+			if (heroList[tar].current_hp > 0)
+			{
+				--t;
+			}
+
+		}
+
+		return heroList[tar];
+	}
+
+	private Enemy RandomAliveMonster()
+	{
+		bool flag = false;
+		foreach (var enemy in enemyList)
+		{
+			if (enemy.current_hp > 0)
+				flag = true;
+		}
+
+		if (!flag)
+			return null;
+
+		int t = UnityEngine.Random.Range(1, 15);
+
+		int tar = 0;
+		while (t > 0)
+		{
+
+			tar = (tar + 1) % enemyList.Count;
+			if (enemyList[tar].current_hp > 0)
+			{
+				--t;
+			}
+
+		}
+
+		return enemyList[tar];
+	}
+
 	public void enemyTurn()
 	{
 		foreach(var enemy in enemyList)
 		{
 			if (enemy.nextCard == null)
 			{
-				enemy.nextCard = new CardHolder();
-				enemy.nextCard.card = enemy.getCard();
+				EnemyGetCard(enemy);
 			}
 			foreach(var effect in enemy.nextCard.card.effectsList)
 			{
-				effect.effect.Activate((int)effect.value);
+				if (enemy.nextCard.card.type == Card.PlayType.TargetHero
+					|| enemy.nextCard.card.type == Card.PlayType.TargetAll
+					|| enemy.nextCard.card.type == Card.PlayType.TargetMonster)
+					effect.effect.Activate(enemy.nextTarget, (int)effect.value);
+				else
+					effect.effect.Activate((int)effect.value);
 			}
+
+			enemy.nextTarget = null;
 		}
 	}
 }
