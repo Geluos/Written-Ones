@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public struct Card
 {
-	public enum PlayType { TargetAlly, TargetEnemy, Global, TargetAll, Moment };
+	public enum PlayType { TargetHero, TargetMonster, Global, TargetAll, Moment };
 
 	public uint manaPrice;
 	public Sprite sprite;
@@ -15,6 +15,8 @@ public struct Card
 	[SerializeField]
 	public List<CardEffectWrapper> effectsList;
     public PlayType type;
+	[HideInInspector]
+	public Character owner;
 
 	public Card copy()
 	{
@@ -22,11 +24,22 @@ public struct Card
 		card.type = type;
 		card.name = name;
 		card.description = description;
-		card.effectsList = effectsList;
+		card.effectsList = new List<CardEffectWrapper>();
+		for (int i = 0; i < effectsList.Count; i++)
+		{
+			card.effectsList.Add(effectsList[i].copy());
+		}
 		card.sprite = sprite;
 		card.ballSprite = ballSprite;
 		card.manaPrice = manaPrice;
+		card.owner = owner;
 		return card;
+	}
+
+	public void setOwnerForEffects()
+	{
+		for (int i = 0; i < effectsList.Count; i++)
+			effectsList[i].effect.owner = owner;
 	}
 }
 
@@ -43,6 +56,15 @@ public struct CardEffectWrapper
 {
 	public CardEffect effect;
 	public uint value;
+
+	public CardEffectWrapper copy()
+	{
+		var wrapper = new CardEffectWrapper();
+		wrapper.effect = effect.copy();
+		wrapper.value = value;
+
+		return wrapper;
+	}
 }
 
 public class CardEffect : ScriptableObject
@@ -59,4 +81,11 @@ public class CardEffect : ScriptableObject
 	{
 		throw new System.NotImplementedException();
 	}
+	public virtual CardEffect copy()
+	{
+		return new CardEffect();
+	}
+	//Ќе серелиазиемаю вспомогательна€ переменна€
+	[HideInInspector]
+	public Character owner;
 }

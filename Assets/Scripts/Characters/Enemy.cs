@@ -8,8 +8,11 @@ public class Enemy : Character
 
 	public Canvas monsterCanvas;
 	private GameObject card;
+	private GameObject targetIcon;
 	[HideInInspector]
 	public CardHolder nextCard;
+	[HideInInspector]
+	public Character nextTarget;
 	public void OnMouseEnter()
 	{
 		if (FightController.main.isDragCard)
@@ -39,6 +42,22 @@ public class Enemy : Character
 
 			card.transform.localPosition += new Vector3(0f, 30f, 0f);
 			card.transform.localScale = new Vector3( 0.05f, 0.05f, 0.05f );
+
+			if (nextTarget != null)
+			{
+				targetIcon = new GameObject("TARGET_ICON");
+				var renderer = targetIcon.AddComponent<SpriteRenderer>();
+				renderer.sprite = GlobalSpritesController.main.blast;
+
+				
+
+				targetIcon.transform.SetParent(nextTarget.transform);
+				targetIcon.transform.position = nextTarget.gameObject.transform.position;
+				targetIcon.transform.rotation = new Quaternion();
+				targetIcon.transform.localPosition += new Vector3(0f, 5f, 0f);
+				targetIcon.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
+
+			}
 		}
 	}
 
@@ -50,6 +69,11 @@ public class Enemy : Character
 		if (card)
 		{
 			Destroy(card);
+		}
+
+		if (targetIcon)
+		{
+			Destroy(targetIcon);
 		}
 	}
 

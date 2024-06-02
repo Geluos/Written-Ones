@@ -2,17 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "CardEffectRandomEvent_1", menuName = "CardEffect/CardEffectRandomEvent", order = -50)]
-public class CardEffectRandomEvent_1 : CardEffect
+//[CreateAssetMenu(fileName = "CardEffectShieldAllHeroes", menuName = "CardEffect/CardEffectShieldAllHeroes", order = -50)]
+public class CardEffectShieldAllHeroes : CardEffect
 {
 	public override void Activate()
 	{
-		FightController.main.DamageAllHeroes(10);
+		throw new System.NotImplementedException();
 	}
 
 	public override void Activate(int par)
 	{
-		FightController.main.DamageAllHeroes((uint)par);
+		FightController.main.AddShieldAllHeroes((uint)par);
 	}
 
 	public override void Activate(Character target, int par)
@@ -22,6 +22,6 @@ public class CardEffectRandomEvent_1 : CardEffect
 
 	public override CardEffect copy()
 	{
-		return new CardEffectRandomEvent_1();
+		return new CardEffectShieldAllHeroes();
 	}
 }

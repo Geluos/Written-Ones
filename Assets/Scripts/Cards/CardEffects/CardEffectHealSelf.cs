@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "CardEffectDamageEnemy", menuName = "CardEffect/CardEffectDamageEnemy", order = -50)]
-public class CardEffectDamageEnemy : CardEffect
+[CreateAssetMenu(fileName = "CardEffectHealSelf", menuName = "CardEffect/CardEffectHealSelf", order = -50)]
+public class CardEffectHealSelf : CardEffect
 {
 	public override void Activate()
 	{
@@ -12,16 +12,16 @@ public class CardEffectDamageEnemy : CardEffect
 
 	public override void Activate(int par)
 	{
-		throw new System.NotImplementedException();
+		FightController.main.HealHp(owner, (uint)par);
 	}
 
 	public override void Activate(Character target, int par)
 	{
-		FightController.main.DamageEnemy(target, (uint)par);
+		FightController.main.HealHp(owner, (uint)par);
 	}
 
 	public override CardEffect copy()
 	{
-		return new CardEffectDamageEnemy();
+		return new CardEffectHealSelf();
 	}
 }

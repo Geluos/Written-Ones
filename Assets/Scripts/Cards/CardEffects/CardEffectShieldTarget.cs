@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "CardEffectDamageEnemy", menuName = "CardEffect/CardEffectDamageEnemy", order = -50)]
-public class CardEffectDamageEnemy : CardEffect
+[CreateAssetMenu(fileName = "CardEffectShieldTarget", menuName = "CardEffect/CardEffectShieldTarget", order = -50)]
+public class CardEffectShieldTarget : CardEffect
 {
 	public override void Activate()
 	{
@@ -17,11 +17,11 @@ public class CardEffectDamageEnemy : CardEffect
 
 	public override void Activate(Character target, int par)
 	{
-		FightController.main.DamageEnemy(target, (uint)par);
+		FightController.main.AddShield(target, (uint)par);
 	}
 
 	public override CardEffect copy()
 	{
-		return new CardEffectDamageEnemy();
+		return new CardEffectShieldTarget();
 	}
 }

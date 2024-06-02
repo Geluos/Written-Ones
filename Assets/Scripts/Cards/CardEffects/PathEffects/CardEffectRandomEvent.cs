@@ -31,4 +31,9 @@ public class CardEffectRandomEvent : CardEffect
         Instantiate(AdventureController.main.chooseDialog).GetComponent<RandomEventScript>().
             Activate(effectsCombinations[r.Next(effectsCombinations.Count)]);
     }
+
+	public override CardEffect copy()
+	{
+		return new CardEffectRandomEvent();
+	}
 }
