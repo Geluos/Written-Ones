@@ -15,20 +15,34 @@ MonoBehaviour:
   cards:
   - manaPrice: 0
     sprite: {fileID: 21300000, guid: deaaba6ab40960b42beced29a21b91ad, type: 3}
-    ballSprite: {fileID: 0}
+    crystalSprite: {fileID: 21300000, guid: 26f0264ceeb9a6247af5f29c5af6317e, type: 3}
+    ballSprite: {fileID: 21300000, guid: 54bf97943d7b0a644af5c1d908e03727, type: 3}
     name: "\u041F\u043E\u0433\u043B\u043E\u0449\u0435\u043D\u0438\u0435"
     description: "4 \u0443\u0440\u043E\u043D\u0430 \u0432\u0441\u0435\u043C"
     effectsList:
-    - effect: {fileID: 11400000, guid: 4aac5406ac3fe344099d12b2ce38118a, type: 2}
-      value: 4
-    type: 2
+    - {fileID: 11400000, guid: 4aac5406ac3fe344099d12b2ce38118a, type: 2}
+    type: 0
+    otype: 0
+    rarity: 0
   - manaPrice: 0
     sprite: {fileID: 21300000, guid: deaaba6ab40960b42beced29a21b91ad, type: 3}
-    ballSprite: {fileID: 0}
+    crystalSprite: {fileID: 21300000, guid: 26f0264ceeb9a6247af5f29c5af6317e, type: 3}
+    ballSprite: {fileID: 21300000, guid: 54bf97943d7b0a644af5c1d908e03727, type: 3}
     name: "\u041A\u043E\u0448\u043C\u0430\u0440\u044B"
     description: "7 \u0443\u0440\u043E\u043D\u0430 \u0441\u043B\u0443\u0447\u0430\u0439\u043D\u043E\u043C\u0443
       \u0433\u0435\u0440\u043E\u044E"
     effectsList:
-    - effect: {fileID: 11400000, guid: 8af3d1db8c7da924094a6cb0d413b644, type: 2}
-      value: 7
-    type: 2
+    - {fileID: 11400000, guid: 8af3d1db8c7da924094a6cb0d413b644, type: 2}
+    type: 0
+    otype: 0
+    rarity: 0
+  - manaPrice: 0
+    sprite: {fileID: 0}
+    ballSprite: {fileID: 0}
+    name: 
+    description: 
+    effectsList:
+    - {fileID: 11400000, guid: 4aac5406ac3fe344099d12b2ce38118a, type: 2}
+    type: 0
+    otype: 0
+    rarity: 0

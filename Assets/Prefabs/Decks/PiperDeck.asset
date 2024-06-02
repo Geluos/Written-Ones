@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d51e062b3eac684d8a6d106924f11c8, type: 3}
+  m_Name: PiperDeck
+  m_EditorClassIdentifier: 
+  cards:
+  - manaPrice: 2
+    sprite: {fileID: 21300000, guid: 1d1f9540ebf1efd4f830a2c743ac7288, type: 3}
+    ballSprite: {fileID: 0}
+    name: "\u0424\u043E\u0440\u0442\u0435"
+    description: "\u041D\u0430\u043D\u0435\u0441\u0438\u0442\u0435 10 \u0443\u0440\u043E\u043D\u0430"
+    effectsList:
+    - {fileID: 11400000, guid: d5fb22bac3a591b4db751b67efc8fbd0, type: 2}
+    type: 1
+    otype: 0
+    rarity: 0
+  - manaPrice: 0
+    sprite: {fileID: 21300000, guid: c4d45afafd7885b41814e6f47cf38fc7, type: 3}
+    ballSprite: {fileID: 0}
+    name: "\u041F\u0438\u0441\u043A"
+    description: "\u041F\u043E\u043B\u0443\u0447\u0438\u0442\u0435 2 \u043C\u0430\u043D\u044B"
+    effectsList:
+    - {fileID: 11400000, guid: 7a1a7f561bdf7df428b18a7bfc4e3953, type: 2}
+    type: 4
+    otype: 0
+    rarity: 0
+  - manaPrice: 0
+    sprite: {fileID: 21300000, guid: c4d45afafd7885b41814e6f47cf38fc7, type: 3}
+    ballSprite: {fileID: 0}
+    name: "\u041F\u0438\u0441\u043A"
+    description: "\u041F\u043E\u043B\u0443\u0447\u0438\u0442\u0435 2 \u043C\u0430\u043D\u044B"
+    effectsList:
+    - {fileID: 11400000, guid: 7a1a7f561bdf7df428b18a7bfc4e3953, type: 2}
+    type: 4
+    otype: 0
+    rarity: 0
+  - manaPrice: 1
+    sprite: {fileID: 21300000, guid: 1d1f9540ebf1efd4f830a2c743ac7288, type: 3}
+    ballSprite: {fileID: 0}
+    name: "\u0421\u043E\u0442\u043D\u0438 \u0443\u043A\u0443\u0441\u043E\u0432"
+    description: "\u041D\u0430\u043D\u0435\u0441\u0438\u0442\u0435 6 \u0443\u0440\u043E\u043D\u0430"
+    effectsList:
+    - {fileID: 11400000, guid: 135039c20c340c04d8bb54531a27c323, type: 2}
+    type: 1
+    otype: 0
+    rarity: 0
+  - manaPrice: 1
+    sprite: {fileID: 21300000, guid: 1d1f9540ebf1efd4f830a2c743ac7288, type: 3}
+    ballSprite: {fileID: 0}
+    name: "\u0421\u043E\u0442\u043D\u0438 \u0443\u043A\u0443\u0441\u043E\u0432"
+    description: "\u041D\u0430\u043D\u0435\u0441\u0438\u0442\u0435 6 \u0443\u0440\u043E\u043D\u0430"
+    effectsList:
+    - {fileID: 11400000, guid: 135039c20c340c04d8bb54531a27c323, type: 2}
+    type: 1
+    otype: 0
+    rarity: 0

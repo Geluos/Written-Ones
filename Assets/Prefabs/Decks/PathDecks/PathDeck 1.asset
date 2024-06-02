@@ -1,0 +1,95 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d51e062b3eac684d8a6d106924f11c8, type: 3}
+  m_Name: PathDeck 1
+  m_EditorClassIdentifier: 
+  cards:
+  - manaPrice: 0
+    sprite: {fileID: 21300000, guid: 72de73aaea4627840bcaa58b4ce1aba7, type: 3}
+    ballSprite: {fileID: 21300000, guid: 7e5aafb8f2f120648a55fb5270a0d734, type: 3}
+    name: "\u0411\u043E\u0439"
+    description: 
+    effectsList:
+    - effect: {fileID: 11400000, guid: 0a7942cbef0ce934fa52257b8a1869d8, type: 2}
+      value: 0
+    type: 2
+    owner: {fileID: 0}
+  - manaPrice: 0
+    sprite: {fileID: 21300000, guid: 72de73aaea4627840bcaa58b4ce1aba7, type: 3}
+    ballSprite: {fileID: 21300000, guid: 7e5aafb8f2f120648a55fb5270a0d734, type: 3}
+    name: "\u0411\u043E\u0439"
+    description: 
+    effectsList:
+    - effect: {fileID: 11400000, guid: 0a7942cbef0ce934fa52257b8a1869d8, type: 2}
+      value: 0
+    type: 2
+    owner: {fileID: 0}
+  - manaPrice: 0
+    sprite: {fileID: 21300000, guid: 72de73aaea4627840bcaa58b4ce1aba7, type: 3}
+    ballSprite: {fileID: 21300000, guid: 7e5aafb8f2f120648a55fb5270a0d734, type: 3}
+    name: "\u0411\u043E\u0439"
+    description: 
+    effectsList:
+    - effect: {fileID: 11400000, guid: 0a7942cbef0ce934fa52257b8a1869d8, type: 2}
+      value: 0
+    type: 2
+    owner: {fileID: 0}
+  - manaPrice: 0
+    sprite: {fileID: 21300000, guid: 9d07c8f6f7c47714f875cdb662f86930, type: 3}
+    ballSprite: {fileID: 21300000, guid: 8598e41f731df3a45bf9be66cd8c46b2, type: 3}
+    name: "\u0421\u043E\u0431\u044B\u0442\u0438\u0435"
+    description: 
+    effectsList:
+    - effect: {fileID: 11400000, guid: 1cee1306b713c5645b7600344d065600, type: 2}
+      value: 0
+    type: 2
+    owner: {fileID: 0}
+  - manaPrice: 0
+    sprite: {fileID: 21300000, guid: 9d07c8f6f7c47714f875cdb662f86930, type: 3}
+    ballSprite: {fileID: 21300000, guid: 8598e41f731df3a45bf9be66cd8c46b2, type: 3}
+    name: "\u0421\u043E\u0431\u044B\u0442\u0438\u0435"
+    description: 
+    effectsList:
+    - effect: {fileID: 11400000, guid: 1cee1306b713c5645b7600344d065600, type: 2}
+      value: 0
+    type: 2
+    owner: {fileID: 0}
+  - manaPrice: 0
+    sprite: {fileID: 21300000, guid: 982c9ed05963d504b814b1baeaee52d4, type: 3}
+    ballSprite: {fileID: 21300000, guid: 65294981d32a5f34c978fc7350879c26, type: 3}
+    name: "\u0420\u0438\u0442\u0443\u0430\u043B"
+    description: 
+    effectsList:
+    - effect: {fileID: 11400000, guid: cb93b665ce91613419707b19333574f5, type: 2}
+      value: 0
+    type: 2
+    owner: {fileID: 0}
+  - manaPrice: 0
+    sprite: {fileID: 21300000, guid: 4fe26bb65b423964c82c82a03850062c, type: 3}
+    ballSprite: {fileID: 21300000, guid: 5a9ec1f4a21881043946c550ed0f5a8a, type: 3}
+    name: "\u041F\u0440\u0438\u0432\u0430\u043B"
+    description: 
+    effectsList:
+    - effect: {fileID: 11400000, guid: 1c29403154bb2924b897130fd7148825, type: 2}
+      value: 0
+    type: 2
+    owner: {fileID: 0}
+  - manaPrice: 0
+    sprite: {fileID: 21300000, guid: deaaba6ab40960b42beced29a21b91ad, type: 3}
+    ballSprite: {fileID: 21300000, guid: 1df550e0460f9ba4bb309bd206fed399, type: 3}
+    name: "\u0411\u043E\u0441\u0441"
+    description: 
+    effectsList:
+    - effect: {fileID: 11400000, guid: 13a95c06a74de4b4083a430e1fea9575, type: 2}
+      value: 0
+    type: 2
+    owner: {fileID: 0}

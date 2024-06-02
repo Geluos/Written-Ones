@@ -11,4 +11,9 @@ public class CardEffectRitual : CardEffect
         Instantiate(AdventureController.main.ritualDialog).GetComponent<RitualScript>().
             Activate(FightController.main.heroList.Select(h => h.startDeck.cards).SelectMany(c => c).ToList());
     }
+
+	public override CardEffect copy()
+	{
+		return new CardEffectRitual();
+	}
 }

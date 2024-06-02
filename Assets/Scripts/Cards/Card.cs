@@ -5,16 +5,23 @@ using UnityEngine;
 [System.Serializable]
 public struct Card
 {
-	public enum PlayType { TargetAlly, TargetEnemy, Global, TargetAll, Moment };
+	public enum PlayType { TargetHero, TargetMonster, Global, TargetAll, Moment };
+	public enum OwnerType { RedHead, Piper, TinWoodpeaker, Path };
+	public enum Rarity { Common, Rare, Gold };
 
 	public uint manaPrice;
 	public Sprite sprite;
-	public Sprite ballSprite;
+    public Sprite crystalSprite;
+    public Sprite ballSprite;
 	public string name;
 	public string description;
 	[SerializeField]
 	public List<CardEffectWrapper> effectsList;
     public PlayType type;
+	public OwnerType otype;
+	public Rarity rarity;
+	[HideInInspector]
+	public Character owner;
 
 	public Card copy()
 	{
@@ -22,11 +29,26 @@ public struct Card
 		card.type = type;
 		card.name = name;
 		card.description = description;
-		card.effectsList = effectsList;
+		card.effectsList = new List<CardEffectWrapper>();
+		for (int i = 0; i < effectsList.Count; i++)
+		{
+			card.effectsList.Add(effectsList[i].copy());
+		}
 		card.sprite = sprite;
-		card.ballSprite = ballSprite;
+        card.crystalSprite = crystalSprite;
+        card.ballSprite = ballSprite;
 		card.manaPrice = manaPrice;
+		card.type = type;
+		card.otype = otype;
+		card.rarity = rarity;
+		card.owner = owner;
 		return card;
+	}
+
+	public void setOwnerForEffects()
+	{
+		for (int i = 0; i < effectsList.Count; i++)
+			effectsList[i].effect.owner = owner;
 	}
 }
 
@@ -43,6 +65,15 @@ public struct CardEffectWrapper
 {
 	public CardEffect effect;
 	public uint value;
+
+	public CardEffectWrapper copy()
+	{
+		var wrapper = new CardEffectWrapper();
+		wrapper.effect = effect.copy();
+		wrapper.value = value;
+
+		return wrapper;
+	}
 }
 
 public class CardEffect : ScriptableObject
@@ -59,4 +90,11 @@ public class CardEffect : ScriptableObject
 	{
 		throw new System.NotImplementedException();
 	}
+	public virtual CardEffect copy()
+	{
+		return new CardEffect();
+	}
+	//�� ������������� ��������������� ����������
+	[HideInInspector]
+	public Character owner;
 }
