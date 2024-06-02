@@ -20,7 +20,7 @@ MonoBehaviour:
     description: 
     effectsList: []
     type: 0
-    owner: 3
+    otype: 0
     rarity: 0
   - manaPrice: 0
     sprite: {fileID: 0}
@@ -29,7 +29,7 @@ MonoBehaviour:
     description: 
     effectsList: []
     type: 0
-    owner: 3
+    otype: 0
     rarity: 0
   - manaPrice: 0
     sprite: {fileID: 0}
@@ -38,7 +38,7 @@ MonoBehaviour:
     description: 
     effectsList: []
     type: 0
-    owner: 3
+    otype: 0
     rarity: 0
   - manaPrice: 0
     sprite: {fileID: 0}
@@ -47,7 +47,7 @@ MonoBehaviour:
     description: 
     effectsList: []
     type: 0
-    owner: 3
+    otype: 0
     rarity: 0
   - manaPrice: 0
     sprite: {fileID: 0}
@@ -56,5 +56,5 @@ MonoBehaviour:
     description: 
     effectsList: []
     type: 0
-    owner: 3
+    otype: 0
     rarity: 0

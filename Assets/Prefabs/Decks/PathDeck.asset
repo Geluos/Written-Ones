@@ -20,7 +20,7 @@ MonoBehaviour:
     description: 
     effectsList: []
     type: 2
-    owner: 3
+    otype: 0
     rarity: 0
   - manaPrice: 0
     sprite: {fileID: 21300000, guid: 72de73aaea4627840bcaa58b4ce1aba7, type: 3}
@@ -29,7 +29,7 @@ MonoBehaviour:
     description: 
     effectsList: []
     type: 2
-    owner: 3
+    otype: 0
     rarity: 0
   - manaPrice: 0
     sprite: {fileID: 21300000, guid: 72de73aaea4627840bcaa58b4ce1aba7, type: 3}
@@ -38,7 +38,7 @@ MonoBehaviour:
     description: 
     effectsList: []
     type: 2
-    owner: 3
+    otype: 0
     rarity: 0
   - manaPrice: 0
     sprite: {fileID: 21300000, guid: 9d07c8f6f7c47714f875cdb662f86930, type: 3}
@@ -47,7 +47,7 @@ MonoBehaviour:
     description: 
     effectsList: []
     type: 2
-    owner: 3
+    otype: 0
     rarity: 0
   - manaPrice: 0
     sprite: {fileID: 21300000, guid: 9d07c8f6f7c47714f875cdb662f86930, type: 3}
@@ -56,7 +56,7 @@ MonoBehaviour:
     description: 
     effectsList: []
     type: 2
-    owner: 3
+    otype: 0
     rarity: 0
   - manaPrice: 0
     sprite: {fileID: 21300000, guid: 982c9ed05963d504b814b1baeaee52d4, type: 3}
@@ -65,7 +65,7 @@ MonoBehaviour:
     description: 
     effectsList: []
     type: 2
-    owner: 3
+    otype: 0
     rarity: 0
   - manaPrice: 0
     sprite: {fileID: 21300000, guid: 4fe26bb65b423964c82c82a03850062c, type: 3}
@@ -74,7 +74,7 @@ MonoBehaviour:
     description: 
     effectsList: []
     type: 2
-    owner: 3
+    otype: 0
     rarity: 0
   - manaPrice: 0
     sprite: {fileID: 21300000, guid: deaaba6ab40960b42beced29a21b91ad, type: 3}
@@ -83,5 +83,5 @@ MonoBehaviour:
     description: 
     effectsList: []
     type: 2
-    owner: 3
+    otype: 0
     rarity: 0

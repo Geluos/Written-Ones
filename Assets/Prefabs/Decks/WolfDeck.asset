@@ -15,22 +15,31 @@ MonoBehaviour:
   cards:
   - manaPrice: 0
     sprite: {fileID: 0}
+    ballSprite: {fileID: 0}
     name: 
     description: 
     effectsList:
     - {fileID: 11400000, guid: 4aac5406ac3fe344099d12b2ce38118a, type: 2}
     type: 0
+    otype: 0
+    rarity: 0
   - manaPrice: 0
     sprite: {fileID: 0}
+    ballSprite: {fileID: 0}
     name: 
     description: 
     effectsList:
     - {fileID: 11400000, guid: 8af3d1db8c7da924094a6cb0d413b644, type: 2}
     type: 0
+    otype: 0
+    rarity: 0
   - manaPrice: 0
     sprite: {fileID: 0}
+    ballSprite: {fileID: 0}
     name: 
     description: 
     effectsList:
     - {fileID: 11400000, guid: 4aac5406ac3fe344099d12b2ce38118a, type: 2}
     type: 0
+    otype: 0
+    rarity: 0

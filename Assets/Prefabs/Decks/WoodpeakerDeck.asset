@@ -21,7 +21,7 @@ MonoBehaviour:
     effectsList:
     - {fileID: 11400000, guid: 135039c20c340c04d8bb54531a27c323, type: 2}
     type: 1
-    owner: 2
+    otype: 0
     rarity: 0
   - manaPrice: 1
     sprite: {fileID: 21300000, guid: 344ef8655f43c864dbc5e1b7caf91a60, type: 3}
@@ -31,7 +31,7 @@ MonoBehaviour:
     effectsList:
     - {fileID: 11400000, guid: 135039c20c340c04d8bb54531a27c323, type: 2}
     type: 1
-    owner: 2
+    otype: 0
     rarity: 0
   - manaPrice: 1
     sprite: {fileID: 21300000, guid: 344ef8655f43c864dbc5e1b7caf91a60, type: 3}
@@ -41,7 +41,7 @@ MonoBehaviour:
     effectsList:
     - {fileID: 11400000, guid: 135039c20c340c04d8bb54531a27c323, type: 2}
     type: 1
-    owner: 2
+    otype: 0
     rarity: 0
   - manaPrice: 1
     sprite: {fileID: 21300000, guid: 344ef8655f43c864dbc5e1b7caf91a60, type: 3}
@@ -51,7 +51,7 @@ MonoBehaviour:
     effectsList:
     - {fileID: 11400000, guid: 135039c20c340c04d8bb54531a27c323, type: 2}
     type: 1
-    owner: 2
+    otype: 0
     rarity: 0
   - manaPrice: 0
     sprite: {fileID: 21300000, guid: 344ef8655f43c864dbc5e1b7caf91a60, type: 3}
@@ -61,5 +61,5 @@ MonoBehaviour:
     effectsList:
     - {fileID: 11400000, guid: 7a1a7f561bdf7df428b18a7bfc4e3953, type: 2}
     type: 4
-    owner: 2
+    otype: 0
     rarity: 0
