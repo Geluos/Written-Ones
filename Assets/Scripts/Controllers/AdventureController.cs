@@ -21,7 +21,8 @@ public class AdventureController : Controller<AdventureController>
 
     public GameObject shop;
     public GameObject shopFightCard;
-    public GameObject buyButtonPrefab;
+	public GameObject shopPathCard;
+	public GameObject buyButtonPrefab;
     public Transform[] cardSlots;
     public Button updateButton;
     public const int AVG_MONEY = 1;
@@ -33,7 +34,7 @@ public class AdventureController : Controller<AdventureController>
 
 	public void Start()
 	{
-		LoadPathDeck();
+		//LoadPathDeck();
 
         shopFightCards = new List<Card>(shopDeckFight.cards);
         shopPathCards = new List<Card>(shopDeckPath.cards);
@@ -85,15 +86,15 @@ public class AdventureController : Controller<AdventureController>
         else shop.SetActive(false);
     }
 
-    public void LoadPathDeck()
-	{
-        foreach (var card in pathDeck.cards)
-        {
-            var cardObject = Instantiate(pathCard, hand.transform);
-            cardObject.GetComponent<PathCardScript>().card = card.copy();
-            cardObject.GetComponent<PathCardScript>().UpdateView();
-        }
-    }
+ //   public void LoadPathDeck()
+	//{
+ //       foreach (var card in pathDeck.cards)
+ //       {
+ //           var cardObject = Instantiate(pathCard, hand.transform);
+ //           cardObject.GetComponent<PathCardScript>().card = card.copy();
+ //           cardObject.GetComponent<PathCardScript>().UpdateView();
+ //       }
+ //   }
 
     public void InitShopCards()
     {
@@ -150,7 +151,7 @@ public class AdventureController : Controller<AdventureController>
         for (int i = currentFightCardsCount; i < currentShopDeck.cards.Count; i++)
         {
             int slotIndex = slotIndices[i];
-            var cardObject = Instantiate(pathCard, shop.transform);
+            var cardObject = Instantiate(shopPathCard, shop.transform);
             cardObject.GetComponent<CardBaseScript>().card = currentShopDeck.cards[i].copy();
             cardObject.transform.localScale = Vector3.one * 0.27f;
             cardObject.transform.position = cardSlots[slotIndex].transform.position;

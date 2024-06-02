@@ -941,6 +941,8 @@ MonoBehaviour:
   cameraMovement: {fileID: 379165253}
   target: {x: 2.16, y: 4, z: -9.39}
   targetRotation: {x: 80.9, y: 1.1, z: 0.09}
+  hand: {fileID: 0}
+  cardsAnimation: 0
 --- !u!1 &594461909
 GameObject:
   m_ObjectHideFlags: 0
@@ -1111,14 +1113,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d50e7376d7ee8a43aab03a409c3b3bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pathDeck: {fileID: 11400000, guid: 91dbaa617fe704d4ca249d788db1907f, type: 2}
+  pathDeckAct1: {fileID: 11400000, guid: 91dbaa617fe704d4ca249d788db1907f, type: 2}
+  pathDeckAct2: {fileID: 11400000, guid: 2a689cf62a784b641af418f66be9a750, type: 2}
+  pathDeckAct3: {fileID: 11400000, guid: 181090a371ec4d44b94f232d6dc71660, type: 2}
   hand: {fileID: 275727342}
-  pathCard: {fileID: 3507312678228970222, guid: c4ff27f6d36e4f84e8c1a50884f254c6,
-    type: 3}
+  notificationDialog: {fileID: 0}
+  chooseDialog: {fileID: 0}
   shopDeckFight: {fileID: 11400000, guid: 7f38d4e99d293ee4a975ec30a4b19f74, type: 2}
   shopDeckPath: {fileID: 11400000, guid: aecf78d02f077bf42b69e8e7ae95b6f6, type: 2}
   shop: {fileID: 1842593757}
   shopFightCard: {fileID: 3507312678228970222, guid: dcec053260b7b33439b75fd735060703,
+    type: 3}
+  shopPathCard: {fileID: 3507312678228970222, guid: c4ff27f6d36e4f84e8c1a50884f254c6,
     type: 3}
   buyButtonPrefab: {fileID: 1748067449834515423, guid: 61ab0a27675b8e84eab74cf92d0b1a49,
     type: 3}
@@ -1760,6 +1766,8 @@ MonoBehaviour:
   cameraMovement: {fileID: 379165253}
   target: {x: 2.167, y: 4.07, z: -8.32}
   targetRotation: {x: 99.1, y: 1.1, z: 0.09}
+  hand: {fileID: 0}
+  cardsAnimation: 0
 --- !u!1 &1783551759
 GameObject:
   m_ObjectHideFlags: 0
