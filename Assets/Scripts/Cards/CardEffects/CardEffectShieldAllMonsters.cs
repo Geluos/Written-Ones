@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "CardEffectDamageShieldTarget", menuName = "CardEffect/CardEffectDamageShieldTarget", order = -50)]
-public class CardEffectDamageShieldTarget : CardEffect
+//[CreateAssetMenu(fileName = "CardEffectShieldAllMonsters", menuName = "CardEffect/CardEffectShieldAllMonsters", order = -50)]
+public class CardEffectShieldAllMonsters : CardEffect
 {
 	public override void Activate()
 	{
@@ -12,11 +12,16 @@ public class CardEffectDamageShieldTarget : CardEffect
 
 	public override void Activate(int par)
 	{
-		throw new System.NotImplementedException();
+		FightController.main.AddShieldAllEnemies((uint)par);
 	}
 
 	public override void Activate(Character target, int par)
 	{
 		FightController.main.AddShield(target, (uint)par);
+	}
+
+	public override CardEffect copy()
+	{
+		return new CardEffectShieldAllMonsters();
 	}
 }

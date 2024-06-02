@@ -19,4 +19,9 @@ public class CardEffectAddCard : CardEffect
 	{
 		throw new System.NotImplementedException();
 	}
+
+	public override CardEffect copy()
+	{
+		return new CardEffectAddCard();
+	}
 }

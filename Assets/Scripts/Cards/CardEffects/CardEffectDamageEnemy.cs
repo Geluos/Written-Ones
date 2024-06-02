@@ -19,4 +19,9 @@ public class CardEffectDamageEnemy : CardEffect
 	{
 		FightController.main.DamageEnemy(target, (uint)par);
 	}
+
+	public override CardEffect copy()
+	{
+		return new CardEffectDamageEnemy();
+	}
 }
