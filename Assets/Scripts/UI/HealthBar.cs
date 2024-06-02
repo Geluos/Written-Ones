@@ -9,6 +9,8 @@ public class HealthBar : MonoBehaviour
     public Image fill;
 	public Character character;
 	public TMPro.TextMeshProUGUI hpValueText;
+	public Image shieldImage;
+	public TMPro.TextMeshProUGUI shieldText;
 
 	void Start()
 	{
@@ -36,9 +38,30 @@ public class HealthBar : MonoBehaviour
 			hpValueText.text = character.current_hp.ToString();
 		} 
     }
-	
+
+	public void SetShield()
+	{
+		if (character != null)
+		{
+			if (character.shield > 0)
+			{
+				shieldText.enabled = true;
+				shieldImage.enabled = true;
+
+				shieldText.text = character.shield.ToString();
+			}
+			else
+			{
+
+				shieldText.enabled = false;
+				shieldImage.enabled = false;
+			}
+		}
+	}
+
 	void Update()
 	{
 		SetHealth();
+		SetShield();
 	}
 }

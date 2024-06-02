@@ -10,11 +10,13 @@ public class Deck : ScriptableObject
 
 	public Deck(Deck deck)
 	{
+		cards = new List<Card>();
 		foreach (Card card in deck.cards)
 		{
 			cards.Add(card.copy());
 		}
 	}
+
 	public Deck()
 	{
 		cards = new List<Card>();

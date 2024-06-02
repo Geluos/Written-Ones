@@ -9,9 +9,12 @@ using static UnityEngine.GraphicsBuffer;
 
 public class AdventureController : Controller<AdventureController>
 {
-	public Deck pathDeck;
+	public Deck pathDeckAct1;
+	public Deck pathDeckAct2;
+	public Deck pathDeckAct3;
 	public GameObject hand;
-	public GameObject pathCard;
+	public GameObject notificationDialog;
+	public GameObject chooseDialog;
 
 	public Deck shopDeckFight;
     public Deck shopDeckPath;
@@ -26,8 +29,9 @@ public class AdventureController : Controller<AdventureController>
     private Deck currentShopDeck;
     private List<Card> shopFightCards;
     private List<Card> shopPathCards;
+	private CardsLayout cardsLayout;
 
-    public void Start()
+	public void Start()
 	{
 		LoadPathDeck();
 
@@ -38,8 +42,42 @@ public class AdventureController : Controller<AdventureController>
 
         shop.SetActive(!shop.activeSelf);
 
-        updateButton.GetComponentInChildren<TMP_Text>().text = $"Обновить за {0.3 * AVG_MONEY}";
-    }
+        updateButton.GetComponentInChildren<TMP_Text>().text = $"пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ {0.3 * AVG_MONEY}";
+    	StartNewAct();
+	}
+
+	public void StartNewAct()
+	{
+		if (FightController.main.actNum == 0)
+		{
+			cardsLayout = hand.GetComponent<CardsLayout>();
+			cardsLayout.Load(pathDeckAct1);
+			cardsLayout.FadeIn();
+		}
+		else if (FightController.main.actNum == 1)
+		{
+			cardsLayout = hand.GetComponent<CardsLayout>();
+			cardsLayout.Load(pathDeckAct2);
+			cardsLayout.FadeIn();
+		}
+		else if (FightController.main.actNum == 2)
+		{
+			cardsLayout = hand.GetComponent<CardsLayout>();
+			cardsLayout.Load(pathDeckAct2);
+			cardsLayout.FadeIn();
+		}
+		else if (FightController.main.actNum == 3)
+		{
+			//WIN
+		}
+	}
+
+    public bool PlayCard(Card card)
+	{
+		foreach (var effect in card.effectsList)
+			effect.effect.Activate();
+		return true;
+	}
 
     public void Update()
     {
@@ -122,10 +160,6 @@ public class AdventureController : Controller<AdventureController>
         }
     }
 
-    public bool PlayCard(Card card)
-    {
-        return true;
-    }
 
     void AddBuyButton(GameObject card)
     {
@@ -135,13 +169,13 @@ public class AdventureController : Controller<AdventureController>
         buttonTransform.localScale = new Vector2(4.3f, 4.3f);
 
         Rarity rarity = card.GetComponent<CardBaseScript>().card.rarity;
-        buyButton.GetComponentInChildren<TMP_Text>().text = $"Купить за {((int)rarity+1) * AVG_MONEY}";
+        buyButton.GetComponentInChildren<TMP_Text>().text = $"пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ {((int)rarity+1) * AVG_MONEY}";
         buyButton.GetComponentInChildren<TMP_Text>().fontSize = 18;
         buyButton.GetComponent<Button>().onClick.AddListener(() => BuyCard(card, ((int)rarity+1) * AVG_MONEY));
     }
 
     void BuyCard(GameObject card, int price)
     {
-        // TODO добавить карту в колоду
+        // TODO пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
     }
 }

@@ -5,9 +5,23 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "CardEffectDamageEnemy", menuName = "CardEffect/CardEffectDamageEnemy", order = -50)]
 public class CardEffectDamageEnemy : CardEffect
 {
-	public uint value = 10;
 	public override void Activate()
 	{
-		FightController.main.DamageEnemy(value);
+		throw new System.NotImplementedException();
+	}
+
+	public override void Activate(int par)
+	{
+		throw new System.NotImplementedException();
+	}
+
+	public override void Activate(Character target, int par)
+	{
+		FightController.main.DamageEnemy(target, (uint)par);
+	}
+
+	public override CardEffect copy()
+	{
+		return new CardEffectDamageEnemy();
 	}
 }

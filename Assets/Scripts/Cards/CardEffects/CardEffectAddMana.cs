@@ -5,9 +5,23 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "CardEffectAddMana", menuName = "CardEffect/CardEffectAddMana", order = -50)]
 public class CardEffectAddMana : CardEffect
 {
-	public uint value = 1;
 	public override void Activate()
 	{
-		FightController.main.addMana(value);
+		FightController.main.addMana(5);
+	}
+
+	public override void Activate(int par)
+	{
+		FightController.main.addMana((uint)par);
+	}
+
+	public override void Activate(Character target, int par)
+	{
+		throw new System.NotImplementedException();
+	}
+
+	public override CardEffect copy()
+	{
+		return new CardEffectAddMana();
 	}
 }

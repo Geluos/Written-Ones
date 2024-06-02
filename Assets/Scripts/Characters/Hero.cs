@@ -20,6 +20,9 @@ public class Character : MonoBehaviour
 	protected List<Card> currentDeck = null;
 	public GameObject GFX = null;
 
+	[HideInInspector]
+	public uint shield = 0;
+
 	public void Awake()
 	{
 		currentDeck = new List<Card>();
@@ -30,6 +33,17 @@ public class Character : MonoBehaviour
 
 	public void getDamage(uint value)
 	{
+		if (shield > value)
+		{
+			shield -= value;
+			value = 0;
+		}
+		else
+		{
+			value -= shield;
+			shield = 0;
+		}
+
 		if (value < current_hp)
 			current_hp = current_hp - value;
 		else
@@ -55,7 +69,6 @@ public class Character : MonoBehaviour
 			list[randomIndex] = temp;
 		}
 	}
-
 	public Card getCard()
 	{
 		Card res;
