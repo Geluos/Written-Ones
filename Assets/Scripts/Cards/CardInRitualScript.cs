@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class CardInRitualScript : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
+public class CardInRitualScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
     private RectTransform rectTransform;
     private Vector2 startPosition;
-    private readonly float scaleFactor = 1.2f;
+    private float scaleFactor = 1.2f;
+    private Vector2 oldPosition;
 
     public Card card;
     public CardGFX cardGFX;
@@ -32,16 +33,29 @@ public class CardInRitualScript : MonoBehaviour, IBeginDragHandler, IEndDragHand
         cardGFX.name.text = card.name;
     }
 
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        rectTransform.localScale = new Vector3(rectTransform.localScale.x * scaleFactor, rectTransform.localScale.y * scaleFactor);
+        transform.SetAsLastSibling();
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        rectTransform.localScale = new Vector3(rectTransform.localScale.x / scaleFactor, rectTransform.localScale.y / scaleFactor);
+    }
+
     public void OnBeginDrag(PointerEventData eventData)
     {
         transform.SetAsLastSibling();
+        oldPosition = eventData.position;
         startPosition = transform.position;
-        rectTransform.localScale = new Vector3(rectTransform.localScale.x * scaleFactor, rectTransform.localScale.y * scaleFactor);
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        transform.position = eventData.position;
+        var offset = eventData.position - oldPosition;
+        transform.position = new Vector3(transform.position.x + offset.x, transform.position.y + offset.y, 0f);
+        oldPosition = eventData.position;
     }
 
     public virtual void OnEndDrag(PointerEventData eventData)
@@ -49,10 +63,7 @@ public class CardInRitualScript : MonoBehaviour, IBeginDragHandler, IEndDragHand
         if (IsInsideDropFrame())
             CardActivate();
         else
-        {
-            rectTransform.localScale = new Vector3(rectTransform.localScale.x / scaleFactor, rectTransform.localScale.y / scaleFactor);
             transform.position = startPosition;
-        }
     }
 
     private bool IsInsideDropFrame()

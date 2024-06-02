@@ -26,15 +26,19 @@ public class YieldCollection : CustomYieldInstruction
 public class CardsLayout : MonoBehaviour
 {
     public GameObject cardPrefab;
+    public float verticalOffset;
 
     private Canvas canvas;
     private Deck deck;
 	[HideInInspector]
     public List<GameObject> cardInstances = new();
     private Vector2 offset = new();
-    private float minAngle = 80;
-    private float maxAngle = 100;
-    private readonly float radius = 2000f;
+    private float minAngle = 83;
+    private float maxAngle = 97;
+    private float globalMinAngle = 83;
+    private float globalMaxAngle = 97;
+    private float maxCardDistance = 2.5f;
+    private float radius = 4000f;
     private Vector3 cardScaleFactor = new(0.1f, 0.1f, 0f);
     private List<float> cardAngles = new();
 
@@ -48,13 +52,19 @@ public class CardsLayout : MonoBehaviour
     {
 
 		offset = canvas.pixelRect.center;
-		offset.y = -radius * 0.925f + transform.position.y;
+		offset.y = -radius * verticalOffset + transform.position.y;
         offset.x *= 0.925f;
     }
 
     private void SetAnglesBoundaries(int cardsNumber)
     {
-        var halfDistance = (cardsNumber - 1) * 1.5f;
+        var currentCardsDistance = (cardsNumber - 1) * maxCardDistance;
+        var maxCardsDistance = globalMaxAngle - globalMinAngle;
+        float halfDistance;
+        if (currentCardsDistance > maxCardsDistance)
+            halfDistance = maxCardsDistance / 2;
+        else
+            halfDistance = currentCardsDistance / 2;
         minAngle = 90 - halfDistance;
         maxAngle = 90 + halfDistance;
     }
@@ -217,13 +227,14 @@ public class CardsLayout : MonoBehaviour
         shiftedPos.x += 10f;
         cardInstance.transform.SetPositionAndRotation(shiftedPos, Quaternion.Euler(0, 0, 0));
         cardInstance.transform.localScale += cardScaleFactor;
+        cardInstance.transform.position = new Vector3(cardInstance.transform.position.x, cardInstance.transform.position.y + 50f, cardInstance.transform.position.z);
         cardInstance.transform.SetAsLastSibling();
         var currentIndex = cardInstances.IndexOf(cardInstance);
         for (var i = 0; i < cardInstances.Count; ++i)
         {
             if (i == currentIndex)
                 continue;
-            var angleOffset = i < currentIndex ? -0f : 0f;
+            var angleOffset = i < currentIndex ? -1f : 1f;
             var orientation = GetCardOrientation(cardAngles[i] + angleOffset);
             cardInstances[i].transform.SetPositionAndRotation(orientation.Position, orientation.Rotation);
         }
