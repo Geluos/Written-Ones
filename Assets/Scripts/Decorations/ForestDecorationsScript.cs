@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class ForestDecorationsScript : Decorations
 {
-    private static readonly System.Random random = new();
     public GameObject Tree1Object;
     public List<Sprite> Tree1Sprites;
     public GameObject Tree2Object;
@@ -145,11 +144,6 @@ public class ForestDecorationsScript : Decorations
                 so.SetActive(false);
             }
         }
-    }
-
-    private static Sprite RandomSprite(List<Sprite> sprites)
-    {
-        return sprites[random.Next(0, sprites.Count)];
     }
 
     private static T RandomListPop<T>(List<T> lst)
