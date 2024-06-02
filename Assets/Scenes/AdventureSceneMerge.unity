@@ -6742,6 +6742,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardPrefab: {fileID: 3507312678228970222, guid: c4ff27f6d36e4f84e8c1a50884f254c6,
     type: 3}
+  verticalOffset: 0.96
   cardInstances: []
 --- !u!224 &1981886987237836121
 RectTransform:
@@ -7096,6 +7097,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardPrefab: {fileID: 3507312678228970222, guid: dcec053260b7b33439b75fd735060703,
     type: 3}
+  verticalOffset: 0.95
   cardInstances: []
 --- !u!222 &4681667273623977422
 CanvasRenderer:
