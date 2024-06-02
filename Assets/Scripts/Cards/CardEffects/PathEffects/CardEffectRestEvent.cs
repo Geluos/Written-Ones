@@ -13,4 +13,9 @@ public class CardEffectRestEvent : CardEffect
 	{
 		Instantiate(AdventureController.main.notificationDialog).GetComponent<RestEventScript>().Activate(healthAddition);
     }
+
+	public override CardEffect copy()
+	{
+		return new CardEffectRestEvent();
+	}
 }

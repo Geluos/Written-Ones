@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public enum CardsAnimationType
@@ -12,6 +13,7 @@ public class CameraMoveOnClick : MonoBehaviour
     public CameraMovement cameraMovement;
     public Vector3 target;
     public Vector3 targetRotation;
+    public static bool showShop = false;
 
     public GameObject hand;
     public CardsAnimationType cardsAnimation;
@@ -20,6 +22,8 @@ public class CameraMoveOnClick : MonoBehaviour
     {
         var targetQ = new Quaternion();
         targetQ.eulerAngles = targetRotation;
+        cameraMovement.MoveCamera(target, targetQ);
+        showShop = !showShop;
 
         if (cardsAnimation == CardsAnimationType.FadeOut)
         {
@@ -37,5 +41,4 @@ public class CameraMoveOnClick : MonoBehaviour
             });
         }
     }
-
 }

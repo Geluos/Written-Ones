@@ -8,4 +8,9 @@ using UnityEngine.UI;
 public class CardEffectNothing : CardEffect
 {
     public override void Activate() { }
+
+	public override CardEffect copy()
+	{
+		return new CardEffectNothing();
+	}
 }
