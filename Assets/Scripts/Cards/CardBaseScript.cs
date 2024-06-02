@@ -51,6 +51,8 @@ public class CardBaseScript : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 			return;
 		startPosition = transform.position;
 		FightController.main.isDragCard = true;
+        if (this.GetComponent<CardBuyer>() != null) { return; }
+        //startPosition = rectTransform.anchoredPosition;
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -58,6 +60,8 @@ public class CardBaseScript : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 		if (!isPlayable)
 			return;
 		transform.position = eventData.position;
+        //if (this.GetComponent<CardBuyer>() != null) { return; }
+        //rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
     }
 
     public virtual void OnEndDrag(PointerEventData eventData) 
@@ -68,6 +72,8 @@ public class CardBaseScript : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 		FightController.main.isDragCard = false;
 
 		var cardBottom = rectTransform.position.y - startPosition.y;
+        //if (this.GetComponent<CardBuyer>() != null) { return; }
+        //var cardBottom = rectTransform.anchoredPosition.y - rectTransform.rect.height / 4;
 		Debug.Log(cardBottom);
 		if (cardBottom > 0)
         {

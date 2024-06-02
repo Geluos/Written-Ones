@@ -6,6 +6,10 @@ using UnityEngine;
 public struct Card
 {
 	public enum PlayType { TargetHero, TargetMonster, Global, TargetAll, Moment };
+	public enum PlayType { TargetAlly, TargetEnemy, Global, TargetAll, Moment };
+	public enum Owner { RedHead, Piper, TinWoodpeaker, Path };
+	public enum Rarity { Common, Rare, Gold };
+
 
 	public uint manaPrice;
 	public Sprite sprite;
@@ -17,6 +21,8 @@ public struct Card
     public PlayType type;
 	[HideInInspector]
 	public Character owner;
+	public Rarity rarity;
+
 
 	public Card copy()
 	{
@@ -32,7 +38,9 @@ public struct Card
 		card.sprite = sprite;
 		card.ballSprite = ballSprite;
 		card.manaPrice = manaPrice;
+		card.type = type;
 		card.owner = owner;
+		card.rarity = rarity;
 		return card;
 	}
 
@@ -85,7 +93,7 @@ public class CardEffect : ScriptableObject
 	{
 		return new CardEffect();
 	}
-	//Не серелиазиемаю вспомогательная переменная
+	//пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	[HideInInspector]
 	public Character owner;
 }
