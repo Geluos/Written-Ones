@@ -1,4 +1,4 @@
-# Written Ones
+![Written Ones](Assets/Sprites/logo.png)
 
 ## Описание игры
 - **Жанр**: Карточный rogue-lite
