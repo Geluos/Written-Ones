@@ -75,7 +75,7 @@ public class RitualScript : MonoBehaviour
         {
             var cardObject = Instantiate(cardPrefab, offScreenLocation, defaultAngle, transform);
             var script = cardObject.GetComponent<CardInRitualScript>();
-            script.card = _deck[i].copy();
+            script.card = _deck[i];
             script.dropFrameRectTransform = dropFrame.GetComponent<RectTransform>();
             script.UpdateView();
             script.activateAction = (Card card) =>
