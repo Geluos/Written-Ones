@@ -13,8 +13,14 @@ public class Enemy : Character
 	public CardHolder nextCard;
 	[HideInInspector]
 	public Character nextTarget;
+
+	public List<Card> currentDeck = null;
+
 	public void OnMouseEnter()
 	{
+		if (!isAlive())
+			return;
+
 		if (FightController.main.isDragCard)
 		{
 			GFX.GetComponentInChildren<SpriteRenderer>().color = Color.red;
@@ -75,6 +81,30 @@ public class Enemy : Character
 		{
 			Destroy(targetIcon);
 		}
+	}
+
+	public void Awake()
+	{
+		currentDeck = new List<Card>();
+		foreach (Card card in startDeck.cards)
+			currentDeck.Add(card.copy());
+		Shuffle(currentDeck);
+	}
+
+	public Card getCard()
+	{
+		Card res;
+		if (currentDeck.Count <= 0)
+		{
+			currentDeck = new List<Card>();
+			foreach (Card card in startDeck.cards)
+				currentDeck.Add(card.copy());
+			Shuffle<Card>(currentDeck);
+		}
+
+		res = currentDeck[0];
+		currentDeck.RemoveAt(0);
+		return res;
 	}
 
 }

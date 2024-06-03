@@ -3,6 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+
+public struct CharacterDeck
+{
+	public Card.OwnerType ownerType;
+	public Deck deck;
+
+	public CharacterDeck(Deck deck, Hero owner)
+	{
+		this.ownerType = owner.ownerTypeForCharacter;
+		this.deck = Deck.CreateInstance<Deck>();
+
+		foreach (var card in deck.cards)
+		{
+			var cardCopy = card.copy();
+			cardCopy.owner = owner;
+			cardCopy.setOwnerForEffects();
+			this.deck.cards.Add(cardCopy);
+		}
+	}
+}
 public class FightController : Controller<FightController>
 {
 	public enum StageType { PlayerTurn, EnemyTurn };
@@ -31,10 +51,31 @@ public class FightController : Controller<FightController>
 	public RewardsDialogScript rewardsDialog;
 	[HideInInspector]
 	public int actNum = 0;
-	
+
+	public List<CharacterDeck> characterDecks;
+
+	public void Start()
+	{
+		StartCreateDecks();
+	}
+
+	private void StartCreateDecks()
+	{
+		characterDecks = new List<CharacterDeck>();
+		foreach (var hero in heroList)
+		{
+			characterDecks.Add(new CharacterDeck(hero.startDeck, hero));
+		}
+	}
 
 	public void StartFight()
 	{
+		foreach (var hero in heroList)
+		{
+			if (hero.current_hp <= 0)
+				hero.current_hp = 1;
+			hero.gameObject.SetActive(true);
+		}
 		decorations.Decorate();
 		AdventureScene.SetActive(false);
 		FightScene.SetActive(true);
@@ -113,12 +154,11 @@ public class FightController : Controller<FightController>
 	private void createDeck()
 	{
 		heroesDeck = Deck.CreateInstance<Deck>();
-		foreach (var hero in heroList)
+		foreach (var charDeck in characterDecks)
 		{
-			foreach(var card in hero.startDeck.cards)
+			foreach(var card in charDeck.deck.cards)
 			{
 				var cardCopy = card.copy();
-				cardCopy.owner = hero;
 				cardCopy.setOwnerForEffects();
 				heroesDeck.cards.Add(cardCopy);
 			}
@@ -218,6 +258,8 @@ public class FightController : Controller<FightController>
 		{
 			if (hero.isAlive())
 				flag = false;
+			else
+				hero.gameObject.SetActive(false);
 		}
 		if (flag)
 			youLose.SetActive(true);
@@ -267,6 +309,8 @@ public class FightController : Controller<FightController>
 		{
 			if (enemy.isAlive())
 				hasAlive = true;
+			else
+				enemy.gameObject.SetActive(false);
 		}
 		if (!hasAlive)
 		{
@@ -489,6 +533,10 @@ public class FightController : Controller<FightController>
 	{
 		foreach(var enemy in enemyList)
 		{
+			if (!enemy.isAlive())
+			{
+				continue;
+			}
 			if (enemy.nextCard == null)
 			{
 				EnemyGetCard(enemy);

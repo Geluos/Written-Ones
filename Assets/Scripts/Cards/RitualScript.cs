@@ -80,9 +80,9 @@ public class RitualScript : MonoBehaviour
             script.UpdateView();
             script.activateAction = (Card card) =>
             {
-                foreach(var hero in FightController.main.heroList)
+                foreach(var deck in FightController.main.characterDecks)
                 {
-                    if (hero.currentDeck.Remove(card))
+                    if (deck.deck.cards.Remove(card))
                         break;
                 }
                 Destroy(gameObject);
