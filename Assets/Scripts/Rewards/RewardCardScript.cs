@@ -9,6 +9,7 @@ public class RewardCardScript : MonoBehaviour, IPointerEnterHandler, IPointerExi
     private readonly float scaleFactor = 1.2f;
     private RectTransform cardTransform;
 
+    public Card.OwnerType ownerType;
     public Card card;
     public CardGFX cardGFX;
     public Action onSelectionEnd;
@@ -44,8 +45,7 @@ public class RewardCardScript : MonoBehaviour, IPointerEnterHandler, IPointerExi
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        // TODO: handle card logic
-        print($"TODO: добавлена карта '{card.name}'");
+        FightController.main.characterDecks.Find(d => d.ownerType == ownerType).AddCard(card);
         onSelectionEnd();
     }
 }

@@ -2,26 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using static UnityEngine.UI.GridLayoutGroup;
 
 
 public struct CharacterDeck
 {
 	public Card.OwnerType ownerType;
+	public Hero owner;
 	public Deck deck;
 
 	public CharacterDeck(Deck deck, Hero owner)
 	{
+		this.owner = owner;
 		this.ownerType = owner.ownerTypeForCharacter;
 		this.deck = Deck.CreateInstance<Deck>();
 
 		foreach (var card in deck.cards)
-		{
-			var cardCopy = card.copy();
-			cardCopy.owner = owner;
-			cardCopy.setOwnerForEffects();
-			this.deck.cards.Add(cardCopy);
-		}
+			AddCard(card);
 	}
+
+	public readonly void AddCard(Card card)
+	{
+        var cardCopy = card.copy();
+        cardCopy.owner = owner;
+        cardCopy.setOwnerForEffects();
+        this.deck.cards.Add(cardCopy);
+    }
 }
 public class FightController : Controller<FightController>
 {
@@ -304,7 +310,7 @@ public class FightController : Controller<FightController>
 
 	private void checkWin()
 	{
-		bool hasAlive = false;
+        bool hasAlive = false;
 		foreach (var enemy in enemyList)
 		{
 			if (enemy.isAlive())

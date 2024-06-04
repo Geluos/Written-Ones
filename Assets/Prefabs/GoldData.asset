@@ -9,9 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82f02d9da09430949ae431321bb1cf65, type: 3}
-  m_Name: CardEffectRestEvent
+  m_Script: {fileID: 11500000, guid: 71a3ad82167c53440a07a9d42dc15b21, type: 3}
+  m_Name: GoldData
   m_EditorClassIdentifier: 
-  owner: {fileID: 0}
-  minHealthAddition: 30
-  maxHealthAddition: 50
+  goldValue: 200
