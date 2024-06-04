@@ -10,6 +10,14 @@ public class HealthBarStat : MonoBehaviour
 	public Character character;
 	public TMPro.TextMeshProUGUI hpValueText;
 
+    private void Start()
+    {
+        if (character != null)
+        {
+            slider.maxValue = character.max_hp;
+        }
+    }
+
     private void OnEnable()
     {
         SetHealth();
