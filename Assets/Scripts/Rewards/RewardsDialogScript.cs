@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,12 +32,14 @@ public class RewardsDialogScript : MonoBehaviour
     public void GiveReward()
     {
         gameObject.SetActive(true);
-
-        // TODO: dirty little hack: only starting cards are used
-        var cards = FightController.main.heroList
-            .Select(h => h.startDeck.cards)
-            .SelectMany(c => c)
-            .ToList();
+        var cards = new List<Tuple<Card.OwnerType, Card>>();
+        foreach(var hero in FightController.main.heroList)
+        {
+            foreach(var card in hero.startDeck.cards)
+            {
+                cards.Add(Tuple.Create(hero.ownerTypeForCharacter, card));
+            }
+        }
 
         for (int i = 0; i < cardObjects.Count; i++)
         {
@@ -53,10 +56,12 @@ public class RewardsDialogScript : MonoBehaviour
         FightController.main.FightScene.SetActive(false);
     }
 
-    private void LoadRandomCard(int idx, List<Card> cards)
+    private void LoadRandomCard(int idx, List<Tuple<Card.OwnerType, Card>> cards)
     {
         var script = cardScripts[idx];
-        script.card = RandomListPop(cards);
+        var randomCard = RandomListPop(cards);
+        script.ownerType = randomCard.Item1;
+        script.card = randomCard.Item2;
         script.UpdateView();
     }
 

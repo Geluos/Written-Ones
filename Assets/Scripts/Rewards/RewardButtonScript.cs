@@ -21,8 +21,7 @@ public class RewardButtonScript : MonoBehaviour, IPointerClickHandler
     }
     public void OnPointerClick(PointerEventData eventData)
     {
-        // TODO: handle money logic
-        print($"TODO: добавлено {goldAmount} золота");
+        GoldController.main.Add(goldAmount);
         onSelectionEnd();
     }
 }
