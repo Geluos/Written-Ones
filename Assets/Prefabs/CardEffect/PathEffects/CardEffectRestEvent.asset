@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82f02d9da09430949ae431321bb1cf65, type: 3}
   m_Name: CardEffectRestEvent
   m_EditorClassIdentifier: 
-  value: 1
+  owner: {fileID: 0}
+  minHealthAddition: 30
+  maxHealthAddition: 50

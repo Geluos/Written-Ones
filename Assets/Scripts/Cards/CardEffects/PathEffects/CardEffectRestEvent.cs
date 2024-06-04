@@ -7,10 +7,14 @@ using UnityEngine.UI;
 [CreateAssetMenu(fileName = "CardEffectRestEvent", menuName = "CardEffect/CardEffectRestEvent", order = -50)]
 public class CardEffectRestEvent : CardEffect
 {
-    public int healthAddition = 40;
+    public int minHealthAddition = 30;
+    public int maxHealthAddition = 50;
+
+	private readonly System.Random rand = new System.Random();
 
     public override void Activate()
 	{
+		var healthAddition = rand.Next(minHealthAddition, maxHealthAddition);
 		Instantiate(AdventureController.main.notificationDialog).GetComponent<RestEventScript>().Activate(healthAddition);
     }
 
