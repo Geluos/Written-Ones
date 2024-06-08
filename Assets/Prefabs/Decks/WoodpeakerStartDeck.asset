@@ -23,7 +23,7 @@ MonoBehaviour:
     - effect: {fileID: 11400000, guid: 3a5888bf8f781d947bd2fa9f7b97c1ea, type: 2}
       value: 3
     type: 3
-    otype: 0
+    otype: 2
     rarity: 0
     owner: {fileID: 0}
   - manaPrice: 1
@@ -36,7 +36,7 @@ MonoBehaviour:
     - effect: {fileID: 11400000, guid: 3a5888bf8f781d947bd2fa9f7b97c1ea, type: 2}
       value: 3
     type: 3
-    otype: 0
+    otype: 2
     rarity: 0
     owner: {fileID: 0}
   - manaPrice: 0
@@ -49,7 +49,7 @@ MonoBehaviour:
     - effect: {fileID: 11400000, guid: 7a1a7f561bdf7df428b18a7bfc4e3953, type: 2}
       value: 1
     type: 4
-    otype: 0
+    otype: 2
     rarity: 0
     owner: {fileID: 0}
   - manaPrice: 0
@@ -62,7 +62,7 @@ MonoBehaviour:
     - effect: {fileID: 11400000, guid: 7a1a7f561bdf7df428b18a7bfc4e3953, type: 2}
       value: 1
     type: 4
-    otype: 0
+    otype: 2
     rarity: 0
     owner: {fileID: 0}
   - manaPrice: 0
@@ -75,7 +75,7 @@ MonoBehaviour:
     - effect: {fileID: 11400000, guid: 73006a0ced9dd344aae8c513712e260a, type: 2}
       value: 1
     type: 4
-    otype: 0
+    otype: 2
     rarity: 0
     owner: {fileID: 0}
   - manaPrice: 1
@@ -88,7 +88,7 @@ MonoBehaviour:
     - effect: {fileID: 11400000, guid: 31f94d5a4b63d3a4a986e5f7f42c94c1, type: 2}
       value: 4
     type: 0
-    otype: 0
+    otype: 2
     rarity: 0
     owner: {fileID: 0}
   - manaPrice: 1
@@ -101,6 +101,6 @@ MonoBehaviour:
     - effect: {fileID: 11400000, guid: 31f94d5a4b63d3a4a986e5f7f42c94c1, type: 2}
       value: 4
     type: 0
-    otype: 0
+    otype: 2
     rarity: 0
     owner: {fileID: 0}

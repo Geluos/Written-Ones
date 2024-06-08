@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "CardEffectHealSelf", menuName = "CardEffect/CardEffectHealSelf", order = -50)]
+//[CreateAssetMenu(fileName = "CardEffectHealSelf", menuName = "CardEffect/CardEffectHealSelf", order = -50)]
 public class CardEffectHealSelf : CardEffect
 {
 	public override void Activate()

@@ -286,6 +286,11 @@ public class FightController : Controller<FightController>
 		checkWin();
 	}
 
+	public void SetEffect(Character enemy, CharacterEffect effect, int value)
+	{
+		enemy.setEffect(effect, value);
+	}
+
 	public void AddShield(Character hero, uint value)
 	{
 		hero.shield += value;
@@ -456,6 +461,10 @@ public class FightController : Controller<FightController>
 	public void endHeroTurn()
 	{
 		enemyTurn();
+		foreach (var enemy in enemyList)
+		{
+			enemy.popEffect(CharacterEffect.weakness);
+		}
 		startHeroTurn();
 	}
 

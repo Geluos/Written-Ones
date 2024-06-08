@@ -42,6 +42,7 @@ public struct Card
 		card.otype = otype;
 		card.rarity = rarity;
 		card.owner = owner;
+		card.setOwnerForEffects();
 		return card;
 	}
 
