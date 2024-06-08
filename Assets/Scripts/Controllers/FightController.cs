@@ -49,7 +49,7 @@ public class FightController : Controller<FightController>
 	public GameObject AdventureScene;
 	public GameObject FightScene;
 	public GameObject youLose;
-	public Decorations decorations;
+	public List<Decorations> decorations;
 	public EnemySets enemySets;
 	public EnemySets bossSets;
 	[HideInInspector]
@@ -77,6 +77,9 @@ public class FightController : Controller<FightController>
 
 	public void StartFight()
 	{
+		foreach (var dec in decorations)
+			dec.gameObject.SetActive(false);
+		decorations[actNum].gameObject.SetActive(true);
 		SoundController.main.PlayBattleMusic();
 		foreach (var hero in heroList)
 		{
@@ -84,7 +87,7 @@ public class FightController : Controller<FightController>
 				hero.current_hp = 1;
 			hero.gameObject.SetActive(true);
 		}
-		decorations.Decorate();
+		decorations[actNum].Decorate();
 		AdventureScene.SetActive(false);
 		FightScene.SetActive(true);
 		createDeck();
@@ -340,6 +343,12 @@ public class FightController : Controller<FightController>
 		}
 		if (!hasAlive)
 		{
+			
+
+			rewardsDialog.GiveReward();
+			AdventureScene.SetActive(true);
+			FightScene.SetActive(false);
+
 			if (isBossFight)
 			{
 				++actNum;
@@ -350,10 +359,6 @@ public class FightController : Controller<FightController>
 				}
 				isBossFight = false;
 			}
-
-			rewardsDialog.GiveReward();
-			AdventureScene.SetActive(true);
-			FightScene.SetActive(false);
 			SoundController.main.PlayAdventureMusic();
 		}
 	}

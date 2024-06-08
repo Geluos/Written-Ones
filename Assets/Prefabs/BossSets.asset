@@ -17,4 +17,14 @@ MonoBehaviour:
     enemies:
     - {fileID: 3559164816950278635, guid: 91f0d329887c8b3468813cd5dacc7cd6, type: 3}
     cost: 500
-    isBoss: 0
+    isBoss: 1
+  - nameId: "\u0421\u0442\u0440\u0430\u0448\u0438\u043B\u0430"
+    enemies:
+    - {fileID: 3559164816950278635, guid: 41da542c87cf5ec44bf24e748516142c, type: 3}
+    cost: 500
+    isBoss: 1
+  - nameId: "\u0412\u0438\u0439"
+    enemies:
+    - {fileID: 3559164816950278635, guid: 52cefee54f53b7a418f983835013e70a, type: 3}
+    cost: 500
+    isBoss: 1
