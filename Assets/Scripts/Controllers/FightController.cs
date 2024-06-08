@@ -301,6 +301,7 @@ public class FightController : Controller<FightController>
 	public void DamageEnemy(Character enemy, uint value)
 	{
 		enemy.getDamage(value);
+		checkLose();
 		checkWin();
 	}
 

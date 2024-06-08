@@ -34,6 +34,8 @@ public class CardEffectRandomEvent : CardEffect
 
 	public override CardEffect copy()
 	{
-		return new CardEffectRandomEvent();
+		var inst = CreateInstance<CardEffectRandomEvent>();
+		inst.effectsCombinations = effectsCombinations;
+		return inst;
 	}
 }
