@@ -23,24 +23,28 @@ public class CameraMoveOnClick : MonoBehaviour
 
     private void OnMouseUp()
     {
+		if (!FightController.main.AdventureScene.gameObject.active || MenuController.main.isMovement || MenuController.main.menu.activeInHierarchy)
+			return;
         var targetQ = new Quaternion();
         targetQ.eulerAngles = targetRotation;
-        cameraMovement.MoveCamera(target, targetQ);
+		MenuController.main.isMovement = true;
+		cameraMovement.MoveCamera(target, targetQ);
         showHand = !showHand;
 
         if (cardsAnimation == CardsAnimationType.FadeOut)
         {
             hand.GetComponent<CardsLayout>().FadeOut(() =>
             {
-                cameraMovement.MoveCamera(target, targetQ);
+
+				cameraMovement.MoveCamera(target, targetQ);
             });
         }
 
         if (cardsAnimation == CardsAnimationType.FadeIn)
         {
             cameraMovement.MoveCamera(target, targetQ, () =>
-            {
-                hand.GetComponent<CardsLayout>().FadeIn();
+			{
+				hand.GetComponent<CardsLayout>().FadeIn();
             });
         }
     }
