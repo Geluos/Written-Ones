@@ -71,6 +71,11 @@ public class CardsLayout : MonoBehaviour
 
     public void Load(Deck _deck)
     {
+		foreach (var obj in cardInstances)
+		{
+			Destroy(obj);
+		}
+		cardInstances.Clear();
         deck = _deck;
         SetAnglesBoundaries(deck.cards.Count);
         cardAngles = GetAngles(deck.cards.Count);
