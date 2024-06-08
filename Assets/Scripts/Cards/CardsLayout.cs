@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.XR;
+using UnityEngine.UI;
 
 public class CardOrientation
 {
@@ -157,10 +158,12 @@ public class CardsLayout : MonoBehaviour
                 indicesList.Remove(idx);
             yield return null;
         }
-    }
+		gameObject.GetComponentInParent<GraphicRaycaster>().enabled = true;
+	}
 
     public IEnumerator FadeOutCoroutine(Action afterCallback = null)
     {
+		gameObject.GetComponentInParent<GraphicRaycaster>().enabled = false;
         List<float> currentAngles = new(cardAngles);
         var finalAngle = currentAngles.First();
         var indicesList = new List<int>(Enumerable.Range(0, cardInstances.Count));
