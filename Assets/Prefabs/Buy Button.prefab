@@ -188,8 +188,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u041A\u0443\u043F\u0438\u0442\u044C \u0437\u0430"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2afd7ec478bded141ad071b1b3654cde, type: 2}
-  m_sharedMaterial: {fileID: -161139777701395185, guid: 2afd7ec478bded141ad071b1b3654cde,
+  m_fontAsset: {fileID: 11400000, guid: 43c6cb10361d7d441be103c669a341be, type: 2}
+  m_sharedMaterial: {fileID: 6390790963021064241, guid: 43c6cb10361d7d441be103c669a341be,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}

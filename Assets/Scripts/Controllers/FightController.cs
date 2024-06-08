@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using System.Linq;
 using static UnityEngine.UI.GridLayoutGroup;
 
 
@@ -76,6 +77,7 @@ public class FightController : Controller<FightController>
 
 	public void StartFight()
 	{
+		SoundController.main.PlayBattleMusic();
 		foreach (var hero in heroList)
 		{
 			if (hero.current_hp <= 0)
@@ -134,6 +136,19 @@ public class FightController : Controller<FightController>
 	{
 		if (isBossFight)
 			return bossSets.enemySets[actNum];
+
+		switch (actNum)
+		{
+			case 0:
+				var sets = enemySets.enemySets.Where(s => s.cost <= 30).ToList();
+				return sets[UnityEngine.Random.Range(0, sets.Count)];
+			case 1:
+				var sets2 = enemySets.enemySets.Where(s => s.cost >= 30 && s.cost <= 45).ToList();
+				return sets2[UnityEngine.Random.Range(0, sets2.Count)];
+			case 2:
+				var sets3 = enemySets.enemySets.Where(s => s.cost >= 50).ToList();
+				return sets3[UnityEngine.Random.Range(0, sets3.Count)];
+		}
 		return enemySets.enemySets[UnityEngine.Random.Range(0, enemySets.enemySets.Count)];
 	}
 
@@ -286,6 +301,11 @@ public class FightController : Controller<FightController>
 		checkWin();
 	}
 
+	public void SetEffect(Character enemy, CharacterEffect effect, int value)
+	{
+		enemy.setEffect(effect, value);
+	}
+
 	public void AddShield(Character hero, uint value)
 	{
 		hero.shield += value;
@@ -331,10 +351,10 @@ public class FightController : Controller<FightController>
 				isBossFight = false;
 			}
 
-			
 			rewardsDialog.GiveReward();
 			AdventureScene.SetActive(true);
 			FightScene.SetActive(false);
+			SoundController.main.PlayAdventureMusic();
 		}
 	}
 
@@ -456,6 +476,10 @@ public class FightController : Controller<FightController>
 	public void endHeroTurn()
 	{
 		enemyTurn();
+		foreach (var enemy in enemyList)
+		{
+			enemy.popEffect(CharacterEffect.weakness);
+		}
 		startHeroTurn();
 	}
 

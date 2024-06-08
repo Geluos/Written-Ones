@@ -23,7 +23,7 @@ public class Enemy : Character
 
 		if (FightController.main.isDragCard)
 		{
-			GFX.GetComponentInChildren<SpriteRenderer>().color = Color.red;
+			//GFX.GetComponentInChildren<SpriteRenderer>().color = Color.red;
 		}
 		if (card)
 		{
@@ -70,7 +70,7 @@ public class Enemy : Character
 	public void OnMouseExit()
 	{
 
-		GFX.GetComponentInChildren<SpriteRenderer>().color = Color.white;
+		//GFX.GetComponentInChildren<SpriteRenderer>().color = Color.white;
 
 		if (card)
 		{

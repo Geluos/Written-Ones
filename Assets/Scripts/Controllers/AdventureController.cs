@@ -49,6 +49,7 @@ public class AdventureController : Controller<AdventureController>
         updateButton.GetComponentInChildren<TMP_Text>().fontSize = 19;
         updateButton.onClick.AddListener(UdpateShop);
         StartNewAct();
+        SoundController.main.PlayAdventureMusic();
 	}
 
 	public void StartNewAct()
@@ -105,8 +106,8 @@ public class AdventureController : Controller<AdventureController>
         currentShopDeck = new Deck();
         int currentPathCardsCount = 0;
         int currentFightCardsCount = 0;
-        
-        while (currentFightCardsCount < 8 && shopFightCards.Count > 0) 
+
+        while (currentFightCardsCount < 8 && shopFightCards.Count > 0)
         {
             int num = Random.Range(1, 11);
             Rarity rarity;
@@ -196,7 +197,7 @@ public class AdventureController : Controller<AdventureController>
         GameObject buyButton = Instantiate(buyButtonPrefab, card.transform);
         RectTransform buttonTransform = buyButton.GetComponent<RectTransform>();
         buttonTransform.anchoredPosition = new Vector2(0, -570);
-        buttonTransform.localScale = new Vector2(4.3f, 4.3f);
+        buttonTransform.localScale = new Vector3(4.3f, 4.3f, 1.0f);
 
         Rarity rarity = card.GetComponent<CardBaseScript>().card.rarity;
         buyButton.GetComponentInChildren<TMP_Text>().text = $"Купить за {((int)rarity+1) * AVG_MONEY}";
