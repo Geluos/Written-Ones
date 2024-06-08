@@ -7,6 +7,11 @@ public class MenuController : Controller<MenuController>
 {
 	public GameObject startMenu;
 	public GameObject menu;
+	public GameObject win;
+	public GameObject titles;
+
+	private float titlesSpeed = 4.2f;
+
 	public bool isMovement = false;
 
 	public void ForceStart()
@@ -35,5 +40,18 @@ public class MenuController : Controller<MenuController>
 			}
 		}
 
+		
+
+	}
+
+	private void FixedUpdate()
+	{
+		if (titles.activeInHierarchy)
+		{
+			titles.transform.localPosition += new Vector3(0f, titlesSpeed,0f);
+
+			if (titles.transform.localPosition.y > 3000)
+				ForceExit();
+		}
 	}
 }
