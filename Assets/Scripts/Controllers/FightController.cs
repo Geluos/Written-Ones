@@ -353,6 +353,11 @@ public class FightController : Controller<FightController>
 			if (isBossFight)
 			{
 				++actNum;
+				if (actNum == 3)
+				{
+					SoundController.main.PlayAdventureMusic();
+					MenuController.main.StartEndGame();
+				}
 				AdventureController.main.StartNewAct();
 				foreach (var hero in heroList)
 				{

@@ -30,6 +30,11 @@ public class MenuController : Controller<MenuController>
 		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 	}
 
+	public void StartEndGame()
+	{
+		win.SetActive(true);
+	}
+
 	void Update()
 	{
 		if (!startMenu.activeInHierarchy)
@@ -39,8 +44,6 @@ public class MenuController : Controller<MenuController>
 				menu.SetActive(!menu.activeInHierarchy);
 			}
 		}
-
-		
 
 	}
 

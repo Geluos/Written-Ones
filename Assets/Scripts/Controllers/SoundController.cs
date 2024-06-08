@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-enum MusicType { None, Adventure, Act1, Act2, Act3 }
+enum MusicType { None, Adventure, Act1, Act2, Act3, Titles }
 
 public class SoundController : Controller<SoundController>
 {
@@ -21,7 +21,9 @@ public class SoundController : Controller<SoundController>
     public AudioClip AxeSound;
     public AudioClip KnifeSound;
     public AudioClip FluteSound;
-    private MusicType musicType;
+
+	public AudioClip Titles;
+	private MusicType musicType;
 
     public void Start()
     {
@@ -44,7 +46,8 @@ public class SoundController : Controller<SoundController>
             MusicType.Act1 => RandomListItem(Act1Music),
             MusicType.Act2 => RandomListItem(Act2Music),
             MusicType.Act3 => RandomListItem(Act3Music),
-            _ => null
+			MusicType.Titles => Titles,
+			_ => null
         };
 
         musicSource.clip = music;
@@ -65,7 +68,8 @@ public class SoundController : Controller<SoundController>
             0 => MusicType.Act1,
             1 => MusicType.Act2,
             2 => MusicType.Act3,
-            _ => MusicType.None
+			3 => MusicType.Titles,
+			_ => MusicType.None
         };
         musicSource.Stop();
     }
