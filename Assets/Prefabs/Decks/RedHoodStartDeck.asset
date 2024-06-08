@@ -57,8 +57,8 @@ MonoBehaviour:
     owner: {fileID: 0}
   - manaPrice: 0
     sprite: {fileID: 21300000, guid: 44aaf877c18b20d47bd795cd07c063a2, type: 3}
-    crystalSprite: {fileID: 21300000, guid: c4d45afafd7885b41814e6f47cf38fc7, type: 3}
-    ballSprite: {fileID: 21300000, guid: 8598e41f731df3a45bf9be66cd8c46b2, type: 3}
+    crystalSprite: {fileID: 21300000, guid: 9ee522faba8b90e4ca78c123bdc5b79b, type: 3}
+    ballSprite: {fileID: 21300000, guid: 154b2bc138dee244aa9372c7a55d5dc1, type: 3}
     name: "\u041F\u0440\u0438\u043B\u0438\u0432 \u0441\u0438\u043B"
     description: "1 \u043C\u0430\u043D\u0430"
     effectsList:
@@ -70,8 +70,8 @@ MonoBehaviour:
     owner: {fileID: 0}
   - manaPrice: 0
     sprite: {fileID: 21300000, guid: 44aaf877c18b20d47bd795cd07c063a2, type: 3}
-    crystalSprite: {fileID: 21300000, guid: c4d45afafd7885b41814e6f47cf38fc7, type: 3}
-    ballSprite: {fileID: 21300000, guid: 8598e41f731df3a45bf9be66cd8c46b2, type: 3}
+    crystalSprite: {fileID: 21300000, guid: 9ee522faba8b90e4ca78c123bdc5b79b, type: 3}
+    ballSprite: {fileID: 21300000, guid: 154b2bc138dee244aa9372c7a55d5dc1, type: 3}
     name: "\u041F\u0440\u0438\u043B\u0438\u0432 \u0441\u0438\u043B"
     description: "1 \u043C\u0430\u043D\u0430"
     effectsList:
