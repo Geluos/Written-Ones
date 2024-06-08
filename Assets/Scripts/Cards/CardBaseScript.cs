@@ -37,21 +37,21 @@ public class CardBaseScript : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-		if (!isPlayable)
+		if (this.GetComponent<CardBuyer>() != null)
 			return;
 		cardsLayout.FocusCard(gameObject);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-		if (!isPlayable)
+		if (this.GetComponent<CardBuyer>() != null)
 			return;
 		cardsLayout.UnfocusCard(gameObject);
     }
 
     public void OnBeginDrag(PointerEventData eventData) 
     {
-		if (!isPlayable)
+		if (this.GetComponent<CardBuyer>() != null)
 			return;
         oldPosition = eventData.position;
         startPosition = transform.position;
@@ -61,7 +61,7 @@ public class CardBaseScript : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     public void OnDrag(PointerEventData eventData)
     {
         //rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
-		if (!isPlayable)
+		if (this.GetComponent<CardBuyer>() != null)
 			return;
 		var offset = eventData.position - oldPosition;
 		transform.position = new Vector3(transform.position.x + offset.x, transform.position.y + offset.y, 0f);
@@ -70,7 +70,7 @@ public class CardBaseScript : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
     public virtual void OnEndDrag(PointerEventData eventData) 
     {
-		if (!isPlayable)
+		if (this.GetComponent<CardBuyer>() != null)
 			return;
 
 		FightController.main.isDragCard = false;
@@ -101,7 +101,7 @@ public class CardBaseScript : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
     public virtual void CardActivate(GameObject target = null)
     {
-		if (!isPlayable)
+		if (this.GetComponent<CardBuyer>() != null)
 			return;
 		//Debug.Log("Try play");
 		if (FightController.main.playCard(card, target))

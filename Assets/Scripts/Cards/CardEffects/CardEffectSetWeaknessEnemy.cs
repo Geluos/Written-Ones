@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//[CreateAssetMenu(fileName = "CardEffectShieldTarget", menuName = "CardEffect/CardEffectShieldTarget", order = -50)]
-public class CardEffectShieldTarget : CardEffect
+[CreateAssetMenu(fileName = "CardEffectSetWeaknessEnemy", menuName = "CardEffect/CardEffectSetWeaknessEnemy", order = -50)]
+public class CardEffectSetWeaknessEnemy : CardEffect
 {
 	public override void Activate()
 	{
@@ -17,11 +17,11 @@ public class CardEffectShieldTarget : CardEffect
 
 	public override void Activate(Character target, int par)
 	{
-		FightController.main.AddShield(target, (uint)par);
+		FightController.main.SetEffect(target, CharacterEffect.weakness, par);
 	}
 
 	public override CardEffect copy()
 	{
-		return new CardEffectShieldTarget();
+		return new CardEffectSetWeaknessEnemy();
 	}
 }

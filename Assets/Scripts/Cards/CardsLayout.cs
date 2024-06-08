@@ -71,6 +71,11 @@ public class CardsLayout : MonoBehaviour
 
     public void Load(Deck _deck)
     {
+		foreach (var obj in cardInstances)
+		{
+			Destroy(obj);
+		}
+		cardInstances.Clear();
         deck = _deck;
         SetAnglesBoundaries(deck.cards.Count);
         cardAngles = GetAngles(deck.cards.Count);
@@ -209,6 +214,7 @@ public class CardsLayout : MonoBehaviour
 
     public void FocusCard(GameObject cardInstance)
     {
+		//FIXME
         var shiftedPos = GetCardOrientation(cardAngles[cardInstances.IndexOf(cardInstance)], 70f).Position;
         shiftedPos.x += 10f;
         cardInstance.transform.SetPositionAndRotation(shiftedPos, Quaternion.Euler(0, 0, 0));

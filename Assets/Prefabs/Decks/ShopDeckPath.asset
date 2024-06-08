@@ -14,47 +14,80 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cards:
   - manaPrice: 0
-    sprite: {fileID: 0}
-    ballSprite: {fileID: 0}
-    name: 
+    sprite: {fileID: 21300000, guid: 72de73aaea4627840bcaa58b4ce1aba7, type: 3}
+    crystalSprite: {fileID: 0}
+    ballSprite: {fileID: 21300000, guid: 7e5aafb8f2f120648a55fb5270a0d734, type: 3}
+    name: "\u0411\u043E\u0439"
     description: 
-    effectsList: []
-    type: 0
-    otype: 0
+    effectsList:
+    - effect: {fileID: 11400000, guid: 0a7942cbef0ce934fa52257b8a1869d8, type: 2}
+      value: 0
+    type: 2
+    otype: 3
     rarity: 0
+    owner: {fileID: 0}
   - manaPrice: 0
-    sprite: {fileID: 0}
-    ballSprite: {fileID: 0}
-    name: 
+    sprite: {fileID: 21300000, guid: 72de73aaea4627840bcaa58b4ce1aba7, type: 3}
+    crystalSprite: {fileID: 0}
+    ballSprite: {fileID: 21300000, guid: 7e5aafb8f2f120648a55fb5270a0d734, type: 3}
+    name: "\u0411\u043E\u0439"
     description: 
-    effectsList: []
-    type: 0
-    otype: 0
+    effectsList:
+    - effect: {fileID: 11400000, guid: 0a7942cbef0ce934fa52257b8a1869d8, type: 2}
+      value: 0
+    type: 2
+    otype: 3
     rarity: 0
+    owner: {fileID: 0}
   - manaPrice: 0
-    sprite: {fileID: 0}
-    ballSprite: {fileID: 0}
-    name: 
+    sprite: {fileID: 21300000, guid: 72de73aaea4627840bcaa58b4ce1aba7, type: 3}
+    crystalSprite: {fileID: 0}
+    ballSprite: {fileID: 21300000, guid: 7e5aafb8f2f120648a55fb5270a0d734, type: 3}
+    name: "\u0411\u043E\u0439"
     description: 
-    effectsList: []
-    type: 0
-    otype: 0
+    effectsList:
+    - effect: {fileID: 11400000, guid: 0a7942cbef0ce934fa52257b8a1869d8, type: 2}
+      value: 0
+    type: 2
+    otype: 3
     rarity: 0
+    owner: {fileID: 0}
   - manaPrice: 0
-    sprite: {fileID: 0}
-    ballSprite: {fileID: 0}
-    name: 
+    sprite: {fileID: 21300000, guid: 4fe26bb65b423964c82c82a03850062c, type: 3}
+    crystalSprite: {fileID: 0}
+    ballSprite: {fileID: 21300000, guid: 5a9ec1f4a21881043946c550ed0f5a8a, type: 3}
+    name: "\u041F\u0440\u0438\u0432\u0430\u043B"
     description: 
-    effectsList: []
-    type: 0
-    otype: 0
+    effectsList:
+    - effect: {fileID: 11400000, guid: 1c29403154bb2924b897130fd7148825, type: 2}
+      value: 0
+    type: 2
+    otype: 3
     rarity: 0
+    owner: {fileID: 0}
   - manaPrice: 0
-    sprite: {fileID: 0}
-    ballSprite: {fileID: 0}
-    name: 
+    sprite: {fileID: 21300000, guid: 4fe26bb65b423964c82c82a03850062c, type: 3}
+    crystalSprite: {fileID: 0}
+    ballSprite: {fileID: 21300000, guid: 5a9ec1f4a21881043946c550ed0f5a8a, type: 3}
+    name: "\u041F\u0440\u0438\u0432\u0430\u043B"
     description: 
-    effectsList: []
-    type: 0
-    otype: 0
+    effectsList:
+    - effect: {fileID: 11400000, guid: 1c29403154bb2924b897130fd7148825, type: 2}
+      value: 0
+    type: 2
+    otype: 3
     rarity: 0
+    owner: {fileID: 0}
+  - manaPrice: 0
+    sprite: {fileID: 21300000, guid: 4fe26bb65b423964c82c82a03850062c, type: 3}
+    crystalSprite: {fileID: 0}
+    ballSprite: {fileID: 21300000, guid: 5a9ec1f4a21881043946c550ed0f5a8a, type: 3}
+    name: "\u041F\u0440\u0438\u0432\u0430\u043B"
+    description: 
+    effectsList:
+    - effect: {fileID: 11400000, guid: 1c29403154bb2924b897130fd7148825, type: 2}
+      value: 0
+    type: 2
+    otype: 3
+    rarity: 0
+    owner: {fileID: 0}

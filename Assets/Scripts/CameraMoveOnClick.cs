@@ -13,7 +13,7 @@ public class CameraMoveOnClick : MonoBehaviour
     public CameraMovement cameraMovement;
     public Vector3 target;
     public Vector3 targetRotation;
-    public static bool showShop = false;
+    public static bool showShop = true;
 
     public GameObject hand;
     public CardsAnimationType cardsAnimation;
@@ -23,7 +23,7 @@ public class CameraMoveOnClick : MonoBehaviour
         var targetQ = new Quaternion();
         targetQ.eulerAngles = targetRotation;
         cameraMovement.MoveCamera(target, targetQ);
-        showShop = !showShop;
+        //showShop = !showShop;
 
         if (cardsAnimation == CardsAnimationType.FadeOut)
         {

@@ -38,7 +38,7 @@ MonoBehaviour:
     - effect: {fileID: 11400000, guid: 135039c20c340c04d8bb54531a27c323, type: 2}
       value: 4
     type: 1
-    otype: 0
+    otype: 1
     rarity: 0
     owner: {fileID: 0}
   - manaPrice: 0
@@ -51,7 +51,7 @@ MonoBehaviour:
     - effect: {fileID: 11400000, guid: 73006a0ced9dd344aae8c513712e260a, type: 2}
       value: 2
     type: 4
-    otype: 0
+    otype: 1
     rarity: 0
     owner: {fileID: 0}
   - manaPrice: 0
@@ -64,7 +64,7 @@ MonoBehaviour:
     - effect: {fileID: 11400000, guid: 7a1a7f561bdf7df428b18a7bfc4e3953, type: 2}
       value: 1
     type: 4
-    otype: 0
+    otype: 1
     rarity: 0
     owner: {fileID: 0}
   - manaPrice: 0
@@ -77,6 +77,6 @@ MonoBehaviour:
     - effect: {fileID: 11400000, guid: 7a1a7f561bdf7df428b18a7bfc4e3953, type: 2}
       value: 1
     type: 4
-    otype: 0
+    otype: 1
     rarity: 0
     owner: {fileID: 0}
