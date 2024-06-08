@@ -29,7 +29,7 @@ public class CardsLayout : MonoBehaviour
     public float verticalOffset;
 
     private Canvas canvas;
-    private Deck deck;
+    public Deck deck;
 	[HideInInspector]
     public List<GameObject> cardInstances = new();
     private Vector2 offset = new();
