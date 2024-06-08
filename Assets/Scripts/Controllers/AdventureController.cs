@@ -36,20 +36,28 @@ public class AdventureController : Controller<AdventureController>
 
 	public void Start()
 	{
+		
+	}
+
+	public void ForceStart()
+	{
 		//LoadPathDeck();
 
-        shopFightCards = new List<Card>(shopDeckFight.cards);
-        shopPathCards = new List<Card>(shopDeckPath.cards);
-        InitShopCards();
+		FightController.main.AdventureScene.gameObject.SetActive(true);
+		hand.GetComponent<CardsLayout>().ForceStart();
+
+		shopFightCards = new List<Card>(shopDeckFight.cards);
+		shopPathCards = new List<Card>(shopDeckPath.cards);
+		InitShopCards();
 		LoadShopCards();
 
-        //shop.SetActive(!shop.activeSelf);
+		//shop.SetActive(!shop.activeSelf);
 
-        updateButton.GetComponentInChildren<TMP_Text>().text = $"Обновить за {0.3 * AVG_MONEY}";
-        updateButton.GetComponentInChildren<TMP_Text>().fontSize = 19;
-        updateButton.onClick.AddListener(UdpateShop);
-        StartNewAct();
-        SoundController.main.PlayAdventureMusic();
+		updateButton.GetComponentInChildren<TMP_Text>().text = $"Обновить за {0.3 * AVG_MONEY}";
+		updateButton.GetComponentInChildren<TMP_Text>().fontSize = 19;
+		updateButton.onClick.AddListener(UdpateShop);
+		StartNewAct();
+		SoundController.main.PlayAdventureMusic();
 	}
 
 	public void StartNewAct()

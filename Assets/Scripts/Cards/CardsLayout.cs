@@ -46,9 +46,15 @@ public class CardsLayout : MonoBehaviour
 
     public void Start()
     {
-        canvas = gameObject.transform.parent.gameObject.GetComponent<Canvas>();
-        Setup();
-    }
+		canvas = gameObject.transform.parent.gameObject.GetComponent<Canvas>();
+		Setup();
+	}
+
+	//Depricated
+	public void ForceStart()
+	{
+		
+	}
 
     private void Setup()
     {

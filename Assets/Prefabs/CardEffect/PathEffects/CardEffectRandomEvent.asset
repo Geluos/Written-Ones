@@ -12,32 +12,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed13535610e0d5647b5b99b20cd2e8f8, type: 3}
   m_Name: CardEffectRandomEvent
   m_EditorClassIdentifier: 
+  owner: {fileID: 0}
   effectsCombinations:
   - effects:
+    - image: {fileID: 21300000, guid: 40fa3f878d3aeb44ebd3066eebeaef4f, type: 3}
+      text: "\u041F\u043E\u0442\u0435\u0440\u044F\u0442\u044C \u0432\u0441\u0435
+        \u043D\u0430\u043A\u043E\u043F\u043B\u0435\u043D\u0438\u044F"
+      effect: {fileID: 11400000, guid: 94e88c71e3b53a748ac61724648a205b, type: 2}
     - image: {fileID: 21300000, guid: 72de73aaea4627840bcaa58b4ce1aba7, type: 3}
       text: "\u0412\u0441\u0442\u0443\u043F\u0438\u0442\u044C \u0432 \u0431\u043E\u0439"
-      effect: {fileID: 11400000, guid: 6d65e26c1298daf42a281928f5a890d1, type: 2}
-    - image: {fileID: 21300000, guid: 6b459a87fbf0ebc4c89ed41a364da5df, type: 3}
-      text: "\u041F\u043E\u043B\u0443\u0447\u0438\u0442\u044C 200 \u043C\u043E\u043D\u0435\u0442"
-      effect: {fileID: 11400000, guid: 6d65e26c1298daf42a281928f5a890d1, type: 2}
-    - image: {fileID: 21300000, guid: 40fa3f878d3aeb44ebd3066eebeaef4f, type: 3}
-      text: "\u041F\u043E\u0442\u0435\u0440\u044F\u0442\u044C 50 \u043C\u043E\u043D\u0435\u0442"
-      effect: {fileID: 11400000, guid: 6d65e26c1298daf42a281928f5a890d1, type: 2}
-    - image: {fileID: 21300000, guid: cd9fe804d087c7348a4442e08fc7f7fe, type: 3}
-      text: "\u041F\u0440\u0438\u043E\u0431\u0440\u0435\u0441\u0442\u0438 20 \u043F\u0440\u043E\u0446\u0435\u043D\u0442\u043E\u0432
-        \u0437\u0434\u043E\u0440\u043E\u0432\u044C\u044F"
-      effect: {fileID: 11400000, guid: 6d65e26c1298daf42a281928f5a890d1, type: 2}
-    - image: {fileID: 21300000, guid: ed4ac4c1352dd7448b86507421221166, type: 3}
-      text: "\u041B\u0438\u0448\u0438\u0442\u044C\u0441\u044F 15 \u043F\u0440\u043E\u0446\u0435\u043D\u0442\u043E\u0432
-        \u0437\u0434\u043E\u0440\u043E\u0432\u044C\u044F"
-      effect: {fileID: 11400000, guid: 6d65e26c1298daf42a281928f5a890d1, type: 2}
-    - image: {fileID: 21300000, guid: e410190e15e5bf640804810f85dc7c6b, type: 3}
-      text: "\u041F\u0440\u043E\u043F\u0443\u0441\u0442\u0438\u0442\u044C \u0441\u043E\u0431\u044B\u0442\u0438\u0435"
-      effect: {fileID: 11400000, guid: 6d65e26c1298daf42a281928f5a890d1, type: 2}
+      effect: {fileID: 11400000, guid: 0a7942cbef0ce934fa52257b8a1869d8, type: 2}
   - effects:
-    - image: {fileID: 21300000, guid: 40fa3f878d3aeb44ebd3066eebeaef4f, type: 3}
-      text: "\u041F\u043E\u0442\u0435\u0440\u044F\u0442\u044C 100 \u043C\u043E\u043D\u0435\u0442"
-      effect: {fileID: 11400000, guid: 6d65e26c1298daf42a281928f5a890d1, type: 2}
     - image: {fileID: 21300000, guid: 72de73aaea4627840bcaa58b4ce1aba7, type: 3}
       text: "\u0412\u0441\u0442\u0443\u043F\u0438\u0442\u044C \u0432 \u0431\u043E\u0439"
-      effect: {fileID: 11400000, guid: 6d65e26c1298daf42a281928f5a890d1, type: 2}
+      effect: {fileID: 11400000, guid: 0a7942cbef0ce934fa52257b8a1869d8, type: 2}
+  - effects:
+    - image: {fileID: 21300000, guid: 4fe26bb65b423964c82c82a03850062c, type: 3}
+      text: "\u041E\u0442\u0434\u043E\u0445\u043D\u0443\u0442\u044C"
+      effect: {fileID: 11400000, guid: 1c29403154bb2924b897130fd7148825, type: 2}
+    - image: {fileID: 21300000, guid: 9d07c8f6f7c47714f875cdb662f86930, type: 3}
+      text: "\u041F\u0440\u043E\u0432\u0435\u0441\u0442\u0438 \u0440\u0438\u0442\u0443\u0430\u043B
+        \u043F\u043E \u0443\u0434\u0430\u043B\u0435\u043D\u0438\u044E \u043A\u0430\u0440\u0442\u044B"
+      effect: {fileID: 11400000, guid: cb93b665ce91613419707b19333574f5, type: 2}
+  - effects:
+    - image: {fileID: 21300000, guid: 6b459a87fbf0ebc4c89ed41a364da5df, type: 3}
+      text: "\u041F\u043E\u043B\u0443\u0447\u0438\u0442\u0435 100 \u0437\u043E\u043B\u043E\u0442\u0430"
+      effect: {fileID: 11400000, guid: d5835a39f79beaa4980b77f9dda0b6a7, type: 2}
+  - effects:
+    - image: {fileID: 21300000, guid: 4fe26bb65b423964c82c82a03850062c, type: 3}
+      text: "\u041E\u0442\u0434\u043E\u0445\u043D\u0443\u0442\u044C"
+      effect: {fileID: 11400000, guid: 1c29403154bb2924b897130fd7148825, type: 2}
+    - image: {fileID: 21300000, guid: 6b459a87fbf0ebc4c89ed41a364da5df, type: 3}
+      text: "\u041F\u043E\u043B\u0443\u0447\u0438\u0442\u0435 100 \u0437\u043E\u043B\u043E\u0442\u0430"
+      effect: {fileID: 11400000, guid: d5835a39f79beaa4980b77f9dda0b6a7, type: 2}

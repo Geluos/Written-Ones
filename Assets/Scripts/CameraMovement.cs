@@ -23,5 +23,6 @@ public class CameraMovement : MonoBehaviour
             yield return null;
         }
         afterCallback?.Invoke();
-    }
+		MenuController.main.isMovement = false;
+	}
 }
