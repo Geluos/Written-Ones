@@ -46,6 +46,7 @@ public class AdventureController : Controller<AdventureController>
 
         updateButton.GetComponentInChildren<TMP_Text>().text = $"�������� �� {0.3 * AVG_MONEY}";
     	StartNewAct();
+        SoundController.main.PlayAdventureMusic();
 	}
 
 	public void StartNewAct()
@@ -102,8 +103,8 @@ public class AdventureController : Controller<AdventureController>
         currentShopDeck = new Deck();
         int currentPathCardsCount = 0;
         int currentFightCardsCount = 0;
-        
-        while (currentFightCardsCount < 8 && shopFightCards.Count > 0) 
+
+        while (currentFightCardsCount < 8 && shopFightCards.Count > 0)
         {
             int num = Random.Range(1, 11);
             Rarity rarity;

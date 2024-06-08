@@ -76,6 +76,7 @@ public class FightController : Controller<FightController>
 
 	public void StartFight()
 	{
+		SoundController.main.PlayBattleMusic();
 		foreach (var hero in heroList)
 		{
 			if (hero.current_hp <= 0)
@@ -331,10 +332,10 @@ public class FightController : Controller<FightController>
 				isBossFight = false;
 			}
 
-			
 			rewardsDialog.GiveReward();
 			AdventureScene.SetActive(true);
 			FightScene.SetActive(false);
+			SoundController.main.PlayAdventureMusic();
 		}
 	}
 
