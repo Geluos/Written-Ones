@@ -42,6 +42,7 @@ public class CardsLayout : MonoBehaviour
     private float radius = 4000f;
     private Vector3 cardScaleFactor = new(0.1f, 0.1f, 0f);
     private List<float> cardAngles = new();
+    public bool cardIsDragged = false;
 
     public void Start()
     {
@@ -217,7 +218,8 @@ public class CardsLayout : MonoBehaviour
 
     public void FocusCard(GameObject cardInstance)
     {
-		//FIXME
+        if (cardIsDragged)
+            return;
         var shiftedPos = GetCardOrientation(cardAngles[cardInstances.IndexOf(cardInstance)], 70f).Position;
         shiftedPos.x += 10f;
         cardInstance.transform.SetPositionAndRotation(shiftedPos, Quaternion.Euler(0, 0, 0));
@@ -237,6 +239,8 @@ public class CardsLayout : MonoBehaviour
 
     public void UnfocusCard(GameObject cardInstance)
     {
+        if (cardIsDragged)
+            return;
         cardInstance.transform.localScale -= cardScaleFactor;
         var orientations = GetCardsOrientations(cardAngles);
         for (var i = 0; i < cardInstances.Count; ++i)

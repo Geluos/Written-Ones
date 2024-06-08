@@ -53,8 +53,9 @@ public class CardBaseScript : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     {
 		if (this.GetComponent<CardBuyer>() != null)
 			return;
+		cardsLayout.cardIsDragged = true;
         oldPosition = eventData.position;
-        startPosition = transform.position;
+        startPosition = rectTransform.position;
 		FightController.main.isDragCard = true;
 		SoundController.main.PlaySound(SoundController.main.CardStartPlay);
     }
@@ -65,7 +66,7 @@ public class CardBaseScript : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 		if (this.GetComponent<CardBuyer>() != null)
 			return;
 		var offset = eventData.position - oldPosition;
-		transform.position = new Vector3(transform.position.x + offset.x, transform.position.y + offset.y, 0f);
+		rectTransform.position = new Vector3(transform.position.x + offset.x, transform.position.y + offset.y, 0f);
 		oldPosition = eventData.position;
     }
 
@@ -73,11 +74,10 @@ public class CardBaseScript : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     {
 		if (this.GetComponent<CardBuyer>() != null)
 			return;
-
-		FightController.main.isDragCard = false;
+        cardsLayout.cardIsDragged = false;
+        FightController.main.isDragCard = false;
 
 		var cardBottom = rectTransform.position.y - startPosition.y;
-		Debug.Log(cardBottom);
 		if (cardBottom > 0)
         {
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
