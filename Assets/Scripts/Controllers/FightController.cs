@@ -420,7 +420,18 @@ public class FightController : Controller<FightController>
 					}
 					break;
 			}
-
+			switch (card.otype)
+			{
+				case Card.OwnerType.RedHead:
+					SoundController.main.PlaySound(SoundController.main.KnifeSound);
+					break;
+				case Card.OwnerType.TinWoodpeaker:
+					SoundController.main.PlaySound(SoundController.main.AxeSound);
+					break;
+				case Card.OwnerType.Piper:
+					SoundController.main.PlaySound(SoundController.main.FluteSound);
+					break;
+			}
 			minusMana(card.manaPrice);
 
 			return true;

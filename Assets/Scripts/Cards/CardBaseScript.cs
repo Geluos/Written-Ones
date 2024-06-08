@@ -49,13 +49,14 @@ public class CardBaseScript : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 		cardsLayout.UnfocusCard(gameObject);
     }
 
-    public void OnBeginDrag(PointerEventData eventData) 
+    public void OnBeginDrag(PointerEventData eventData)
     {
 		if (this.GetComponent<CardBuyer>() != null)
 			return;
         oldPosition = eventData.position;
         startPosition = transform.position;
 		FightController.main.isDragCard = true;
+		SoundController.main.PlaySound(SoundController.main.CardStartPlay);
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -68,7 +69,7 @@ public class CardBaseScript : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 		oldPosition = eventData.position;
     }
 
-    public virtual void OnEndDrag(PointerEventData eventData) 
+    public virtual void OnEndDrag(PointerEventData eventData)
     {
 		if (this.GetComponent<CardBuyer>() != null)
 			return;
