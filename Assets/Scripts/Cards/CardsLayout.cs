@@ -77,7 +77,6 @@ public class CardsLayout : MonoBehaviour
 			Destroy(obj);
 		}
 		cardInstances.Clear();
-        deck = Deck.CreateInstance<Deck>();
 		deck = new Deck(_deck);
         SetAnglesBoundaries(deck.cards.Count);
         cardAngles = GetAngles(deck.cards.Count);
