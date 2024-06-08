@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using TMPro;
 using UnityEngine;
@@ -26,7 +27,7 @@ public class AdventureController : Controller<AdventureController>
 	public GameObject buyButtonPrefab;
     public Transform[] cardSlots;
     public Button updateButton;
-    public const int AVG_MONEY = 100;
+    public const int AVG_MONEY = 20;
 
     private Deck currentShopDeck;
     private List<Card> shopFightCards;
@@ -165,7 +166,7 @@ public class AdventureController : Controller<AdventureController>
         }
     }
 
-    public void RedrawShopCards()
+    public void UndrawShopCards()
     {
         var pathCards = new List<Card>();
         var fightCards = new List<Card>();
@@ -176,15 +177,19 @@ public class AdventureController : Controller<AdventureController>
             else fightCards.Add(card.card);
             Destroy(card.gameObject);
         }
-        currentShopDeck.cards.AddRange(fightCards);
-        currentShopDeck.cards.AddRange(pathCards);
-        LoadShopCards();
+
+        shopFightCards.AddRange(fightCards);
+        shopPathCards.AddRange(pathCards);
     }
 
     public void UdpateShop()
     {
-        InitShopCards();
-        RedrawShopCards();
+        if (GoldController.main.Substract((int)(AVG_MONEY * 0.3)))
+        {
+            UndrawShopCards();
+            InitShopCards();
+            LoadShopCards();
+        }
     }
 
     void AddBuyButton(GameObject card)
@@ -202,10 +207,26 @@ public class AdventureController : Controller<AdventureController>
 
     void BuyCard(GameObject cardObj, int price)
     {
-        var card = cardObj.GetComponent<CardBaseScript>().card;
-        FightController.main.characterDecks.Find(d => d.ownerType == card.otype)
-            .AddCard(card);
-        currentShopDeck.cards.Remove(card);
-        RedrawShopCards();
+        if (GoldController.main.Substract(price))
+        {
+            var card = cardObj.GetComponent<CardBaseScript>().card;
+
+            if (card.otype == OwnerType.Path)
+            {
+                cardsLayout = hand.GetComponent<CardsLayout>();
+                cardsLayout.deck.cards.Add(card);
+                cardsLayout.Load(cardsLayout.deck);
+
+                shopPathCards.Add(card);
+            }
+            else
+            {
+                FightController.main.characterDecks.Find(d => d.ownerType == card.otype)
+                    .AddCard(card);
+                shopFightCards.Add(card);
+            }
+
+            Destroy(cardObj);
+        }
     }
 }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.XR;
+using UnityEngine.UI;
 
 public class CardOrientation
 {
@@ -29,7 +30,7 @@ public class CardsLayout : MonoBehaviour
     public float verticalOffset;
 
     private Canvas canvas;
-    private Deck deck;
+    public Deck deck;
 	[HideInInspector]
     public List<GameObject> cardInstances = new();
     private Vector2 offset = new();
@@ -76,7 +77,7 @@ public class CardsLayout : MonoBehaviour
 			Destroy(obj);
 		}
 		cardInstances.Clear();
-        deck = _deck;
+		deck = new Deck(_deck);
         SetAnglesBoundaries(deck.cards.Count);
         cardAngles = GetAngles(deck.cards.Count);
         for (var i = 0; i < deck.cards.Count; ++i)
@@ -157,10 +158,12 @@ public class CardsLayout : MonoBehaviour
                 indicesList.Remove(idx);
             yield return null;
         }
-    }
+		gameObject.GetComponentInParent<GraphicRaycaster>().enabled = true;
+	}
 
     public IEnumerator FadeOutCoroutine(Action afterCallback = null)
     {
+		gameObject.GetComponentInParent<GraphicRaycaster>().enabled = false;
         List<float> currentAngles = new(cardAngles);
         var finalAngle = currentAngles.First();
         var indicesList = new List<int>(Enumerable.Range(0, cardInstances.Count));

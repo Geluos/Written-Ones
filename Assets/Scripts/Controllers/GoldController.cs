@@ -9,7 +9,9 @@ public class GoldController : Controller<GoldController>
 
     void Start()
     {
-        goldScript.UpdateValue(goldData.goldValue);
+		goldData.goldValue = 100;
+
+		goldScript.UpdateValue(goldData.goldValue);
     }
 
     public void Add(int value)

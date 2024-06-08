@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using System.Linq;
 using static UnityEngine.UI.GridLayoutGroup;
 
 
@@ -48,7 +49,7 @@ public class FightController : Controller<FightController>
 	public GameObject AdventureScene;
 	public GameObject FightScene;
 	public GameObject youLose;
-	public Decorations decorations;
+	public List<Decorations> decorations;
 	public EnemySets enemySets;
 	public EnemySets bossSets;
 	[HideInInspector]
@@ -76,6 +77,9 @@ public class FightController : Controller<FightController>
 
 	public void StartFight()
 	{
+		foreach (var dec in decorations)
+			dec.gameObject.SetActive(false);
+		decorations[actNum].gameObject.SetActive(true);
 		SoundController.main.PlayBattleMusic();
 		foreach (var hero in heroList)
 		{
@@ -83,7 +87,7 @@ public class FightController : Controller<FightController>
 				hero.current_hp = 1;
 			hero.gameObject.SetActive(true);
 		}
-		decorations.Decorate();
+		decorations[actNum].Decorate();
 		AdventureScene.SetActive(false);
 		FightScene.SetActive(true);
 		createDeck();
@@ -135,6 +139,19 @@ public class FightController : Controller<FightController>
 	{
 		if (isBossFight)
 			return bossSets.enemySets[actNum];
+
+		switch (actNum)
+		{
+			case 0:
+				var sets = enemySets.enemySets.Where(s => s.cost <= 30).ToList();
+				return sets[UnityEngine.Random.Range(0, sets.Count)];
+			case 1:
+				var sets2 = enemySets.enemySets.Where(s => s.cost >= 30 && s.cost <= 45).ToList();
+				return sets2[UnityEngine.Random.Range(0, sets2.Count)];
+			case 2:
+				var sets3 = enemySets.enemySets.Where(s => s.cost >= 50).ToList();
+				return sets3[UnityEngine.Random.Range(0, sets3.Count)];
+		}
 		return enemySets.enemySets[UnityEngine.Random.Range(0, enemySets.enemySets.Count)];
 	}
 
@@ -326,6 +343,12 @@ public class FightController : Controller<FightController>
 		}
 		if (!hasAlive)
 		{
+			
+
+			rewardsDialog.GiveReward();
+			AdventureScene.SetActive(true);
+			FightScene.SetActive(false);
+
 			if (isBossFight)
 			{
 				++actNum;
@@ -336,10 +359,6 @@ public class FightController : Controller<FightController>
 				}
 				isBossFight = false;
 			}
-
-			rewardsDialog.GiveReward();
-			AdventureScene.SetActive(true);
-			FightScene.SetActive(false);
 			SoundController.main.PlayAdventureMusic();
 		}
 	}
