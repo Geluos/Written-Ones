@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "CardEffectDamageRandomHero", menuName = "CardEffect/CardEffectDamageRandomHero", order = -50)]
+//[CreateAssetMenu(fileName = "CardEffectDamageRandomHero", menuName = "CardEffect/CardEffectDamageRandomHero", order = -50)]
 public class CardEffectDamageRandomHero : CardEffect
 {
 	public override void Activate()
