@@ -48,3 +48,14 @@ MonoBehaviour:
     - {fileID: 2952275570824911286, guid: c1cdab0051a92e948af4ff214e8bc9c4, type: 3}
     cost: 45
     isBoss: 0
+  - nameId: "\u041E\u0431\u0436\u043E\u0440\u0430"
+    enemies:
+    - {fileID: 5763724650088471094, guid: 9d7b50aecd93da3429364dad3382aab7, type: 3}
+    cost: 30
+    isBoss: 0
+  - nameId: "\u041E\u0431\u0436\u043E\u0440\u0430 \u0441\u043E \u0441\u0442\u0440\u0430\u0436\u0435\u043C"
+    enemies:
+    - {fileID: 5763724650088471094, guid: 9d7b50aecd93da3429364dad3382aab7, type: 3}
+    - {fileID: 2952275570824911286, guid: c1cdab0051a92e948af4ff214e8bc9c4, type: 3}
+    cost: 60
+    isBoss: 0

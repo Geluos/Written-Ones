@@ -483,7 +483,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.4, y: 1.4, z: 1.4}
+  m_LocalScale: {x: 0.61, y: 0.61, z: 0.61}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2447159348553022011}
@@ -529,7 +529,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2b3935c325ea7dc449107be955f7b326, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 41980af8dabab34438bb2036bc036e04, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
@@ -674,7 +674,7 @@ GameObject:
   - component: {fileID: 3559164816950278635}
   - component: {fileID: 195443806086541116}
   m_Layer: 8
-  m_Name: "\u0412\u043E\u043B\u043A"
+  m_Name: "\u0421\u0442\u0440\u0430\u0448\u0438\u043B\u0430"
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -708,9 +708,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1725c3341021d247ab347e4281770db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  max_hp: 50
-  current_hp: 50
-  startDeck: {fileID: 11400000, guid: 89588b00d5c776546a6a96faa8922fcd, type: 2}
+  max_hp: 70
+  current_hp: 70
+  startDeck: {fileID: 11400000, guid: 5a97e0d436d3689469815cb6d786fea6, type: 2}
   GFX: {fileID: 2964240742874109468}
   shield: 0
   monsterCanvas: {fileID: 3746022415963266664}
@@ -847,7 +847,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: -0.056, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0.11}
+  m_AnchoredPosition: {x: 0, y: 0.75}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &3746022415963266664

@@ -448,7 +448,7 @@ GameObject:
   - component: {fileID: 5763724650088471094}
   - component: {fileID: 2090979163629952130}
   m_Layer: 8
-  m_Name: "\u0422\u0435\u043D\u044C"
+  m_Name: "\u041E\u0431\u0436\u043E\u0440\u0430"
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -482,9 +482,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1725c3341021d247ab347e4281770db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  max_hp: 15
-  current_hp: 15
-  startDeck: {fileID: 11400000, guid: 7099bb55f51c3844ead0f86908083ce7, type: 2}
+  max_hp: 30
+  current_hp: 30
+  startDeck: {fileID: 11400000, guid: d350594af1d01a846b10c82954d7b3d1, type: 2}
   GFX: {fileID: 3974929704913511176}
   shield: 0
   monsterCanvas: {fileID: 3886614270449071651}
@@ -912,7 +912,7 @@ PrefabInstance:
     - target: {fileID: 5186143609834618166, guid: 630e70459909c7a48917de036f7f5312,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5320688322528230689, guid: 630e70459909c7a48917de036f7f5312,
         type: 3}
@@ -932,12 +932,12 @@ PrefabInstance:
     - target: {fileID: 5812267172061687559, guid: 630e70459909c7a48917de036f7f5312,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6731997376668108570, guid: 630e70459909c7a48917de036f7f5312,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8538566276187837852, guid: 630e70459909c7a48917de036f7f5312,
         type: 3}
