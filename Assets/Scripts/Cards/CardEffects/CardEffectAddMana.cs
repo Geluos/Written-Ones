@@ -22,6 +22,6 @@ public class CardEffectAddMana : CardEffect
 
 	public override CardEffect copy()
 	{
-		return new CardEffectAddMana();
+		return CreateInstance<CardEffectAddMana>();
 	}
 }

@@ -27,6 +27,6 @@ public class CardEffectDamageEnemy : CardEffect
 
 	public override CardEffect copy()
 	{
-		return new CardEffectDamageEnemy();
+		return CreateInstance<CardEffectDamageEnemy>();
 	}
 }

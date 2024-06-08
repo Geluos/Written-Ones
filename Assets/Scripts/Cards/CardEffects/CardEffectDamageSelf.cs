@@ -42,6 +42,6 @@ public class CardEffectDamageSelf : CardEffect
 
 	public override CardEffect copy()
 	{
-		return new CardEffectDamageSelf();
+		return CreateInstance<CardEffectDamageSelf>();
 	}
 }

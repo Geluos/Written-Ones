@@ -27,6 +27,6 @@ public class CardEffectDamageAllHeroes : CardEffect
 
 	public override CardEffect copy()
 	{
-		return CardEffectDamageAllHeroes.CreateInstance<CardEffectDamageAllHeroes>();
+		return CreateInstance<CardEffectDamageAllHeroes>();
 	}
 }
