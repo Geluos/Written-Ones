@@ -22,6 +22,6 @@ public class CardEffectRandomEvent_1 : CardEffect
 
 	public override CardEffect copy()
 	{
-		return new CardEffectRandomEvent_1();
+		return CardEffectRandomEvent_1.CreateInstance<CardEffectRandomEvent_1>();
 	}
 }

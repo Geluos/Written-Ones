@@ -19,7 +19,7 @@ public class SoundController : Controller<SoundController>
     public List<AudioClip> Act3Music;
     private MusicType musicType;
 
-    public SoundController() : base()
+    public void Start()
     {
         musicType = MusicType.Adventure;
         musicSource.volume = MusicVolume;
