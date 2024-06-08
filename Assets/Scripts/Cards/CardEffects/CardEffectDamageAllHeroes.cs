@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//[CreateAssetMenu(fileName = "CardEffectRandomEvent_1", menuName = "CardEffect/CardEffectRandomEvent", order = -50)]
-public class CardEffectRandomEvent_1 : CardEffect
+//[CreateAssetMenu(fileName = "CardEffectDamageAllHeroes", menuName = "CardEffect/CardEffectDamageAllHeroes", order = -50)]
+public class CardEffectDamageAllHeroes : CardEffect
 {
 	public override void Activate()
 	{
@@ -27,6 +27,6 @@ public class CardEffectRandomEvent_1 : CardEffect
 
 	public override CardEffect copy()
 	{
-		return CardEffectRandomEvent_1.CreateInstance<CardEffectRandomEvent_1>();
+		return CardEffectDamageAllHeroes.CreateInstance<CardEffectDamageAllHeroes>();
 	}
 }
