@@ -14,6 +14,6 @@ public class CardEffectRitual : CardEffect
 
 	public override CardEffect copy()
 	{
-		return new CardEffectRitual();
+		return CreateInstance<CardEffectRitual>();
 	}
 }

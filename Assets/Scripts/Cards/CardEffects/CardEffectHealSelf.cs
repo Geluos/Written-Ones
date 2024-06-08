@@ -22,6 +22,6 @@ public class CardEffectHealSelf : CardEffect
 
 	public override CardEffect copy()
 	{
-		return new CardEffectHealSelf();
+		return CreateInstance<CardEffectHealSelf>();
 	}
 }

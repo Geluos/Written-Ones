@@ -22,6 +22,6 @@ public class CardEffectShieldAllHeroes : CardEffect
 
 	public override CardEffect copy()
 	{
-		return new CardEffectShieldAllHeroes();
+		return CreateInstance<CardEffectShieldAllHeroes>();
 	}
 }

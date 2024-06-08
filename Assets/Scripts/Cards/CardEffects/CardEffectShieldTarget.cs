@@ -22,6 +22,6 @@ public class CardEffectShieldTarget : CardEffect
 
 	public override CardEffect copy()
 	{
-		return new CardEffectShieldTarget();
+		return CreateInstance<CardEffectShieldTarget>();
 	}
 }

@@ -22,6 +22,6 @@ public class CardEffectShieldSelf : CardEffect
 
 	public override CardEffect copy()
 	{
-		return new CardEffectShieldSelf();
+		return CreateInstance<CardEffectShieldSelf>();
 	}
 }
