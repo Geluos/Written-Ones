@@ -26,7 +26,7 @@ public class AdventureController : Controller<AdventureController>
 	public GameObject buyButtonPrefab;
     public Transform[] cardSlots;
     public Button updateButton;
-    public const int AVG_MONEY = 1;
+    public const int AVG_MONEY = 100;
 
     private Deck currentShopDeck;
     private List<Card> shopFightCards;
@@ -42,10 +42,12 @@ public class AdventureController : Controller<AdventureController>
         InitShopCards();
 		LoadShopCards();
 
-        shop.SetActive(!shop.activeSelf);
+        //shop.SetActive(!shop.activeSelf);
 
-        updateButton.GetComponentInChildren<TMP_Text>().text = $"�������� �� {0.3 * AVG_MONEY}";
-    	StartNewAct();
+        updateButton.GetComponentInChildren<TMP_Text>().text = $"Обновить за {0.3 * AVG_MONEY}";
+        updateButton.GetComponentInChildren<TMP_Text>().fontSize = 19;
+        updateButton.onClick.AddListener(UdpateShop);
+        StartNewAct();
 	}
 
 	public void StartNewAct()
@@ -81,11 +83,11 @@ public class AdventureController : Controller<AdventureController>
 		return true;
 	}
 
-    public void Update()
-    {
-        if (CameraMoveOnClick.showShop) shop.SetActive(true);
-        else shop.SetActive(false);
-    }
+    //public void Update()
+    //{
+    //    if (CameraMoveOnClick.showShop) shop.SetActive(true);
+    //    else shop.SetActive(false);
+    //}
 
  //   public void LoadPathDeck()
 	//{
@@ -162,6 +164,21 @@ public class AdventureController : Controller<AdventureController>
         }
     }
 
+    public void RedrawShopCards()
+    {
+        foreach (var card in FindObjectsOfType<CardBaseScript>())
+        {
+            if (card.GetComponent<CardBuyer>() == null) continue;
+            Destroy(card.gameObject);
+        }
+        LoadShopCards();
+    }
+
+    public void UdpateShop()
+    {
+        InitShopCards();
+        RedrawShopCards();
+    }
 
     void AddBuyButton(GameObject card)
     {
@@ -171,13 +188,17 @@ public class AdventureController : Controller<AdventureController>
         buttonTransform.localScale = new Vector2(4.3f, 4.3f);
 
         Rarity rarity = card.GetComponent<CardBaseScript>().card.rarity;
-        buyButton.GetComponentInChildren<TMP_Text>().text = $"������ �� {((int)rarity+1) * AVG_MONEY}";
-        buyButton.GetComponentInChildren<TMP_Text>().fontSize = 18;
+        buyButton.GetComponentInChildren<TMP_Text>().text = $"Купить за {((int)rarity+1) * AVG_MONEY}";
+        buyButton.GetComponentInChildren<TMP_Text>().fontSize = 10;
         buyButton.GetComponent<Button>().onClick.AddListener(() => BuyCard(card, ((int)rarity+1) * AVG_MONEY));
     }
 
-    void BuyCard(GameObject card, int price)
+    void BuyCard(GameObject cardObj, int price)
     {
-        // TODO �������� ����� � ������
+        var card = cardObj.GetComponent<CardBaseScript>().card;
+        FightController.main.characterDecks.Find(d => d.ownerType == card.otype)
+            .AddCard(card);
+        currentShopDeck.cards.Remove(card);
+        RedrawShopCards();
     }
 }
