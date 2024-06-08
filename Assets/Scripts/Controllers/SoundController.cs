@@ -6,10 +6,10 @@ enum MusicType { None, Adventure, Act1, Act2, Act3 }
 
 public class SoundController : Controller<SoundController>
 {
-    public static float MusicVolume = 0.5f;
-    public static float EffectsVolume = 0.5f;
-    private const float FADE_SECONDS = 5;
     private static readonly System.Random random = new();
+    private const float FADE_SECONDS = 5;
+    public float MusicVolume = 0.5f;
+    public float EffectsVolume = 0.5f;
     public AudioSource musicSource;
     public AudioSource effectsSource;
 
@@ -17,6 +17,10 @@ public class SoundController : Controller<SoundController>
     public List<AudioClip> Act1Music;
     public List<AudioClip> Act2Music;
     public List<AudioClip> Act3Music;
+    public AudioClip CardStartPlay;
+    public AudioClip AxeSound;
+    public AudioClip KnifeSound;
+    public AudioClip FluteSound;
     private MusicType musicType;
 
     public void Start()
@@ -64,6 +68,11 @@ public class SoundController : Controller<SoundController>
             _ => MusicType.None
         };
         musicSource.Stop();
+    }
+
+    public void PlaySound(AudioClip sound)
+    {
+        effectsSource.PlayOneShot(sound);
     }
 
     private static T RandomListItem<T>(List<T> lst)

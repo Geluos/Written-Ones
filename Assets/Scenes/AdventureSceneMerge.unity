@@ -6070,6 +6070,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79080b05e32773245acf2c8223cc3f01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MusicVolume: 0.5
+  EffectsVolume: 0.4
   musicSource: {fileID: 379165255}
   effectsSource: {fileID: 379165254}
   AdventureSceneMusic:
@@ -6083,6 +6085,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 7e1605eac41c28f43ad54c16f04b67b3, type: 3}
   Act3Music:
   - {fileID: 8300000, guid: 522d3c6c035e8954eae33bbd51d8d09b, type: 3}
+  CardStartPlay: {fileID: 8300000, guid: 3100664da36bfe146b84b2752cd857ea, type: 3}
+  AxeSound: {fileID: 8300000, guid: 83bb049c04a3bc948955497b031cc4ef, type: 3}
+  KnifeSound: {fileID: 8300000, guid: 8f693ca6111326a448ec6b3caca786c4, type: 3}
+  FluteSound: {fileID: 8300000, guid: 65ea1fd68ac8649498ee6e4f52474f86, type: 3}
 --- !u!4 &1147547753
 Transform:
   m_ObjectHideFlags: 0
