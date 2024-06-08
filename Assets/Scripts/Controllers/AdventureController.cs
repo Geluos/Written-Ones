@@ -166,11 +166,17 @@ public class AdventureController : Controller<AdventureController>
 
     public void RedrawShopCards()
     {
+        var pathCards = new List<Card>();
+        var fightCards = new List<Card>();
         foreach (var card in FindObjectsOfType<CardBaseScript>())
         {
             if (card.GetComponent<CardBuyer>() == null) continue;
+            if (card.card.otype == OwnerType.Path) pathCards.Add(card.card);
+            else fightCards.Add(card.card);
             Destroy(card.gameObject);
         }
+        currentShopDeck.cards.AddRange(fightCards);
+        currentShopDeck.cards.AddRange(pathCards);
         LoadShopCards();
     }
 
