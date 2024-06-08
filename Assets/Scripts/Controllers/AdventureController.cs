@@ -191,7 +191,7 @@ public class AdventureController : Controller<AdventureController>
         GameObject buyButton = Instantiate(buyButtonPrefab, card.transform);
         RectTransform buttonTransform = buyButton.GetComponent<RectTransform>();
         buttonTransform.anchoredPosition = new Vector2(0, -570);
-        buttonTransform.localScale = new Vector2(4.3f, 4.3f);
+        buttonTransform.localScale = new Vector3(4.3f, 4.3f, 1.0f);
 
         Rarity rarity = card.GetComponent<CardBaseScript>().card.rarity;
         buyButton.GetComponentInChildren<TMP_Text>().text = $"Купить за {((int)rarity+1) * AVG_MONEY}";
