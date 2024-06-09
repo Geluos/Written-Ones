@@ -174,7 +174,7 @@ MonoBehaviour:
     effectsList:
     - effect: {fileID: 11400000, guid: 3a5888bf8f781d947bd2fa9f7b97c1ea, type: 2}
       value: 7
-    type: 3
+    type: 1
     otype: 1
     rarity: 1
     owner: {fileID: 0}

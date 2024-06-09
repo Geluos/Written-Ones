@@ -35,6 +35,12 @@ public class MenuController : Controller<MenuController>
 		win.SetActive(true);
 	}
 
+
+	public void CloseMenu()
+	{
+		menu.SetActive(false);
+	}
+
 	void Update()
 	{
 		if (!startMenu.activeInHierarchy)
