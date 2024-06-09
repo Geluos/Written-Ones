@@ -219,6 +219,13 @@ public class FightController : Controller<FightController>
 		manaStr.text = 0.ToString();
 		manaCnt = 0;
 
+		foreach (var hero in heroList)
+		{
+			if (hero.ownerTypeForCharacter == Card.OwnerType.TinWoodpeaker)
+				hero.shield /= 2;
+			hero.shield = 0;
+		}
+
 		for (int i = 0; i < 6; ++i)
 		{
 			var card = getCard();
@@ -337,6 +344,7 @@ public class FightController : Controller<FightController>
         bool hasAlive = false;
 		foreach (var enemy in enemyList)
 		{
+			enemy.DestroyTargetIcon();
 			if (enemy.isAlive())
 				hasAlive = true;
 			else
@@ -357,6 +365,7 @@ public class FightController : Controller<FightController>
 				{
 					SoundController.main.PlayAdventureMusic();
 					MenuController.main.StartEndGame();
+					return;
 				}
 				AdventureController.main.StartNewAct();
 				foreach (var hero in heroList)
@@ -590,6 +599,7 @@ public class FightController : Controller<FightController>
 			{
 				continue;
 			}
+			enemy.shield = 0;
 			if (enemy.nextCard == null)
 			{
 				EnemyGetCard(enemy);
