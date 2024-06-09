@@ -365,6 +365,7 @@ public class FightController : Controller<FightController>
 				{
 					SoundController.main.PlayAdventureMusic();
 					MenuController.main.StartEndGame();
+					return;
 				}
 				AdventureController.main.StartNewAct();
 				foreach (var hero in heroList)
