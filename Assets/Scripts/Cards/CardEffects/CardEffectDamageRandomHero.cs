@@ -17,7 +17,7 @@ public class CardEffectDamageRandomHero : CardEffect
 
 	public override void Activate(Character target, int par)
 	{
-		throw new System.NotImplementedException();
+		FightController.main.DamageRandomHero((uint)par);
 	}
 
 	public override CardEffect copy()

@@ -83,6 +83,14 @@ public class Enemy : Character
 		}
 	}
 
+	public void DestroyTargetIcon()
+	{
+		if (targetIcon)
+		{
+			Destroy(targetIcon);
+		}
+	}
+
 	public void Awake()
 	{
 		currentDeck = new List<Card>();
