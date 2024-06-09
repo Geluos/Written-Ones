@@ -344,7 +344,7 @@ public class FightController : Controller<FightController>
 		}
 		if (!hasAlive)
 		{
-			
+
 
 			rewardsDialog.GiveReward();
 			AdventureScene.SetActive(true);
@@ -583,6 +583,7 @@ public class FightController : Controller<FightController>
 
 	public void enemyTurn()
 	{
+		SoundController.main.PlaySound(SoundController.main.MonsterSound);
 		foreach(var enemy in enemyList)
 		{
 			if (!enemy.isAlive())

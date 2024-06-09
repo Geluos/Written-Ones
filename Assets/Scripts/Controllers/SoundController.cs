@@ -8,8 +8,8 @@ public class SoundController : Controller<SoundController>
 {
     private static readonly System.Random random = new();
     private const float FADE_SECONDS = 5;
-    public float MusicVolume = 0.5f;
-    public float EffectsVolume = 0.5f;
+    private float musicVolume = 0.5f;
+    private float effectsVolume = 0.5f;
     public AudioSource musicSource;
     public AudioSource effectsSource;
 
@@ -21,9 +21,30 @@ public class SoundController : Controller<SoundController>
     public AudioClip AxeSound;
     public AudioClip KnifeSound;
     public AudioClip FluteSound;
+    public AudioClip MonsterSound;
 
 	public AudioClip Titles;
 	private MusicType musicType;
+
+    public float MusicVolume
+    {
+        get => musicVolume;
+        set
+        {
+            musicVolume = value;
+            musicSource.volume = value;
+        }
+    }
+
+    public float EffectsVolume
+    {
+        get => effectsVolume;
+        set
+        {
+            effectsVolume = value;
+            effectsSource.volume = value;
+        }
+    }
 
     public void Start()
     {
