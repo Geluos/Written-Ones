@@ -6,11 +6,11 @@ using static UnityEngine.GraphicsBuffer;
 
 public class InputController : Controller<InputController>
 {
-	void Update()
-	{
-		if (Input.GetKey("escape"))
-		{
-			Application.Quit();
-		}
-	}
+	//void Update()
+	//{
+	//	if (Input.GetKey("escape"))
+	//	{
+	//		Application.Quit();
+	//	}
+	//}
 }
