@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731704, g: 0.13414727, b: 0.121078536, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7626,8 +7626,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79080b05e32773245acf2c8223cc3f01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MusicVolume: 0.5
-  EffectsVolume: 0.4
   musicSource: {fileID: 379165255}
   effectsSource: {fileID: 379165254}
   AdventureSceneMusic:
@@ -7645,6 +7643,7 @@ MonoBehaviour:
   AxeSound: {fileID: 8300000, guid: 83bb049c04a3bc948955497b031cc4ef, type: 3}
   KnifeSound: {fileID: 8300000, guid: 8f693ca6111326a448ec6b3caca786c4, type: 3}
   FluteSound: {fileID: 8300000, guid: 65ea1fd68ac8649498ee6e4f52474f86, type: 3}
+  MonsterSound: {fileID: 8300000, guid: 694bc32d5df9f664181baeaf515413dc, type: 3}
   Titles: {fileID: 8300000, guid: 7ebd0699b4ad20f409aaf218df3ee1d6, type: 3}
 --- !u!4 &1147547753
 Transform:
