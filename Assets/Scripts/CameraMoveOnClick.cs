@@ -22,8 +22,8 @@ public class CameraMoveOnClick : MonoBehaviour
 
     private void OnMouseUp()
     {
-		if (!FightController.main.AdventureScene.gameObject.active || MenuController.main.isMovement || MenuController.main.menu.activeInHierarchy)
-			return;
+		//if (!FightController.main.AdventureScene.gameObject.active || MenuController.main.isMovement || MenuController.main.menu.activeInHierarchy)
+		//	return;
         var targetQ = new Quaternion();
         targetQ.eulerAngles = targetRotation;
 		MenuController.main.isMovement = true;

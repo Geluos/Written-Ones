@@ -40,124 +40,55 @@ public class FightController : Controller<FightController>
 	public List<Hero> heroList;
 	public List<Enemy> enemyList;
 
-	private Deck heroesDeck;
+	//FullDeck
+	[HideInInspector]
+	public Deck heroesDeck;
+	//Hand
 	public List<Card> cards;
+	//Dobor
 	public List<Card> deckCards;
-	public GameObject hand;
-	public GameObject baseCard;
-	public TMPro.TextMeshProUGUI manaStr;
-	public GameObject AdventureScene;
-	public GameObject FightScene;
-	public GameObject youLose;
-	public List<Decorations> decorations;
 	public EnemySets enemySets;
-	public EnemySets bossSets;
-	[HideInInspector]
-	public bool isDragCard = false;
-    [HideInInspector]
-    public bool isBossFight = false;
 
-	public RewardsDialogScript rewardsDialog;
-	[HideInInspector]
-	public int actNum = 0;
     [HideInInspector]
     public List<CharacterDeck> characterDecks;
 
 	public void Start()
 	{
-		StartCreateDecks();
+		//StartCreateDecks();
 	}
 
 	private void StartCreateDecks()
 	{
-		characterDecks = new List<CharacterDeck>();
-		foreach (var hero in heroList)
-		{
-			characterDecks.Add(new CharacterDeck(hero.startDeck, hero));
-		}
+		//characterDecks = new List<CharacterDeck>();
+		//foreach (var hero in heroList)
+		//{
+		//	characterDecks.Add(new CharacterDeck(hero.startDeck, hero));
+		//}
 	}
 
 	public void StartFight()
 	{
-		foreach (var dec in decorations)
-			dec.gameObject.SetActive(false);
-		decorations[actNum].gameObject.SetActive(true);
-		SoundController.main.PlayBattleMusic();
-		foreach (var hero in heroList)
-		{
-			if (hero.current_hp <= 0)
-				hero.current_hp = 1;
-			hero.gameObject.SetActive(true);
-		}
-		decorations[actNum].Decorate();
-		AdventureScene.SetActive(false);
-		FightScene.SetActive(true);
-		createDeck();
-		CreateMonsters();
-		startHeroTurn();
+	//	foreach (var hero in heroList)
+	//	{
+	//		if (hero.current_hp <= 0)
+	//			hero.current_hp = 1;
+	//		hero.gameObject.SetActive(true);
+	//	}
+	//	startHeroTurn();
 	}
 
-	public void StartBossFight()
-	{
-		isBossFight = true;
-		StartFight();
-	}
+    public void StartAIFight()
+    {
+        foreach (var hero in heroList)
+        {
+            if (hero.current_hp <= 0)
+                hero.current_hp = 1;
+        }
+        deckCards = new List<Card>();
+        //startHeroTurn();
+    }
 
-	private void CreateMonsters()
-	{
-		var eset = getMonsterSet();
-
-		foreach (var monster in enemyList)
-		{
-			Destroy(monster.gameObject);
-		}
-
-		enemyList.Clear();
-
-		List<GameObject> points = new List<GameObject>();
-
-		if (eset.enemies.Count == 1)
-		{
-			points = CharacterController.main.oneMonsterPointer;
-		}
-		else if (eset.enemies.Count == 2)
-		{
-			points = CharacterController.main.twoMonsterPointers;
-		}
-		else if (eset.enemies.Count == 3)
-		{
-			points = CharacterController.main.threeMonsterPointers;
-		}
-
-		for(int i=0; i<eset.enemies.Count; ++i)
-		{
-			var monster = Instantiate(eset.enemies[i], points[i].transform);
-			monster.transform.localPosition = new Vector3(0f, 0f, 0f);
-			enemyList.Add(monster);
-		}
-	}
-
-	private ESet getMonsterSet()
-	{
-		if (isBossFight)
-			return bossSets.enemySets[actNum];
-
-		switch (actNum)
-		{
-			case 0:
-				var sets = enemySets.enemySets.Where(s => s.cost <= 30).ToList();
-				return sets[UnityEngine.Random.Range(0, sets.Count)];
-			case 1:
-				var sets2 = enemySets.enemySets.Where(s => s.cost >= 30 && s.cost <= 45).ToList();
-				return sets2[UnityEngine.Random.Range(0, sets2.Count)];
-			case 2:
-				var sets3 = enemySets.enemySets.Where(s => s.cost >= 50).ToList();
-				return sets3[UnityEngine.Random.Range(0, sets3.Count)];
-		}
-		return enemySets.enemySets[UnityEngine.Random.Range(0, enemySets.enemySets.Count)];
-	}
-
-	public void restorePartyHp(float percent)
+    public void restorePartyHp(float percent)
 	{
 		foreach(var hero in heroList)
 		{
@@ -176,28 +107,6 @@ public class FightController : Controller<FightController>
 			list[randomIndex] = temp;
 		}
 	}
-
-	private void createDeck()
-	{
-		heroesDeck = Deck.CreateInstance<Deck>();
-		foreach (var charDeck in characterDecks)
-		{
-			foreach(var card in charDeck.deck.cards)
-			{
-				var cardCopy = card.copy();
-				cardCopy.setOwnerForEffects();
-				heroesDeck.cards.Add(cardCopy);
-			}
-		}
-	}
-
-	//private void startFight()
-	//{
-	//	deckCards = new List<Card>();
-	//	foreach (Card card in heroesDeck.cards)
-	//		deckCards.Add(card.copy());
-	//	Shuffle(deckCards);
-	//}
 
 	public Card getCard()
 	{
@@ -218,7 +127,6 @@ public class FightController : Controller<FightController>
 	public void startHeroTurn()
 	{
 		clearCards();
-		manaStr.text = 0.ToString();
 		manaCnt = 0;
 
 		foreach (var hero in heroList)
@@ -234,38 +142,17 @@ public class FightController : Controller<FightController>
 			cards.Add(card);
 		}
 
-		//ADD CARDS TO HAND
-		//foreach (Card card in cards)
-		//{
-		//	//var cardObject = Instantiate(baseCard, hand.transform);
-		//	//cardObject.GetComponent<CardBaseScript>().card = card.copy();
-		//	//cardObject.GetComponent<CardBaseScript>().UpdateView();
-		//}
-
-		var cardsLayout = hand.GetComponent<CardsLayout>();
-		Deck DeckCards = Deck.CreateInstance<Deck>();
-		DeckCards.cards = cards;
-		cardsLayout.Load(DeckCards);
-		cardsLayout.FadeIn();
-
 
 		foreach (Enemy enemy in enemyList)
 		{
 			EnemyGetCard(enemy);
 		}
 
-		//PlayMomentalCards();
-	}
-
-	private void UpdateUI()
-	{
-		manaStr.text = manaCnt.ToString();
 	}
 
 	public void addMana(uint value)
 	{
 		manaCnt += value;
-		UpdateUI();
 	}
 
 	public void addCard(uint value)
@@ -275,27 +162,7 @@ public class FightController : Controller<FightController>
 
 			var card = getCard();
 			cards.Add(card);
-
-			var cardObject = Instantiate(baseCard, hand.transform);
-			var cardLayout = hand.GetComponent<CardsLayout>();
-			cardLayout.cardInstances.Add(cardObject);
-			cardObject.GetComponent<CardBaseScript>().card = card.copy();
-			cardObject.GetComponent<CardBaseScript>().UpdateView();
 		}
-	}
-
-	private void checkLose()
-	{
-		bool flag = true;
-		foreach (var hero in heroList)
-		{
-			if (hero.isAlive())
-				flag = false;
-			else
-				hero.gameObject.SetActive(false);
-		}
-		if (flag)
-			youLose.SetActive(true);
 	}
 
 	public void DamageAllEnemies(uint value)
@@ -304,14 +171,11 @@ public class FightController : Controller<FightController>
 		{
 			enemy.getDamage(value);
 		}
-		checkWin();
 	}
 
 	public void DamageEnemy(Character enemy, uint value)
 	{
 		enemy.getDamage(value);
-		checkLose();
-		checkWin();
 	}
 
 	public void SetEffect(Character enemy, CharacterEffect effect, int value)
@@ -341,44 +205,6 @@ public class FightController : Controller<FightController>
 		hero.current_hp = Math.Min(hero.max_hp, hero.current_hp + value);
 	}
 
-	private void checkWin()
-	{
-        bool hasAlive = false;
-		foreach (var enemy in enemyList)
-		{
-			enemy.DestroyTargetIcon();
-			if (enemy.isAlive())
-				hasAlive = true;
-			else
-				enemy.gameObject.SetActive(false);
-		}
-		if (!hasAlive)
-		{
-
-			rewardsDialog.GiveReward();
-			AdventureScene.SetActive(true);
-			FightScene.SetActive(false);
-
-			if (isBossFight)
-			{
-				++actNum;
-				if (actNum == 3)
-				{
-					SoundController.main.PlayAdventureMusic();
-					MenuController.main.StartEndGame();
-					return;
-				}
-				AdventureController.main.StartNewAct();
-				foreach (var hero in heroList)
-				{
-					HealHp(hero, 1000);
-				}
-				isBossFight = false;
-			}
-			SoundController.main.PlayAdventureMusic();
-		}
-	}
-
 	public void DamageRandomHero(uint value)
 	{
 		int next = UnityEngine.Random.Range(1, 10);
@@ -392,7 +218,6 @@ public class FightController : Controller<FightController>
 
 		hero.getDamage(value);
 
-		checkLose();
 	}
 
 	public void DamageAllHeroes(uint value)
@@ -401,8 +226,6 @@ public class FightController : Controller<FightController>
 		{
 			hero.getDamage(value);
 		}
-
-		checkLose();
 	}
 
 	public void minusMana(uint value)
@@ -411,10 +234,9 @@ public class FightController : Controller<FightController>
 			manaCnt = 0;
 		else
 			manaCnt -= value;
-		UpdateUI();
 	}
 
-	public bool playCard(Card card, GameObject target = null)
+	public bool playCard(Card card, Character target = null)
 	{
 		if (card.manaPrice <= manaCnt)
 		{
@@ -455,18 +277,6 @@ public class FightController : Controller<FightController>
 					}
 					break;
 			}
-			switch (card.otype)
-			{
-				case Card.OwnerType.RedHead:
-					SoundController.main.PlaySound(SoundController.main.KnifeSound);
-					break;
-				case Card.OwnerType.TinWoodpeaker:
-					SoundController.main.PlaySound(SoundController.main.AxeSound);
-					break;
-				case Card.OwnerType.Piper:
-					SoundController.main.PlaySound(SoundController.main.FluteSound);
-					break;
-			}
 			minusMana(card.manaPrice);
 
 			return true;
@@ -475,34 +285,10 @@ public class FightController : Controller<FightController>
 		return false;
 	}
 
-	//HACK
-	/*private void PlayMomentalCards()
-	{
-
-		var children = new List<GameObject>();
-		foreach (Transform child in hand.transform)
-		{
-			var card = child.gameObject.GetComponent<CardBaseScript>().card;
-
-			if (card.type != Card.PlayType.Moment)
-				continue;
-
-			child.gameObject.GetComponent<CardBaseScript>().CardActivate();
-		}
-		children.ForEach(child => Destroy(child));
-	}*/
 
 	private void clearCards()
 	{
 		cards.Clear();
-		var children = new List<GameObject>();
-		foreach (Transform child in hand.transform)
-			children.Add(child.gameObject);
-		children.ForEach(child => Destroy(child));
-
-		var cardsLayout = hand.GetComponent<CardsLayout>();
-		cardsLayout.cardInstances.Clear();
-
 	}
 
 	public void endHeroTurn()
@@ -517,7 +303,6 @@ public class FightController : Controller<FightController>
 
 	private void EnemyGetCard(Enemy enemy)
 	{
-		enemy.nextCard = new CardHolder();
 		enemy.nextCard.card = enemy.getCard();
 		enemy.nextCard.card.owner = enemy;
 		enemy.nextCard.card.setOwnerForEffects();
@@ -533,7 +318,7 @@ public class FightController : Controller<FightController>
 		}
 	}
 
-	private Hero RandomAliveHero()
+	public Hero RandomAliveHero()
 	{
 		bool flag = false;
 		foreach (var hero in heroList)
@@ -562,7 +347,7 @@ public class FightController : Controller<FightController>
 		return heroList[tar];
 	}
 
-	private Enemy RandomAliveMonster()
+	public Enemy RandomAliveMonster()
 	{
 		bool flag = false;
 		foreach (var enemy in enemyList)
@@ -593,18 +378,19 @@ public class FightController : Controller<FightController>
 
 	public void enemyTurn()
 	{
-		SoundController.main.PlaySound(SoundController.main.MonsterSound);
 		foreach(var enemy in enemyList)
 		{
 			if (!enemy.isAlive())
 			{
 				continue;
 			}
+
 			enemy.shield = 0;
 			if (enemy.nextCard == null)
 			{
 				EnemyGetCard(enemy);
 			}
+
 			foreach(var effect in enemy.nextCard.card.effectsList)
 			{
 				if (enemy.nextCard.card.type == Card.PlayType.TargetHero
@@ -618,4 +404,32 @@ public class FightController : Controller<FightController>
 			enemy.nextTarget = null;
 		}
 	}
+
+    public bool CheckEnd()
+    {
+
+		return isWin() || isLose();
+    }
+
+	public bool isWin()
+	{
+        bool hasAlive = false;
+        foreach (var enemy in enemyList)
+        {
+            if (enemy.isAlive())
+                hasAlive = true;
+        }
+		return !hasAlive;
+    }
+
+    public bool isLose()
+    {
+        bool hasAlive = false;
+        foreach (var hero in heroList)
+        {
+            if (hero.isAlive())
+                hasAlive = true;
+        }
+        return !hasAlive;
+    }
 }

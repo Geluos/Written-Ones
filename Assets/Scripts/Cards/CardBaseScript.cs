@@ -56,7 +56,7 @@ public class CardBaseScript : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 		cardsLayout.cardIsDragged = true;
         oldPosition = eventData.position;
         startPosition = rectTransform.position;
-		FightController.main.isDragCard = true;
+		//FightController.main.isDragCard = true;
 		SoundController.main.PlaySound(SoundController.main.CardStartPlay);
     }
 
@@ -75,7 +75,7 @@ public class CardBaseScript : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 		if (this.GetComponent<CardBuyer>() != null)
 			return;
         cardsLayout.cardIsDragged = false;
-        FightController.main.isDragCard = false;
+        //FightController.main.isDragCard = false;
 
 		var cardBottom = rectTransform.position.y - startPosition.y;
 		if (cardBottom > 0)
@@ -85,7 +85,7 @@ public class CardBaseScript : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 			if (Physics.Raycast(ray, out hit, 100))
 			{
 				Debug.Log(hit.collider.gameObject.name);
-				CardActivate(hit.collider.gameObject);
+				//CardActivate(hit.collider.gameObject);
 			}
 			else
 			{
@@ -100,7 +100,7 @@ public class CardBaseScript : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
     public void OnPointerDown(PointerEventData eventData) { }
 
-    public virtual void CardActivate(GameObject target = null)
+    public virtual void CardActivate(Character target = null)
     {
 		if (this.GetComponent<CardBuyer>() != null)
 			return;

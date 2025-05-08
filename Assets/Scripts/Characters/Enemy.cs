@@ -6,9 +6,9 @@ using UnityEngine.EventSystems;
 public class Enemy : Character
 {
 
-	public Canvas monsterCanvas;
-	private GameObject card;
-	private GameObject targetIcon;
+	//public Canvas monsterCanvas;
+	//private GameObject card;
+	//private GameObject targetIcon;
 	[HideInInspector]
 	public CardHolder nextCard;
 	[HideInInspector]
@@ -16,55 +16,70 @@ public class Enemy : Character
 
 	public List<Card> currentDeck = null;
 
-	public void OnMouseEnter()
-	{
-		if (!isAlive())
-			return;
+    public Enemy(Enemy enemy) : base(enemy)
+    {
+		this.nextCard = new CardHolder();
 
-		if (FightController.main.isDragCard)
+		if(enemy.nextCard != null) 
+			this.nextCard.card = enemy.nextCard.card;
+
+        this.nextTarget = enemy.nextTarget;
+        this.currentDeck = new List<Card>();
+		foreach (Card card in enemy.currentDeck)
 		{
-			//GFX.GetComponentInChildren<SpriteRenderer>().color = Color.red;
+			this.currentDeck.Add(card);
 		}
-		if (card)
-		{
-			Destroy(card);
-		}
-		if (nextCard != null)
-		{
-			var cardsLayout = FightController.main.hand.GetComponent<CardsLayout>();
-			card = Instantiate(cardsLayout.cardPrefab, monsterCanvas.transform);
+    }
+
+    public void OnMouseEnter()
+	{
+		//if (!isAlive())
+		//	return;
+
+		//if (FightController.main.isDragCard)
+		//{
+		//	//GFX.GetComponentInChildren<SpriteRenderer>().color = Color.red;
+		//}
+		//if (card)
+		//{
+		//	Destroy(card);
+		//}
+		//if (nextCard != null)
+		//{
+		//	var cardsLayout = FightController.main.hand.GetComponent<CardsLayout>();
+		//	card = Instantiate(cardsLayout.cardPrefab, monsterCanvas.transform);
 			
 
-			card.GetComponent<CardBaseScript>().isPlayable = false;
+		//	card.GetComponent<CardBaseScript>().isPlayable = false;
 
-			card.GetComponent<CardBaseScript>().card = nextCard.card.copy();
-			card.GetComponent<CardBaseScript>().UpdateView();
+		//	card.GetComponent<CardBaseScript>().card = nextCard.card.copy();
+		//	card.GetComponent<CardBaseScript>().UpdateView();
 
 
-			RectTransform uitransform = card.GetComponent<RectTransform>();
-			uitransform.anchorMin = new Vector2(0.5f, 1);
-			uitransform.anchorMax = new Vector2(0.5f, 1);
-			uitransform.pivot = new Vector2(0.5f, 1);
+		//	RectTransform uitransform = card.GetComponent<RectTransform>();
+		//	uitransform.anchorMin = new Vector2(0.5f, 1);
+		//	uitransform.anchorMax = new Vector2(0.5f, 1);
+		//	uitransform.pivot = new Vector2(0.5f, 1);
 
-			card.transform.localPosition += new Vector3(0f, 30f, 0f);
-			card.transform.localScale = new Vector3( 0.05f, 0.05f, 0.05f );
+		//	card.transform.localPosition += new Vector3(0f, 30f, 0f);
+		//	card.transform.localScale = new Vector3( 0.05f, 0.05f, 0.05f );
 
-			if (nextTarget != null)
-			{
-				targetIcon = new GameObject("TARGET_ICON");
-				var renderer = targetIcon.AddComponent<SpriteRenderer>();
-				renderer.sprite = GlobalSpritesController.main.blast;
+		//	if (nextTarget != null)
+		//	{
+		//		targetIcon = new GameObject("TARGET_ICON");
+		//		var renderer = targetIcon.AddComponent<SpriteRenderer>();
+		//		renderer.sprite = GlobalSpritesController.main.blast;
 
 				
 
-				targetIcon.transform.SetParent(nextTarget.transform);
-				targetIcon.transform.position = nextTarget.gameObject.transform.position;
-				targetIcon.transform.rotation = new Quaternion();
-				targetIcon.transform.localPosition += new Vector3(0f, 5f, 0f);
-				targetIcon.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
+		//		targetIcon.transform.SetParent(nextTarget.transform);
+		//		targetIcon.transform.position = nextTarget.gameObject.transform.position;
+		//		targetIcon.transform.rotation = new Quaternion();
+		//		targetIcon.transform.localPosition += new Vector3(0f, 5f, 0f);
+		//		targetIcon.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
 
-			}
-		}
+		//	}
+		//}
 	}
 
 	public void OnMouseExit()
@@ -72,23 +87,23 @@ public class Enemy : Character
 
 		//GFX.GetComponentInChildren<SpriteRenderer>().color = Color.white;
 
-		if (card)
-		{
-			Destroy(card);
-		}
+		//if (card)
+		//{
+		//	Destroy(card);
+		//}
 
-		if (targetIcon)
-		{
-			Destroy(targetIcon);
-		}
+		//if (targetIcon)
+		//{
+		//	Destroy(targetIcon);
+		//}
 	}
 
 	public void DestroyTargetIcon()
 	{
-		if (targetIcon)
-		{
-			Destroy(targetIcon);
-		}
+		//if (targetIcon)
+		//{
+		//	Destroy(targetIcon);
+		//}
 	}
 
 	public void Awake()

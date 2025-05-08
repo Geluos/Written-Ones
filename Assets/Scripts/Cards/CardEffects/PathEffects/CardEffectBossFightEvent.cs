@@ -10,7 +10,7 @@ public class CardEffectBossFightEvent : CardEffect
 
     public override void Activate()
 	{
-		FightController.main.StartBossFight();
+		//FightController.main.StartBossFight();
     }
 
 	public override CardEffect copy()

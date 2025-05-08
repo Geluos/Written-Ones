@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static AI;
+using static UnityEngine.GraphicsBuffer;
 
 
 [Serializable]
@@ -37,7 +39,43 @@ public class SimpleAutomatAI : AI
 
     public override TurnDecription turn()
     {
-        throw new NotImplementedException();
+        var res = new TurnDecription();
+        var cards = FightController.main.cards;
+
+
+        foreach (var card in cards)
+        {
+            if (card.manaPrice == 0
+                && card.effectsList.Exists(x => (x.effect is CardEffectAddCard) || (x.effect is CardEffectAddMana)) 
+                && (card.type == Card.PlayType.Moment || card.type == Card.PlayType.Global))
+            {
+                res.selectCard = card;
+                return res;
+            }
+        }
+
+        FightController.Shuffle(cards);
+
+        foreach (var card in cards)
+        {
+            if ( card.manaPrice <= FightController.main.manaCnt)
+            {
+                res.selectCard = card;
+
+                switch(card.type)
+                {
+                    case Card.PlayType.TargetHero:
+                        res.target = FightController.main.RandomAliveHero();
+                        break;
+                    case Card.PlayType.TargetMonster:
+                        res.target = FightController.main.RandomAliveMonster();
+                        break;
+                }
+                return res;
+            }    
+        }
+        return null;
+
     }
 }
 
@@ -50,6 +88,8 @@ public class TestConfig : ScriptableObject
     public List<EnemySet> enemiesSet;
     [SerializeField]
     public List<Deck> rewardAfter;
+    [SerializeField]
+    public Deck deck;
 
 
     //Несериализуемое поле
@@ -58,14 +98,27 @@ public class TestConfig : ScriptableObject
 
     public void Fight(EnemySet enemySet)
     {
-        while (true)
+        FightController.main.enemyList = new List<Enemy>();
+
+        foreach (Enemy enemy in enemySet.enemies)
+            FightController.main.enemyList.Add(new Enemy(enemy));
+
+        FightController.main.heroList = heroesSet;
+
+        FightController.main.heroesDeck = new Deck(deck);
+
+        FightController.main.StartAIFight();
+
+        AI.TurnDecription turnDecription;
+        while (FightController.main.CheckEnd())
         {
-            if (ai.turn() != null)
+            FightController.main.startHeroTurn();
+            while ( (turnDecription = ai.turn()) != null && FightController.main.CheckEnd())
             {
-
+                FightController.main.playCard(turnDecription.selectCard, turnDecription.target);
             }
-            //Check End
 
+            FightController.main.enemyTurn();
         }
     }
 
@@ -89,6 +142,15 @@ public class TestConfig : ScriptableObject
         for(int i = 0; i < enemiesSet.Count; ++i)
         {
             Fight(enemiesSet[i]);
+
+            if (FightController.main.isLose())
+                break;
+
+            if (rewardAfter.Count > i)
+            {
+                int next = UnityEngine.Random.Range(0, rewardAfter[i].cards.Count);
+                deck.cards.Add(rewardAfter[i].cards[next].copy());
+            }
         }
 
         return result;
@@ -103,7 +165,9 @@ public class CONFIGURATION_TEST : MonoBehaviour
     [SerializeField]
     public void Test()
     {
-        
+        Debug.Log("Start of test");
+        config.play();
+        Debug.Log("Test is over");
     }
 }
 

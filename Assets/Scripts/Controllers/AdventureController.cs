@@ -43,47 +43,47 @@ public class AdventureController : Controller<AdventureController>
 	{
 		//LoadPathDeck();
 
-		FightController.main.AdventureScene.gameObject.SetActive(true);
-		hand.GetComponent<CardsLayout>().ForceStart();
+	//	FightController.main.AdventureScene.gameObject.SetActive(true);
+	//	hand.GetComponent<CardsLayout>().ForceStart();
 
-		shopFightCards = new List<Card>(shopDeckFight.cards);
-		shopPathCards = new List<Card>(shopDeckPath.cards);
-		InitShopCards();
-		LoadShopCards();
+	//	shopFightCards = new List<Card>(shopDeckFight.cards);
+	//	shopPathCards = new List<Card>(shopDeckPath.cards);
+	//	InitShopCards();
+	//	LoadShopCards();
 
-		//shop.SetActive(!shop.activeSelf);
+	//	//shop.SetActive(!shop.activeSelf);
 
-		updateButton.GetComponentInChildren<TMP_Text>().text = $"Обновить за {0.3 * AVG_MONEY}";
-		updateButton.GetComponentInChildren<TMP_Text>().fontSize = 19;
-		updateButton.onClick.AddListener(UdpateShop);
-		StartNewAct();
-		SoundController.main.PlayAdventureMusic();
+	//	updateButton.GetComponentInChildren<TMP_Text>().text = $"Обновить за {0.3 * AVG_MONEY}";
+	//	updateButton.GetComponentInChildren<TMP_Text>().fontSize = 19;
+	//	updateButton.onClick.AddListener(UdpateShop);
+	//	StartNewAct();
+	//	SoundController.main.PlayAdventureMusic();
 	}
 
 	public void StartNewAct()
 	{
-		if (FightController.main.actNum == 0)
-		{
-			cardsLayout = hand.GetComponent<CardsLayout>();
-			cardsLayout.Load(pathDeckAct1);
-			cardsLayout.FadeIn();
-		}
-		else if (FightController.main.actNum == 1)
-		{
-			cardsLayout = hand.GetComponent<CardsLayout>();
-			cardsLayout.Load(pathDeckAct2);
-			cardsLayout.FadeIn();
-		}
-		else if (FightController.main.actNum == 2)
-		{
-			cardsLayout = hand.GetComponent<CardsLayout>();
-			cardsLayout.Load(pathDeckAct2);
-			cardsLayout.FadeIn();
-		}
-		else if (FightController.main.actNum == 3)
-		{
-			//WIN
-		}
+		//if (FightController.main.actNum == 0)
+		//{
+		//	cardsLayout = hand.GetComponent<CardsLayout>();
+		//	cardsLayout.Load(pathDeckAct1);
+		//	cardsLayout.FadeIn();
+		//}
+		//else if (FightController.main.actNum == 1)
+		//{
+		//	cardsLayout = hand.GetComponent<CardsLayout>();
+		//	cardsLayout.Load(pathDeckAct2);
+		//	cardsLayout.FadeIn();
+		//}
+		//else if (FightController.main.actNum == 2)
+		//{
+		//	cardsLayout = hand.GetComponent<CardsLayout>();
+		//	cardsLayout.Load(pathDeckAct2);
+		//	cardsLayout.FadeIn();
+		//}
+		//else if (FightController.main.actNum == 3)
+		//{
+		//	//WIN
+		//}
 	}
 
     public bool PlayCard(Card card)

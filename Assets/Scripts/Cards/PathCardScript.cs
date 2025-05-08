@@ -17,7 +17,7 @@ public class PathCardScript : CardBaseScript
     public override void OnEndDrag(PointerEventData eventData)
     {
         cardsLayout.cardIsDragged = false;
-        FightController.main.isDragCard = false;
+        //FightController.main.isDragCard = false;
 
 		var cardBottom = rectTransform.position.y - startPosition.y;
 		if (cardBottom > 0)
@@ -30,7 +30,7 @@ public class PathCardScript : CardBaseScript
         }
     }
 
-    public override void CardActivate(GameObject target = null)
+    public override void CardActivate(Character target = null)
 	{
         if (AdventureController.main.PlayCard(card))
         {

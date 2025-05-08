@@ -35,6 +35,8 @@ public class CONFIGURATION_TEST_editor : Editor
         {
             EditorApplication.Beep();
             EditorGUIUtility.AddCursorRect(GUILayoutUtility.GetLastRect(), MouseCursor.Link);
+
+            tester.Test();
         }
 
         EditorGUILayout.HelpBox("Обновление конфигурации и сохранение отчета", MessageType.Info);

@@ -52,8 +52,8 @@ public class RewardsDialogScript : MonoBehaviour
     private void OnRewardSelected()
     {
         gameObject.SetActive(false);
-        FightController.main.AdventureScene.SetActive(true);
-        FightController.main.FightScene.SetActive(false);
+        //FightController.main.AdventureScene.SetActive(true);
+        //FightController.main.FightScene.SetActive(false);
     }
 
     private void LoadRandomCard(int idx, List<Tuple<Card.OwnerType, Card>> cards)

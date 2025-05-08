@@ -82,18 +82,6 @@ public class SoundController : Controller<SoundController>
         musicSource.Stop();
     }
 
-    public void PlayBattleMusic()
-    {
-        musicType = FightController.main.actNum switch
-        {
-            0 => MusicType.Act1,
-            1 => MusicType.Act2,
-            2 => MusicType.Act3,
-			3 => MusicType.Titles,
-			_ => MusicType.None
-        };
-        musicSource.Stop();
-    }
 
     public void PlaySound(AudioClip sound)
     {
