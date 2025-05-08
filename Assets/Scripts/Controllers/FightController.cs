@@ -54,12 +54,14 @@ public class FightController : Controller<FightController>
 	public EnemySets bossSets;
 	[HideInInspector]
 	public bool isDragCard = false;
-	public bool isBossFight = false;
+    [HideInInspector]
+    public bool isBossFight = false;
+
 	public RewardsDialogScript rewardsDialog;
 	[HideInInspector]
 	public int actNum = 0;
-
-	public List<CharacterDeck> characterDecks;
+    [HideInInspector]
+    public List<CharacterDeck> characterDecks;
 
 	public void Start()
 	{
@@ -352,7 +354,6 @@ public class FightController : Controller<FightController>
 		}
 		if (!hasAlive)
 		{
-
 
 			rewardsDialog.GiveReward();
 			AdventureScene.SetActive(true);
