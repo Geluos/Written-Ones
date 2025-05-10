@@ -13,8 +13,4 @@ public class Hero : Character
 {
 	public Card.OwnerType ownerTypeForCharacter;
 
-    public Hero(Hero hero) : base(hero)
-    {
-
-    }
 }

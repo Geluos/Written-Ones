@@ -35,13 +35,6 @@ public class Character : MonoBehaviour
 	[HideInInspector]
 	public uint shield = 0;
 
-	public Character(Character character)
-	{
-		max_hp = character.max_hp;
-		current_hp = character.current_hp;
-	}
-
-
     public int getEffect(CharacterEffect effect)
 	{
 		var t = effects.Where<StatusEffect>(x => x.effect == effect);

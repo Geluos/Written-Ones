@@ -79,6 +79,7 @@ public class FightController : Controller<FightController>
 
     public void StartAIFight()
     {
+        Debug.Log("StartAIFight");
         foreach (var hero in heroList)
         {
             if (hero.current_hp <= 0)
@@ -278,8 +279,9 @@ public class FightController : Controller<FightController>
 					break;
 			}
 			minusMana(card.manaPrice);
+            cards.Remove(card);
 
-			return true;
+            return true;
 		}
 
 		return false;
@@ -303,6 +305,8 @@ public class FightController : Controller<FightController>
 
 	private void EnemyGetCard(Enemy enemy)
 	{
+		if (enemy.nextCard == null)
+			enemy.nextCard = new CardHolder();
 		enemy.nextCard.card = enemy.getCard();
 		enemy.nextCard.card.owner = enemy;
 		enemy.nextCard.card.setOwnerForEffects();

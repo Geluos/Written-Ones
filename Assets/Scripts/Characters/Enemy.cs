@@ -16,21 +16,6 @@ public class Enemy : Character
 
 	public List<Card> currentDeck = null;
 
-    public Enemy(Enemy enemy) : base(enemy)
-    {
-		this.nextCard = new CardHolder();
-
-		if(enemy.nextCard != null) 
-			this.nextCard.card = enemy.nextCard.card;
-
-        this.nextTarget = enemy.nextTarget;
-        this.currentDeck = new List<Card>();
-		foreach (Card card in enemy.currentDeck)
-		{
-			this.currentDeck.Add(card);
-		}
-    }
-
     public void OnMouseEnter()
 	{
 		//if (!isAlive())

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using static AI;
 using static UnityEngine.GraphicsBuffer;
@@ -17,6 +18,13 @@ public struct EnemySet
 {
     [SerializeField]
     public List<Enemy> enemies;
+}
+
+[Serializable]
+public struct RewardSet
+{
+    [SerializeField]
+    public List<Card> cards;
 }
 
 public abstract class AI
@@ -78,85 +86,6 @@ public class SimpleAutomatAI : AI
 
     }
 }
-
-[CreateAssetMenu(fileName = "TestConfig", menuName = "TestConfig/TestConfig", order = -1)]
-public class TestConfig : ScriptableObject
-{
-    [SerializeField]
-    public List<Hero> heroesSet;
-    [SerializeField]
-    public List<EnemySet> enemiesSet;
-    [SerializeField]
-    public List<Deck> rewardAfter;
-    [SerializeField]
-    public Deck deck;
-
-
-    //Несериализуемое поле
-    private RunTestResult result;
-    private AI ai;
-
-    public void Fight(EnemySet enemySet)
-    {
-        FightController.main.enemyList = new List<Enemy>();
-
-        foreach (Enemy enemy in enemySet.enemies)
-            FightController.main.enemyList.Add(new Enemy(enemy));
-
-        FightController.main.heroList = heroesSet;
-
-        FightController.main.heroesDeck = new Deck(deck);
-
-        FightController.main.StartAIFight();
-
-        AI.TurnDecription turnDecription;
-        while (FightController.main.CheckEnd())
-        {
-            FightController.main.startHeroTurn();
-            while ( (turnDecription = ai.turn()) != null && FightController.main.CheckEnd())
-            {
-                FightController.main.playCard(turnDecription.selectCard, turnDecription.target);
-            }
-
-            FightController.main.enemyTurn();
-        }
-    }
-
-    public RunTestResult play()
-    {
-        result = new RunTestResult();
-
-        Deck deck = new Deck();
-
-        foreach (Hero hero in heroesSet)
-        {
-            if (hero != null)
-            {
-                foreach (Card card in hero.startDeck.cards)
-                {
-                    deck.cards.Add(card.copy());
-                }
-            }
-        }
-
-        for(int i = 0; i < enemiesSet.Count; ++i)
-        {
-            Fight(enemiesSet[i]);
-
-            if (FightController.main.isLose())
-                break;
-
-            if (rewardAfter.Count > i)
-            {
-                int next = UnityEngine.Random.Range(0, rewardAfter[i].cards.Count);
-                deck.cards.Add(rewardAfter[i].cards[next].copy());
-            }
-        }
-
-        return result;
-    }
-}
-
 
 
 public class CONFIGURATION_TEST : MonoBehaviour

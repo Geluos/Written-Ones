@@ -9,12 +9,31 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: d76018923d24d954f945e215eb72a8e3, type: 3}
   m_Name: TC1
   m_EditorClassIdentifier: Assembly-CSharp::TestConfig
   heroesSet:
-  - {fileID: 0}
-  - {fileID: 0}
-  enemiesSet: []
-  rewardAfter: []
+  - {fileID: 7232033675356294029, guid: 0b063fc64ecafff44a143360653e716b, type: 3}
+  - {fileID: 1003098977084858105, guid: a5b7ffbaf5b50494daf65dc24b5c5c16, type: 3}
+  - {fileID: 1695494372948455730, guid: e24242c10c3268042b61cfba2622ea0d, type: 3}
+  enemiesSet:
+  - enemies:
+    - {fileID: 5763724650088471094, guid: 9784398bc2b07a54da9a9489af7eea82, type: 3}
+  - enemies:
+    - {fileID: 5763724650088471094, guid: 9d7b50aecd93da3429364dad3382aab7, type: 3}
+  rewardAfter:
+  - cards:
+    - manaPrice: 0
+      sprite: {fileID: 0}
+      crystalSprite: {fileID: 0}
+      ballSprite: {fileID: 0}
+      name: TEST
+      description: 
+      effectsList:
+      - effect: {fileID: 11400000, guid: 73006a0ced9dd344aae8c513712e260a, type: 2}
+        value: 0
+      type: 2
+      otype: 4
+      rarity: 0
+      owner: {fileID: 0}
   deck: {fileID: 0}

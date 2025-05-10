@@ -17,7 +17,7 @@ public class CardEffectDamageEnemy : CardEffect
 
 	public override void Activate(Character target, int par)
 	{
-		if (target.getEffect(CharacterEffect.vulnerability) > 0)
+		if (target?.getEffect(CharacterEffect.vulnerability) > 0)
 		{
 			target.popEffect(CharacterEffect.vulnerability);
 			par = (int)Mathf.Round(par * 1.5f);
