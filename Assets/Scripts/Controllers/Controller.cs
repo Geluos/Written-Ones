@@ -8,7 +8,10 @@ public abstract class Controller<T> : MonoBehaviour where T : MonoBehaviour
 
 	public Controller()
 	{
-		main = (this as T);
+		if (main == null)
+			main = (this as T);
+		else
+			Destroy(this);
 	}
 
 }
