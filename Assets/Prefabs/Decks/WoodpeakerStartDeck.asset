@@ -26,19 +26,6 @@ MonoBehaviour:
     otype: 2
     rarity: 0
     owner: {fileID: 0}
-  - manaPrice: 1
-    sprite: {fileID: 21300000, guid: c2500c0309f1dc649b92c914594c5f85, type: 3}
-    crystalSprite: {fileID: 21300000, guid: c4d45afafd7885b41814e6f47cf38fc7, type: 3}
-    ballSprite: {fileID: 21300000, guid: 8598e41f731df3a45bf9be66cd8c46b2, type: 3}
-    name: "\u0423\u0434\u0430\u0440 \u043B\u0435\u0441\u043E\u0440\u0443\u0431\u0430"
-    description: "3 \u0443\u0440\u043E\u043D\u0430 \u0432\u0441\u0435\u043C"
-    effectsList:
-    - effect: {fileID: 11400000, guid: 3a5888bf8f781d947bd2fa9f7b97c1ea, type: 2}
-      value: 3
-    type: 3
-    otype: 2
-    rarity: 0
-    owner: {fileID: 0}
   - manaPrice: 0
     sprite: {fileID: 21300000, guid: fe50b6db260aadd4698c091526a1eb7c, type: 3}
     crystalSprite: {fileID: 21300000, guid: c4d45afafd7885b41814e6f47cf38fc7, type: 3}
@@ -62,32 +49,6 @@ MonoBehaviour:
     - effect: {fileID: 11400000, guid: 7a1a7f561bdf7df428b18a7bfc4e3953, type: 2}
       value: 1
     type: 4
-    otype: 2
-    rarity: 0
-    owner: {fileID: 0}
-  - manaPrice: 0
-    sprite: {fileID: 21300000, guid: 8985a733eac18604c93a0199a6eb1a76, type: 3}
-    crystalSprite: {fileID: 21300000, guid: c4d45afafd7885b41814e6f47cf38fc7, type: 3}
-    ballSprite: {fileID: 21300000, guid: 8598e41f731df3a45bf9be66cd8c46b2, type: 3}
-    name: "\u0417\u0430\u043F\u0430\u0441\u043A\u0430"
-    description: "1 \u0434\u043E\u0431\u043E\u0440"
-    effectsList:
-    - effect: {fileID: 11400000, guid: 73006a0ced9dd344aae8c513712e260a, type: 2}
-      value: 1
-    type: 4
-    otype: 2
-    rarity: 0
-    owner: {fileID: 0}
-  - manaPrice: 1
-    sprite: {fileID: 21300000, guid: 542de00cea97d4b4e88ba1a75c70de2d, type: 3}
-    crystalSprite: {fileID: 21300000, guid: c4d45afafd7885b41814e6f47cf38fc7, type: 3}
-    ballSprite: {fileID: 21300000, guid: 8598e41f731df3a45bf9be66cd8c46b2, type: 3}
-    name: "\u0417\u0430\u0449\u0438\u0442\u0438\u0442\u044C"
-    description: "4 \u0437\u0430\u0449\u0438\u0442\u044B \u0441\u043E\u044E\u0437\u043D\u0438\u043A\u0443"
-    effectsList:
-    - effect: {fileID: 11400000, guid: 31f94d5a4b63d3a4a986e5f7f42c94c1, type: 2}
-      value: 4
-    type: 0
     otype: 2
     rarity: 0
     owner: {fileID: 0}

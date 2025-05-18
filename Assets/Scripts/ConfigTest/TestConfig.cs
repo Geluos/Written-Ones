@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using static UnityEngine.UI.GridLayoutGroup;
@@ -22,13 +23,25 @@ public class TestConfig : ScriptableObject
     [HideInInspector]
     public List<Hero> heroes;
 
-
+    public ResultsOfConfiguration resultsOfConfiguration;
     //Несериализуемое поле
     private RunTestResult result;
-    [HideInInspector]
-    public AI ai;
 
-    public void Fight(EnemySet enemySet)
+    [HideInInspector]
+    public AI ai = new SimpleAutomatAI();
+
+    public TestConfig Copy()
+    {
+        var child = ScriptableObject.CreateInstance<TestConfig>();
+        child.init();
+        var deck = ScriptableObject.CreateInstance<Deck>();
+
+
+
+        return child;
+    }
+
+    public bool Fight(EnemySet enemySet)
     {
         Debug.Log("StartAIFight");
         FightController.main.enemyList = new List<Enemy>();
@@ -45,9 +58,6 @@ public class TestConfig : ScriptableObject
         AI.TurnDecription turnDecription;
         bool test = FightController.main.CheckEnd();
 
-        //TODO: Replace
-        ai = new SimpleAutomatAI();
-
         while (!FightController.main.CheckEnd())
         {
             FightController.main.startHeroTurn();
@@ -58,14 +68,20 @@ public class TestConfig : ScriptableObject
 
             FightController.main.enemyTurn();
         }
-        foreach (var hero in FightController.main.heroList)
-        {
-            Debug.Log(hero.name + ": " + hero.current_hp);
-        }
-        foreach (var enemy in FightController.main.enemyList)
-        {
-            Debug.Log(enemy.name + ": " + enemy.current_hp);
-        }
+
+        bool isWin = FightController.main.isWin();
+        FightController.main.enemyList.ForEach(x => DestroyImmediate(x.gameObject));
+        FightController.main.enemyList.Clear();
+
+        return isWin;
+
+    }
+
+    public void init()
+    {
+        resultsOfConfiguration = new ResultsOfConfiguration();
+        resultsOfConfiguration.results = new List<RunTestResult>();
+        ai = new SimpleAutomatAI();
     }
 
     public RunTestResult play()
@@ -93,12 +109,16 @@ public class TestConfig : ScriptableObject
             }
         }
 
+        bool win = true;
+
         for (int i = 0; i < enemiesSet.Count; ++i)
         {
-            Fight(enemiesSet[i]);
+            win = win && Fight(enemiesSet[i]);
 
             if (FightController.main.isLose())
+            {
                 break;
+            }
 
             if (rewardAfter.Count > i)
             {
@@ -108,6 +128,13 @@ public class TestConfig : ScriptableObject
             }
         }
 
+        heroes.ForEach(x => DestroyImmediate(x.gameObject));
+        heroes.Clear();
+
+
+        result.isWin = win;
+
+        resultsOfConfiguration.results.Add(result);
         return result;
     }
 }

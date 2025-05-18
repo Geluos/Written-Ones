@@ -20,7 +20,10 @@ MonoBehaviour:
   - enemies:
     - {fileID: 5763724650088471094, guid: 9784398bc2b07a54da9a9489af7eea82, type: 3}
   - enemies:
-    - {fileID: 5763724650088471094, guid: 9d7b50aecd93da3429364dad3382aab7, type: 3}
+    - {fileID: 2952275570824911286, guid: 25eeb544251d78d4e9bebeede576c98e, type: 3}
+  - enemies:
+    - {fileID: 5763724650088471094, guid: 148e885a190ba9d48a0332238afcb1b1, type: 3}
+    - {fileID: 2952275570824911286, guid: 25eeb544251d78d4e9bebeede576c98e, type: 3}
   rewardAfter:
   - cards:
     - manaPrice: 0
@@ -37,3 +40,4 @@ MonoBehaviour:
       rarity: 0
       owner: {fileID: 0}
   deck: {fileID: 0}
+  heroes: []

@@ -785,8 +785,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b9eb4fa44b81e442b045300ecd298df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  max_hp: 50
-  current_hp: 50
+  max_hp: 60
+  current_hp: 60
   startDeck: {fileID: 11400000, guid: 1bfd05a2118c35a4ca5a042bcf9a3b3d, type: 2}
   GFX: {fileID: 1612784823865687327}
   shield: 0

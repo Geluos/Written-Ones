@@ -67,16 +67,3 @@ MonoBehaviour:
     otype: 1
     rarity: 0
     owner: {fileID: 0}
-  - manaPrice: 0
-    sprite: {fileID: 21300000, guid: 5b2b37e5bb5cc4940b195bad84f0cd3d, type: 3}
-    crystalSprite: {fileID: 21300000, guid: a51e44c512b19e0488cef413a0d9c4a5, type: 3}
-    ballSprite: {fileID: 21300000, guid: 1df550e0460f9ba4bb309bd206fed399, type: 3}
-    name: "\u0417\u0432\u0443\u043A\u0438 \u0444\u043B\u0435\u0439\u0442\u044B"
-    description: "1 \u043C\u0430\u043D\u0430"
-    effectsList:
-    - effect: {fileID: 11400000, guid: 7a1a7f561bdf7df428b18a7bfc4e3953, type: 2}
-      value: 1
-    type: 4
-    otype: 1
-    rarity: 0
-    owner: {fileID: 0}

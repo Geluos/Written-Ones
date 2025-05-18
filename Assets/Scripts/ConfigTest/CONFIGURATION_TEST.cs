@@ -2,16 +2,18 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 using static AI;
 using static UnityEngine.GraphicsBuffer;
 
 
-[Serializable]
-public class RunTestResult
+public class ResultsOfConfiguration : ScriptableObject
 {
-
+    [SerializeField]
+    public List<RunTestResult> results;
 }
+
 
 [Serializable]
 public struct EnemySet
@@ -54,7 +56,7 @@ public class SimpleAutomatAI : AI
         foreach (var card in cards)
         {
             if (card.manaPrice == 0
-                && card.effectsList.Exists(x => (x.effect is CardEffectAddCard) || (x.effect is CardEffectAddMana)) 
+                && card.effectsList.Exists(x => (x.effect is CardEffectAddCard) || (x.effect is CardEffectAddMana))
                 && (card.type == Card.PlayType.Moment || card.type == Card.PlayType.Global))
             {
                 res.selectCard = card;
@@ -64,26 +66,49 @@ public class SimpleAutomatAI : AI
 
         FightController.Shuffle(cards);
 
+        //For shield cards
+        List<Hero> underAttack = new List<Hero>();
+        foreach (var hero in FightController.main.heroList)
+        {
+            foreach (var enemy in FightController.main.enemyList)
+            {
+                if (enemy.isAlive()
+                    && enemy.nextCard != null
+                    && (enemy.nextCard.card.effectsList.Exists(x => (x.effect is CardEffectDamageAllHeroes))
+                    || (enemy.nextCard.card.effectsList.Exists(x => (x.effect is CardEffectDamageEnemy)) && enemy.nextTarget == hero)))
+                {
+                    underAttack.Add(hero);
+                }
+            }
+        }
+
         foreach (var card in cards)
         {
-            if ( card.manaPrice <= FightController.main.manaCnt)
+            if (card.manaPrice <= FightController.main.manaCnt)
             {
                 res.selectCard = card;
 
-                switch(card.type)
+                switch (card.type)
                 {
                     case Card.PlayType.TargetHero:
-                        res.target = FightController.main.RandomAliveHero();
+                        if (card.effectsList.Exists(x => (x.effect is CardEffectShieldTarget)) && underAttack.Count > 0)
+                        {
+                            int next = UnityEngine.Random.Range(0, underAttack.Count);
+                            res.target = underAttack[next];
+                        }
+                        else
+                        {
+                            res.target = FightController.main.RandomAliveHero();
+                        }
                         break;
                     case Card.PlayType.TargetMonster:
                         res.target = FightController.main.RandomAliveMonster();
                         break;
                 }
                 return res;
-            }    
+            }
         }
         return null;
-
     }
 }
 
@@ -92,15 +117,24 @@ public class CONFIGURATION_TEST : MonoBehaviour
 {
     public TestConfig config;
     [SerializeField]
-    public void Test()
+    public virtual void Test()
     {
+
         Debug.Log("Start of test");
-        config.play();
+        config.init();
+        double wins = 0;
+        int N = 100;
+        for (int i = 0; i < N; ++i)
+        {
+            var result = config.play();
+            if (result.isWin)
+                wins++;
+        }
+        Debug.Log("Win percent:" + (wins * 100.0 / N).ToString());
+        AssetDatabase.CreateAsset(config.resultsOfConfiguration, "Assets/TestConfig/Results/result.asset");
         Debug.Log("Test is over");
     }
-}
 
-public class TestSimulator
-{
 
+   
 }

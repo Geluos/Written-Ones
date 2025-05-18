@@ -46,8 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b9eb4fa44b81e442b045300ecd298df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  max_hp: 30
-  current_hp: 30
+  max_hp: 35
+  current_hp: 35
   startDeck: {fileID: 11400000, guid: f48acd64ff4e33642bc86fa5c04279fe, type: 2}
   GFX: {fileID: 3860186765901424564}
   shield: 0

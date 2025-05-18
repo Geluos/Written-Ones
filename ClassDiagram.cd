@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="StatusEffect">
+    <Position X="4" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Characters\Character.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Character">
+    <Position X="6" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAACAAAAAgBgAABBgACAAAEAAAAAAAAAAAAAAEAEAA=</HashCode>
+      <FileName>Assets\Scripts\Characters\Character.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Enemy">
+    <Position X="8.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAQAAAAAAACABAAAAAEQAAAAAAAAAAACAAAEk=</HashCode>
+      <FileName>Assets\Scripts\Characters\Enemy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Hero">
+    <Position X="8.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Characters\Hero.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FightController">
+    <Position X="14.5" Y="1.25" Width="3" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="FightController.StageType" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\Scripts\Controllers\FightController.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>gACRBMTIHKEAAAggAAjQCAFCQAEICA5YBAACQAJCEDo=</HashCode>
+      <FileName>Assets\Scripts\Controllers\FightController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CopyOfFightController">
+    <Position X="18" Y="1.25" Width="3" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="CopyOfFightController.StageType" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\Scripts\Controllers\FightController.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>gACRBMTIHKEAAAggAAjQCAFCQAEICA5YBAACQAJCEDo=</HashCode>
+      <FileName>Assets\Scripts\Controllers\FightController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="CharacterDeck" Collapsed="true">
+    <Position X="11.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAgAAAAAAABAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Controllers\FightController.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Enum Name="CharacterEffect">
+    <Position X="2" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Characters\Character.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
