@@ -20,6 +20,11 @@ public struct EnemySet
 {
     [SerializeField]
     public List<Enemy> enemies;
+
+    public EnemySet(List<Enemy> enemies)
+    {
+        this.enemies = enemies;
+    }
 }
 
 [Serializable]
@@ -113,13 +118,14 @@ public class SimpleAutomatAI : AI
 }
 
 
-public class CONFIGURATION_TEST : MonoBehaviour
+public class ConfigurationTest : MonoBehaviour
 {
     public TestConfig config;
     [SerializeField]
     public virtual void Test()
     {
 
+        var con = config.Copy();
         Debug.Log("Start of test");
         config.init();
         double wins = 0;
@@ -132,6 +138,7 @@ public class CONFIGURATION_TEST : MonoBehaviour
         }
         Debug.Log("Win percent:" + (wins * 100.0 / N).ToString());
         AssetDatabase.CreateAsset(config.resultsOfConfiguration, "Assets/TestConfig/Results/result.asset");
+        AssetDatabase.SaveAssets();
         Debug.Log("Test is over");
     }
 

@@ -3,14 +3,14 @@ using UnityEditor;
 using UnityEngine;
 
 //[CustomEditor(typeof(ConfigScriptBaseDecks))]
-[CustomEditor(typeof(CONFIGURATION_TEST))]
+[CustomEditor(typeof(ConfigurationTest))]
 public class CONFIGURATION_TEST_editor : Editor
 {
     public override void OnInspectorGUI()
     {
         DrawDefaultInspector();
 
-        CONFIGURATION_TEST tester = (CONFIGURATION_TEST)target;
+        ConfigurationTest tester = (ConfigurationTest)target;
 
         GUIStyle buttonStyle = new GUIStyle(GUI.skin.button)
         {
@@ -66,7 +66,7 @@ public class CONFIGURATION_TEST_Base_Decks_editor : Editor
     {
         DrawDefaultInspector();
 
-        CONFIGURATION_TEST tester = (CONFIGURATION_TEST)target;
+        ConfigurationTest tester = (ConfigurationTest)target;
 
         GUIStyle buttonStyle = new GUIStyle(GUI.skin.button)
         {

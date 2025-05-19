@@ -284,19 +284,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1627744713}
   m_SourcePrefab: {fileID: 100100000, guid: ab7ade7870bc24a239cf431c4528e75a, type: 3}
---- !u!114 &33558132
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3b80849a6ea8644296116ab71e6aa88, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  owner: {fileID: 7232033675356294029, guid: 0b063fc64ecafff44a143360653e716b, type: 3}
 --- !u!1 &35408501
 GameObject:
   m_ObjectHideFlags: 0
@@ -372,6 +359,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 35408501}
   m_CullTransparentMesh: 1
+--- !u!114 &36469931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 395587448b424244a851d7bcde7e4a3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  owner: {fileID: 0}
 --- !u!1 &69450891
 GameObject:
   m_ObjectHideFlags: 0
@@ -1535,19 +1535,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 391925338}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &220985137
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7294b4189cbce7d4196fafaf44eb148f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  owner: {fileID: 1003098977084858105, guid: a5b7ffbaf5b50494daf65dc24b5c5c16, type: 3}
 --- !u!1 &253351190
 GameObject:
   m_ObjectHideFlags: 0
@@ -1985,19 +1972,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1886382831}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &326123517
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3b80849a6ea8644296116ab71e6aa88, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  owner: {fileID: 7232033675356294029, guid: 0b063fc64ecafff44a143360653e716b, type: 3}
 --- !u!1 &363089162
 GameObject:
   m_ObjectHideFlags: 0
@@ -2041,6 +2015,19 @@ Transform:
   - {fileID: 2042888410}
   m_Father: {fileID: 1723364396}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &376117910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75fe5df61ed7e724ba58b7485dab04b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  owner: {fileID: 0}
 --- !u!1 &379165248
 GameObject:
   m_ObjectHideFlags: 0
@@ -2386,19 +2373,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &383930246
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3b80849a6ea8644296116ab71e6aa88, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  owner: {fileID: 1003098977084858105, guid: a5b7ffbaf5b50494daf65dc24b5c5c16, type: 3}
 --- !u!1 &387190257
 GameObject:
   m_ObjectHideFlags: 0
@@ -2551,19 +2525,6 @@ Transform:
   - {fileID: 216027096}
   m_Father: {fileID: 2042888410}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &396541876
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 395587448b424244a851d7bcde7e4a3e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  owner: {fileID: 7232033675356294029, guid: 0b063fc64ecafff44a143360653e716b, type: 3}
 --- !u!1 &401364327
 GameObject:
   m_ObjectHideFlags: 0
@@ -3162,6 +3123,165 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 462528122}
   m_CullTransparentMesh: 0
+--- !u!114 &474381957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d51e062b3eac684d8a6d106924f11c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cards:
+  - manaPrice: 1
+    sprite: {fileID: 21300000, guid: bda56f3223e70cd43be5f4eb1069e35a, type: 3}
+    crystalSprite: {fileID: 21300000, guid: a51e44c512b19e0488cef413a0d9c4a5, type: 3}
+    ballSprite: {fileID: 21300000, guid: 1df550e0460f9ba4bb309bd206fed399, type: 3}
+    name: "\u0421\u043E\u0442\u043D\u0438 \u0443\u043A\u0443\u0441\u043E\u0432"
+    description: "4 \u0443\u0440\u043E\u043D\u0430 \u043E\u0434\u043D\u043E\u0439
+      \u0446\u0435\u043B\u0438"
+    effectsList:
+    - effect: {fileID: 2048002746}
+      value: 4
+    type: 1
+    otype: 1
+    rarity: 0
+    owner: {fileID: 0}
+  - manaPrice: 0
+    sprite: {fileID: 21300000, guid: 5b2b37e5bb5cc4940b195bad84f0cd3d, type: 3}
+    crystalSprite: {fileID: 21300000, guid: a51e44c512b19e0488cef413a0d9c4a5, type: 3}
+    ballSprite: {fileID: 21300000, guid: 1df550e0460f9ba4bb309bd206fed399, type: 3}
+    name: "\u0412\u043E\u043B\u0448\u0435\u0431\u043D\u0430\u044F \u0434\u0443\u0434\u043E\u0447\u043A\u0430"
+    description: "\u0414\u043E\u0431\u043E\u0440 2"
+    effectsList:
+    - effect: {fileID: 1349945296}
+      value: 2
+    type: 4
+    otype: 1
+    rarity: 0
+    owner: {fileID: 0}
+  - manaPrice: 1
+    sprite: {fileID: 21300000, guid: 44aaf877c18b20d47bd795cd07c063a2, type: 3}
+    crystalSprite: {fileID: 21300000, guid: 9ee522faba8b90e4ca78c123bdc5b79b, type: 3}
+    ballSprite: {fileID: 21300000, guid: 154b2bc138dee244aa9372c7a55d5dc1, type: 3}
+    name: "\u041A\u0440\u0430\u0441\u043D\u0430\u044F"
+    description: "4 \u0443\u0440\u043E\u043D\u0430 \u043E\u0434\u043D\u043E\u0439
+      \u0446\u0435\u043B\u0438"
+    effectsList:
+    - effect: {fileID: 2069216243}
+      value: 4
+    type: 1
+    otype: 0
+    rarity: 0
+    owner: {fileID: 0}
+  - manaPrice: 1
+    sprite: {fileID: 21300000, guid: 44aaf877c18b20d47bd795cd07c063a2, type: 3}
+    crystalSprite: {fileID: 21300000, guid: 9ee522faba8b90e4ca78c123bdc5b79b, type: 3}
+    ballSprite: {fileID: 21300000, guid: 154b2bc138dee244aa9372c7a55d5dc1, type: 3}
+    name: "\u041A\u0440\u0430\u0441\u043D\u0430\u044F"
+    description: "4 \u0443\u0440\u043E\u043D\u0430 \u043E\u0434\u043D\u043E\u0439
+      \u0446\u0435\u043B\u0438"
+    effectsList:
+    - effect: {fileID: 1984160373}
+      value: 4
+    type: 1
+    otype: 0
+    rarity: 0
+    owner: {fileID: 0}
+  - manaPrice: 0
+    sprite: {fileID: 21300000, guid: 44aaf877c18b20d47bd795cd07c063a2, type: 3}
+    crystalSprite: {fileID: 21300000, guid: 9ee522faba8b90e4ca78c123bdc5b79b, type: 3}
+    ballSprite: {fileID: 21300000, guid: 154b2bc138dee244aa9372c7a55d5dc1, type: 3}
+    name: "\u041F\u0440\u0438\u043B\u0438\u0432 \u0441\u0438\u043B"
+    description: "1 \u043C\u0430\u043D\u0430"
+    effectsList:
+    - effect: {fileID: 927179181}
+      value: 1
+    type: 2
+    otype: 0
+    rarity: 0
+    owner: {fileID: 0}
+  - manaPrice: 1
+    sprite: {fileID: 21300000, guid: c2500c0309f1dc649b92c914594c5f85, type: 3}
+    crystalSprite: {fileID: 21300000, guid: c4d45afafd7885b41814e6f47cf38fc7, type: 3}
+    ballSprite: {fileID: 21300000, guid: 8598e41f731df3a45bf9be66cd8c46b2, type: 3}
+    name: "\u0423\u0434\u0430\u0440 \u043B\u0435\u0441\u043E\u0440\u0443\u0431\u0430"
+    description: "3 \u0443\u0440\u043E\u043D\u0430 \u0432\u0441\u0435\u043C"
+    effectsList:
+    - effect: {fileID: 911453042}
+      value: 3
+    type: 3
+    otype: 2
+    rarity: 0
+    owner: {fileID: 0}
+  - manaPrice: 0
+    sprite: {fileID: 21300000, guid: fe50b6db260aadd4698c091526a1eb7c, type: 3}
+    crystalSprite: {fileID: 21300000, guid: c4d45afafd7885b41814e6f47cf38fc7, type: 3}
+    ballSprite: {fileID: 21300000, guid: 8598e41f731df3a45bf9be66cd8c46b2, type: 3}
+    name: "\u041F\u0435\u0441\u043D\u044C \u041B\u0435\u0441\u0430"
+    description: "1 \u043C\u0430\u043D\u0430"
+    effectsList:
+    - effect: {fileID: 1476090882}
+      value: 1
+    type: 4
+    otype: 2
+    rarity: 0
+    owner: {fileID: 0}
+  - manaPrice: 0
+    sprite: {fileID: 21300000, guid: fe50b6db260aadd4698c091526a1eb7c, type: 3}
+    crystalSprite: {fileID: 21300000, guid: c4d45afafd7885b41814e6f47cf38fc7, type: 3}
+    ballSprite: {fileID: 21300000, guid: 8598e41f731df3a45bf9be66cd8c46b2, type: 3}
+    name: "\u041F\u0435\u0441\u043D\u044C \u041B\u0435\u0441\u0430"
+    description: "1 \u043C\u0430\u043D\u0430"
+    effectsList:
+    - effect: {fileID: 1147184180}
+      value: 1
+    type: 4
+    otype: 2
+    rarity: 0
+    owner: {fileID: 0}
+  - manaPrice: 0
+    sprite: {fileID: 21300000, guid: 44aaf877c18b20d47bd795cd07c063a2, type: 3}
+    crystalSprite: {fileID: 21300000, guid: 9ee522faba8b90e4ca78c123bdc5b79b, type: 3}
+    ballSprite: {fileID: 21300000, guid: 154b2bc138dee244aa9372c7a55d5dc1, type: 3}
+    name: "\u041F\u0440\u0438\u043B\u0438\u0432 \u0441\u0438\u043B \u0443\u0441\u0438\u043B\u0435\u043D\u043D\u044B\u0439"
+    description: "2 \u043C\u0430\u043D\u0430"
+    effectsList:
+    - effect: {fileID: 1811762584}
+      value: 2
+    type: 2
+    otype: 4
+    rarity: 1
+    owner: {fileID: 0}
+  - manaPrice: 0
+    sprite: {fileID: 21300000, guid: 44aaf877c18b20d47bd795cd07c063a2, type: 3}
+    crystalSprite: {fileID: 21300000, guid: 9ee522faba8b90e4ca78c123bdc5b79b, type: 3}
+    ballSprite: {fileID: 21300000, guid: 154b2bc138dee244aa9372c7a55d5dc1, type: 3}
+    name: "\u041F\u0440\u0438\u043B\u0438\u0432 \u0441\u0438\u043B"
+    description: "1 \u043C\u0430\u043D\u0430"
+    effectsList:
+    - effect: {fileID: 36469931}
+      value: 1
+    type: 2
+    otype: 4
+    rarity: 0
+    owner: {fileID: 0}
+  - manaPrice: 0
+    sprite: {fileID: 0}
+    crystalSprite: {fileID: 0}
+    ballSprite: {fileID: 0}
+    name: TEST
+    description: 
+    effectsList:
+    - effect: {fileID: 1145759810}
+      value: 0
+    type: 2
+    otype: 4
+    rarity: 0
+    owner: {fileID: 0}
 --- !u!1 &480501282
 GameObject:
   m_ObjectHideFlags: 0
@@ -3970,19 +4090,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1e7aac61fb35b843aa0a3e82423f51c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &565588470
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: badc7214691487f4fabab25628cfdac0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  owner: {fileID: 1695494372948455730, guid: e24242c10c3268042b61cfba2622ea0d, type: 3}
 --- !u!1 &572049177
 GameObject:
   m_ObjectHideFlags: 0
@@ -4126,19 +4233,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1723364396}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &595052113
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75fe5df61ed7e724ba58b7485dab04b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  owner: {fileID: 0}
 --- !u!1 &599093578
 GameObject:
   m_ObjectHideFlags: 0
@@ -4480,6 +4574,19 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 549599988}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &664022271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75fe5df61ed7e724ba58b7485dab04b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  owner: {fileID: 0}
 --- !u!1 &684324908
 GameObject:
   m_ObjectHideFlags: 0
@@ -4558,19 +4665,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 684324908}
   m_CullTransparentMesh: 1
---- !u!114 &696286357
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 395587448b424244a851d7bcde7e4a3e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  owner: {fileID: 1003098977084858105, guid: a5b7ffbaf5b50494daf65dc24b5c5c16, type: 3}
 --- !u!1 &726976616
 GameObject:
   m_ObjectHideFlags: 0
@@ -4646,6 +4740,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 726976616}
   m_CullTransparentMesh: 1
+--- !u!114 &758647136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 395587448b424244a851d7bcde7e4a3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  owner: {fileID: 0}
 --- !u!1 &760658696
 GameObject:
   m_ObjectHideFlags: 0
@@ -5222,19 +5329,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 822069827}
   m_CullTransparentMesh: 1
---- !u!114 &829065749
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: badc7214691487f4fabab25628cfdac0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  owner: {fileID: 1695494372948455730, guid: e24242c10c3268042b61cfba2622ea0d, type: 3}
 --- !u!1 &838456704
 GameObject:
   m_ObjectHideFlags: 0
@@ -5310,206 +5404,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 838456704}
   m_CullTransparentMesh: 1
---- !u!114 &870217821
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d51e062b3eac684d8a6d106924f11c8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cards:
-  - manaPrice: 1
-    sprite: {fileID: 21300000, guid: bda56f3223e70cd43be5f4eb1069e35a, type: 3}
-    crystalSprite: {fileID: 21300000, guid: a51e44c512b19e0488cef413a0d9c4a5, type: 3}
-    ballSprite: {fileID: 21300000, guid: 1df550e0460f9ba4bb309bd206fed399, type: 3}
-    name: "\u0421\u043E\u0442\u043D\u0438 \u0443\u043A\u0443\u0441\u043E\u0432"
-    description: "4 \u0443\u0440\u043E\u043D\u0430 \u043E\u0434\u043D\u043E\u0439
-      \u0446\u0435\u043B\u0438"
-    effectsList:
-    - effect: {fileID: 1752530894}
-      value: 4
-    type: 1
-    otype: 1
-    rarity: 0
-    owner: {fileID: 7232033675356294029, guid: 0b063fc64ecafff44a143360653e716b, type: 3}
-  - manaPrice: 1
-    sprite: {fileID: 21300000, guid: bda56f3223e70cd43be5f4eb1069e35a, type: 3}
-    crystalSprite: {fileID: 21300000, guid: a51e44c512b19e0488cef413a0d9c4a5, type: 3}
-    ballSprite: {fileID: 21300000, guid: 1df550e0460f9ba4bb309bd206fed399, type: 3}
-    name: "\u0421\u043E\u0442\u043D\u0438 \u0443\u043A\u0443\u0441\u043E\u0432"
-    description: "4 \u0443\u0440\u043E\u043D\u0430 \u043E\u0434\u043D\u043E\u0439
-      \u0446\u0435\u043B\u0438"
-    effectsList:
-    - effect: {fileID: 33558132}
-      value: 4
-    type: 1
-    otype: 1
-    rarity: 0
-    owner: {fileID: 7232033675356294029, guid: 0b063fc64ecafff44a143360653e716b, type: 3}
-  - manaPrice: 0
-    sprite: {fileID: 21300000, guid: 5b2b37e5bb5cc4940b195bad84f0cd3d, type: 3}
-    crystalSprite: {fileID: 21300000, guid: a51e44c512b19e0488cef413a0d9c4a5, type: 3}
-    ballSprite: {fileID: 21300000, guid: 1df550e0460f9ba4bb309bd206fed399, type: 3}
-    name: "\u0412\u043E\u043B\u0448\u0435\u0431\u043D\u0430\u044F \u0434\u0443\u0434\u043E\u0447\u043A\u0430"
-    description: "\u0414\u043E\u0431\u043E\u0440 2"
-    effectsList:
-    - effect: {fileID: 1030491393}
-      value: 2
-    type: 4
-    otype: 1
-    rarity: 0
-    owner: {fileID: 7232033675356294029, guid: 0b063fc64ecafff44a143360653e716b, type: 3}
-  - manaPrice: 0
-    sprite: {fileID: 21300000, guid: 5b2b37e5bb5cc4940b195bad84f0cd3d, type: 3}
-    crystalSprite: {fileID: 21300000, guid: a51e44c512b19e0488cef413a0d9c4a5, type: 3}
-    ballSprite: {fileID: 21300000, guid: 1df550e0460f9ba4bb309bd206fed399, type: 3}
-    name: "\u0417\u0432\u0443\u043A\u0438 \u0444\u043B\u0435\u0439\u0442\u044B"
-    description: "1 \u043C\u0430\u043D\u0430"
-    effectsList:
-    - effect: {fileID: 396541876}
-      value: 1
-    type: 4
-    otype: 1
-    rarity: 0
-    owner: {fileID: 7232033675356294029, guid: 0b063fc64ecafff44a143360653e716b, type: 3}
-  - manaPrice: 1
-    sprite: {fileID: 21300000, guid: 44aaf877c18b20d47bd795cd07c063a2, type: 3}
-    crystalSprite: {fileID: 21300000, guid: 9ee522faba8b90e4ca78c123bdc5b79b, type: 3}
-    ballSprite: {fileID: 21300000, guid: 154b2bc138dee244aa9372c7a55d5dc1, type: 3}
-    name: "\u041A\u0440\u0430\u0441\u043D\u0430\u044F"
-    description: "4 \u0443\u0440\u043E\u043D\u0430 \u043E\u0434\u043D\u043E\u0439
-      \u0446\u0435\u043B\u0438"
-    effectsList:
-    - effect: {fileID: 879480468}
-      value: 4
-    type: 1
-    otype: 0
-    rarity: 0
-    owner: {fileID: 1003098977084858105, guid: a5b7ffbaf5b50494daf65dc24b5c5c16, type: 3}
-  - manaPrice: 1
-    sprite: {fileID: 21300000, guid: 44aaf877c18b20d47bd795cd07c063a2, type: 3}
-    crystalSprite: {fileID: 21300000, guid: 9ee522faba8b90e4ca78c123bdc5b79b, type: 3}
-    ballSprite: {fileID: 21300000, guid: 154b2bc138dee244aa9372c7a55d5dc1, type: 3}
-    name: "\u041A\u0440\u0430\u0441\u043D\u0430\u044F"
-    description: "4 \u0443\u0440\u043E\u043D\u0430 \u043E\u0434\u043D\u043E\u0439
-      \u0446\u0435\u043B\u0438"
-    effectsList:
-    - effect: {fileID: 1714110239}
-      value: 4
-    type: 1
-    otype: 0
-    rarity: 0
-    owner: {fileID: 1003098977084858105, guid: a5b7ffbaf5b50494daf65dc24b5c5c16, type: 3}
-  - manaPrice: 0
-    sprite: {fileID: 21300000, guid: 44aaf877c18b20d47bd795cd07c063a2, type: 3}
-    crystalSprite: {fileID: 21300000, guid: 9ee522faba8b90e4ca78c123bdc5b79b, type: 3}
-    ballSprite: {fileID: 21300000, guid: 154b2bc138dee244aa9372c7a55d5dc1, type: 3}
-    name: "\u041F\u0440\u0438\u043B\u0438\u0432 \u0441\u0438\u043B"
-    description: "1 \u043C\u0430\u043D\u0430"
-    effectsList:
-    - effect: {fileID: 696286357}
-      value: 1
-    type: 2
-    otype: 0
-    rarity: 0
-    owner: {fileID: 1003098977084858105, guid: a5b7ffbaf5b50494daf65dc24b5c5c16, type: 3}
-  - manaPrice: 0
-    sprite: {fileID: 21300000, guid: 44aaf877c18b20d47bd795cd07c063a2, type: 3}
-    crystalSprite: {fileID: 21300000, guid: 9ee522faba8b90e4ca78c123bdc5b79b, type: 3}
-    ballSprite: {fileID: 21300000, guid: 154b2bc138dee244aa9372c7a55d5dc1, type: 3}
-    name: "\u041F\u0440\u0438\u043B\u0438\u0432 \u0441\u0438\u043B"
-    description: "1 \u043C\u0430\u043D\u0430"
-    effectsList:
-    - effect: {fileID: 990059824}
-      value: 1
-    type: 2
-    otype: 0
-    rarity: 0
-    owner: {fileID: 1003098977084858105, guid: a5b7ffbaf5b50494daf65dc24b5c5c16, type: 3}
-  - manaPrice: 1
-    sprite: {fileID: 21300000, guid: 44aaf877c18b20d47bd795cd07c063a2, type: 3}
-    crystalSprite: {fileID: 21300000, guid: 9ee522faba8b90e4ca78c123bdc5b79b, type: 3}
-    ballSprite: {fileID: 21300000, guid: 154b2bc138dee244aa9372c7a55d5dc1, type: 3}
-    name: "\u0423\u043B\u043E\u0432\u043A\u0430"
-    description: "2 \u0443\u044F\u0437\u0432\u0438\u043C\u043E\u0441\u0442\u0438
-      \u043E\u0434\u043D\u043E\u0439 \u0446\u0435\u043B\u0438"
-    effectsList:
-    - effect: {fileID: 220985137}
-      value: 2
-    type: 1
-    otype: 0
-    rarity: 0
-    owner: {fileID: 1003098977084858105, guid: a5b7ffbaf5b50494daf65dc24b5c5c16, type: 3}
-  - manaPrice: 1
-    sprite: {fileID: 21300000, guid: c2500c0309f1dc649b92c914594c5f85, type: 3}
-    crystalSprite: {fileID: 21300000, guid: c4d45afafd7885b41814e6f47cf38fc7, type: 3}
-    ballSprite: {fileID: 21300000, guid: 8598e41f731df3a45bf9be66cd8c46b2, type: 3}
-    name: "\u0423\u0434\u0430\u0440 \u043B\u0435\u0441\u043E\u0440\u0443\u0431\u0430"
-    description: "3 \u0443\u0440\u043E\u043D\u0430 \u0432\u0441\u0435\u043C"
-    effectsList:
-    - effect: {fileID: 1752494600}
-      value: 3
-    type: 3
-    otype: 2
-    rarity: 0
-    owner: {fileID: 1695494372948455730, guid: e24242c10c3268042b61cfba2622ea0d, type: 3}
-  - manaPrice: 0
-    sprite: {fileID: 21300000, guid: fe50b6db260aadd4698c091526a1eb7c, type: 3}
-    crystalSprite: {fileID: 21300000, guid: c4d45afafd7885b41814e6f47cf38fc7, type: 3}
-    ballSprite: {fileID: 21300000, guid: 8598e41f731df3a45bf9be66cd8c46b2, type: 3}
-    name: "\u041F\u0435\u0441\u043D\u044C \u041B\u0435\u0441\u0430"
-    description: "1 \u043C\u0430\u043D\u0430"
-    effectsList:
-    - effect: {fileID: 1965877170}
-      value: 1
-    type: 4
-    otype: 2
-    rarity: 0
-    owner: {fileID: 1695494372948455730, guid: e24242c10c3268042b61cfba2622ea0d, type: 3}
-  - manaPrice: 0
-    sprite: {fileID: 21300000, guid: fe50b6db260aadd4698c091526a1eb7c, type: 3}
-    crystalSprite: {fileID: 21300000, guid: c4d45afafd7885b41814e6f47cf38fc7, type: 3}
-    ballSprite: {fileID: 21300000, guid: 8598e41f731df3a45bf9be66cd8c46b2, type: 3}
-    name: "\u041F\u0435\u0441\u043D\u044C \u041B\u0435\u0441\u0430"
-    description: "1 \u043C\u0430\u043D\u0430"
-    effectsList:
-    - effect: {fileID: 904949185}
-      value: 1
-    type: 4
-    otype: 2
-    rarity: 0
-    owner: {fileID: 1695494372948455730, guid: e24242c10c3268042b61cfba2622ea0d, type: 3}
-  - manaPrice: 1
-    sprite: {fileID: 21300000, guid: 542de00cea97d4b4e88ba1a75c70de2d, type: 3}
-    crystalSprite: {fileID: 21300000, guid: c4d45afafd7885b41814e6f47cf38fc7, type: 3}
-    ballSprite: {fileID: 21300000, guid: 8598e41f731df3a45bf9be66cd8c46b2, type: 3}
-    name: "\u0417\u0430\u0449\u0438\u0442\u0438\u0442\u044C"
-    description: "4 \u0437\u0430\u0449\u0438\u0442\u044B \u0441\u043E\u044E\u0437\u043D\u0438\u043A\u0443"
-    effectsList:
-    - effect: {fileID: 829065749}
-      value: 4
-    type: 0
-    otype: 2
-    rarity: 0
-    owner: {fileID: 1695494372948455730, guid: e24242c10c3268042b61cfba2622ea0d, type: 3}
-  - manaPrice: 0
-    sprite: {fileID: 0}
-    crystalSprite: {fileID: 0}
-    ballSprite: {fileID: 0}
-    name: TEST
-    description: 
-    effectsList:
-    - effect: {fileID: 595052113}
-      value: 0
-    type: 2
-    otype: 4
-    rarity: 0
-    owner: {fileID: 0}
 --- !u!1 &879447291
 GameObject:
   m_ObjectHideFlags: 0
@@ -5541,7 +5435,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 659711385}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &879480468
+--- !u!114 &911453042
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5550,11 +5444,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3b80849a6ea8644296116ab71e6aa88, type: 3}
+  m_Script: {fileID: 11500000, guid: 799cc6942ef27b74b92ede72b708c6f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owner: {fileID: 1003098977084858105, guid: a5b7ffbaf5b50494daf65dc24b5c5c16, type: 3}
---- !u!114 &904949185
+  owner: {fileID: 0}
+--- !u!114 &927179181
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5566,7 +5460,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 395587448b424244a851d7bcde7e4a3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owner: {fileID: 1695494372948455730, guid: e24242c10c3268042b61cfba2622ea0d, type: 3}
+  owner: {fileID: 0}
 --- !u!1 &935843605
 GameObject:
   m_ObjectHideFlags: 0
@@ -5684,6 +5578,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &962343182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 395587448b424244a851d7bcde7e4a3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  owner: {fileID: 0}
 --- !u!1 &983455618
 GameObject:
   m_ObjectHideFlags: 0
@@ -5759,19 +5666,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 983455618}
   m_CullTransparentMesh: 0
---- !u!114 &990059824
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 395587448b424244a851d7bcde7e4a3e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  owner: {fileID: 1003098977084858105, guid: a5b7ffbaf5b50494daf65dc24b5c5c16, type: 3}
 --- !u!1 &1009021645
 GameObject:
   m_ObjectHideFlags: 0
@@ -6183,19 +6077,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1027135917}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1030491393
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75fe5df61ed7e724ba58b7485dab04b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  owner: {fileID: 7232033675356294029, guid: 0b063fc64ecafff44a143360653e716b, type: 3}
 --- !u!1 &1043213215
 GameObject:
   m_ObjectHideFlags: 0
@@ -6735,6 +6616,32 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1126921920}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1145759810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75fe5df61ed7e724ba58b7485dab04b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  owner: {fileID: 0}
+--- !u!114 &1147184180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 395587448b424244a851d7bcde7e4a3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  owner: {fileID: 0}
 --- !u!1 &1147547751
 GameObject:
   m_ObjectHideFlags: 0
@@ -7359,12 +7266,38 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1340885374}
   m_CullTransparentMesh: 1
+--- !u!114 &1349945296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75fe5df61ed7e724ba58b7485dab04b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  owner: {fileID: 0}
 --- !u!4 &1351641431 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7425887673874378097, guid: 007d4c0d2598dda4584140efac6805dc,
     type: 3}
   m_PrefabInstance: {fileID: 9182771226821438788}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1379365375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3b80849a6ea8644296116ab71e6aa88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  owner: {fileID: 0}
 --- !u!1 &1381762416
 GameObject:
   m_ObjectHideFlags: 0
@@ -7528,6 +7461,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   config: {fileID: 11400000, guid: a42459de63b705141b99b9690c7b6fa1, type: 2}
+  additionCards: {fileID: 11400000, guid: 6a2c9fcc26d3e4e49878826f52cc5ec8, type: 2}
+  popCount: 40
+  generations: 20
 --- !u!4 &1388647662
 Transform:
   m_ObjectHideFlags: 0
@@ -7662,6 +7598,19 @@ RectTransform:
   m_AnchoredPosition: {x: -4.9999847, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1422019660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3b80849a6ea8644296116ab71e6aa88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  owner: {fileID: 0}
 --- !u!1 &1424404977
 GameObject:
   m_ObjectHideFlags: 0
@@ -8220,6 +8169,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1474101402}
   m_CullTransparentMesh: 1
+--- !u!114 &1476090882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 395587448b424244a851d7bcde7e4a3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  owner: {fileID: 0}
 --- !u!1 &1478909283
 GameObject:
   m_ObjectHideFlags: 0
@@ -9599,19 +9561,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1698581715}
   m_CullTransparentMesh: 1
---- !u!114 &1714110239
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3b80849a6ea8644296116ab71e6aa88, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  owner: {fileID: 1003098977084858105, guid: a5b7ffbaf5b50494daf65dc24b5c5c16, type: 3}
 --- !u!1 &1723364395
 GameObject:
   m_ObjectHideFlags: 0
@@ -9861,32 +9810,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cee697410b5dd3c46b76b58f7edb96ac, type: 3}
---- !u!114 &1752494600
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 799cc6942ef27b74b92ede72b708c6f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  owner: {fileID: 1695494372948455730, guid: e24242c10c3268042b61cfba2622ea0d, type: 3}
---- !u!114 &1752530894
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3b80849a6ea8644296116ab71e6aa88, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  owner: {fileID: 7232033675356294029, guid: 0b063fc64ecafff44a143360653e716b, type: 3}
 --- !u!1 &1754224470
 GameObject:
   m_ObjectHideFlags: 0
@@ -10416,6 +10339,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1798308529}
   m_CullTransparentMesh: 1
+--- !u!114 &1811762584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 395587448b424244a851d7bcde7e4a3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  owner: {fileID: 0}
 --- !u!1 &1822333477
 GameObject:
   m_ObjectHideFlags: 0
@@ -11226,7 +11162,7 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5422420565525657073}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1965877170
+--- !u!114 &1984160373
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -11235,10 +11171,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 395587448b424244a851d7bcde7e4a3e, type: 3}
+  m_Script: {fileID: 11500000, guid: e3b80849a6ea8644296116ab71e6aa88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owner: {fileID: 1695494372948455730, guid: e24242c10c3268042b61cfba2622ea0d, type: 3}
+  owner: {fileID: 0}
 --- !u!1 &1989942696
 GameObject:
   m_ObjectHideFlags: 0
@@ -11921,6 +11857,19 @@ Transform:
   - {fileID: 391925338}
   m_Father: {fileID: 363089163}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2048002746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3b80849a6ea8644296116ab71e6aa88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  owner: {fileID: 0}
 --- !u!1 &2050774696
 GameObject:
   m_ObjectHideFlags: 0
@@ -12104,6 +12053,19 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2069216243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3b80849a6ea8644296116ab71e6aa88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  owner: {fileID: 0}
 --- !u!1 &2076990722
 GameObject:
   m_ObjectHideFlags: 0
@@ -12151,10 +12113,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stage: 0
-  manaCnt: 0
+  manaCnt: 1
   heroList: []
   enemyList: []
-  heroesDeck: {fileID: 870217821}
+  heroesDeck: {fileID: 474381957}
   cards:
   - manaPrice: 1
     sprite: {fileID: 21300000, guid: 44aaf877c18b20d47bd795cd07c063a2, type: 3}
@@ -12164,40 +12126,79 @@ MonoBehaviour:
     description: "4 \u0443\u0440\u043E\u043D\u0430 \u043E\u0434\u043D\u043E\u0439
       \u0446\u0435\u043B\u0438"
     effectsList:
-    - effect: {fileID: 383930246}
+    - effect: {fileID: 1379365375}
       value: 4
     type: 1
     otype: 0
     rarity: 0
-    owner: {fileID: 1003098977084858105, guid: a5b7ffbaf5b50494daf65dc24b5c5c16, type: 3}
+    owner: {fileID: 0}
+  deckCards:
   - manaPrice: 1
-    sprite: {fileID: 21300000, guid: bda56f3223e70cd43be5f4eb1069e35a, type: 3}
-    crystalSprite: {fileID: 21300000, guid: a51e44c512b19e0488cef413a0d9c4a5, type: 3}
-    ballSprite: {fileID: 21300000, guid: 1df550e0460f9ba4bb309bd206fed399, type: 3}
-    name: "\u0421\u043E\u0442\u043D\u0438 \u0443\u043A\u0443\u0441\u043E\u0432"
+    sprite: {fileID: 21300000, guid: 44aaf877c18b20d47bd795cd07c063a2, type: 3}
+    crystalSprite: {fileID: 21300000, guid: 9ee522faba8b90e4ca78c123bdc5b79b, type: 3}
+    ballSprite: {fileID: 21300000, guid: 154b2bc138dee244aa9372c7a55d5dc1, type: 3}
+    name: "\u041A\u0440\u0430\u0441\u043D\u0430\u044F"
     description: "4 \u0443\u0440\u043E\u043D\u0430 \u043E\u0434\u043D\u043E\u0439
       \u0446\u0435\u043B\u0438"
     effectsList:
-    - effect: {fileID: 326123517}
+    - effect: {fileID: 1422019660}
       value: 4
     type: 1
-    otype: 1
+    otype: 0
     rarity: 0
-    owner: {fileID: 7232033675356294029, guid: 0b063fc64ecafff44a143360653e716b, type: 3}
-  - manaPrice: 1
-    sprite: {fileID: 21300000, guid: 542de00cea97d4b4e88ba1a75c70de2d, type: 3}
+    owner: {fileID: 0}
+  - manaPrice: 0
+    sprite: {fileID: 21300000, guid: fe50b6db260aadd4698c091526a1eb7c, type: 3}
     crystalSprite: {fileID: 21300000, guid: c4d45afafd7885b41814e6f47cf38fc7, type: 3}
     ballSprite: {fileID: 21300000, guid: 8598e41f731df3a45bf9be66cd8c46b2, type: 3}
-    name: "\u0417\u0430\u0449\u0438\u0442\u0438\u0442\u044C"
-    description: "4 \u0437\u0430\u0449\u0438\u0442\u044B \u0441\u043E\u044E\u0437\u043D\u0438\u043A\u0443"
+    name: "\u041F\u0435\u0441\u043D\u044C \u041B\u0435\u0441\u0430"
+    description: "1 \u043C\u0430\u043D\u0430"
     effectsList:
-    - effect: {fileID: 565588470}
-      value: 4
-    type: 0
+    - effect: {fileID: 962343182}
+      value: 1
+    type: 4
     otype: 2
     rarity: 0
-    owner: {fileID: 1695494372948455730, guid: e24242c10c3268042b61cfba2622ea0d, type: 3}
-  deckCards: []
+    owner: {fileID: 0}
+  - manaPrice: 0
+    sprite: {fileID: 0}
+    crystalSprite: {fileID: 0}
+    ballSprite: {fileID: 0}
+    name: TEST
+    description: 
+    effectsList:
+    - effect: {fileID: 376117910}
+      value: 0
+    type: 2
+    otype: 4
+    rarity: 0
+    owner: {fileID: 0}
+  - manaPrice: 0
+    sprite: {fileID: 21300000, guid: 5b2b37e5bb5cc4940b195bad84f0cd3d, type: 3}
+    crystalSprite: {fileID: 21300000, guid: a51e44c512b19e0488cef413a0d9c4a5, type: 3}
+    ballSprite: {fileID: 21300000, guid: 1df550e0460f9ba4bb309bd206fed399, type: 3}
+    name: "\u0412\u043E\u043B\u0448\u0435\u0431\u043D\u0430\u044F \u0434\u0443\u0434\u043E\u0447\u043A\u0430"
+    description: "\u0414\u043E\u0431\u043E\u0440 2"
+    effectsList:
+    - effect: {fileID: 664022271}
+      value: 2
+    type: 4
+    otype: 1
+    rarity: 0
+    owner: {fileID: 0}
+  - manaPrice: 0
+    sprite: {fileID: 21300000, guid: 44aaf877c18b20d47bd795cd07c063a2, type: 3}
+    crystalSprite: {fileID: 21300000, guid: 9ee522faba8b90e4ca78c123bdc5b79b, type: 3}
+    ballSprite: {fileID: 21300000, guid: 154b2bc138dee244aa9372c7a55d5dc1, type: 3}
+    name: "\u041F\u0440\u0438\u043B\u0438\u0432 \u0441\u0438\u043B \u0443\u0441\u0438\u043B\u0435\u043D\u043D\u044B\u0439"
+    description: "2 \u043C\u0430\u043D\u0430"
+    effectsList:
+    - effect: {fileID: 758647136}
+      value: 2
+    type: 2
+    otype: 4
+    rarity: 1
+    owner: {fileID: 0}
   enemySets: {fileID: 11400000, guid: fd1f030dd8dae9f499ffa4a2596afe3b, type: 2}
 --- !u!1 &2145229837
 GameObject:

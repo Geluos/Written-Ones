@@ -79,7 +79,7 @@ public class FightController : Controller<FightController>
 
     public void StartAIFight()
     {
-        Debug.Log("StartAIFight");
+        //Debug.Log("StartAIFight");
         foreach (var hero in heroList)
         {
             if (hero.current_hp <= 0)

@@ -33,7 +33,7 @@ RectTransform:
   m_Father: {fileID: 1560871009022426132}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -90,7 +90,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8847195484532740797
 Transform:
   m_ObjectHideFlags: 0
@@ -487,7 +487,6 @@ MonoBehaviour:
   startDeck: {fileID: 11400000, guid: 7099bb55f51c3844ead0f86908083ce7, type: 2}
   GFX: {fileID: 3974929704913511176}
   shield: 0
-  monsterCanvas: {fileID: 3886614270449071651}
   nextTarget: {fileID: 0}
   currentDeck: []
 --- !u!65 &2090979163629952130

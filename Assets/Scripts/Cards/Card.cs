@@ -23,7 +23,7 @@ public struct Card
 	[HideInInspector]
 	public Character owner;
 
-	public Card copy()
+	public Card copy(Character newOwner = null)
 	{
 		Card card = new Card();
 		card.type = type;
@@ -41,7 +41,10 @@ public struct Card
 		card.type = type;
 		card.otype = otype;
 		card.rarity = rarity;
-		card.owner = owner;
+		if (newOwner == null)
+			card.owner = owner;
+		else
+			card.owner = newOwner;
 		card.setOwnerForEffects();
 		return card;
 	}
